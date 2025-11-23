@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Proyecto_POSFerreteria
+namespace Proyecto_POSFerreteria.Presentacion
 {
-    public partial class Form1 : Form
+    public partial class FrmProductos : Form
     {
-        public Form1()
+        public FrmProductos()
         {
             InitializeComponent();
         }
