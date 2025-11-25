@@ -16,5 +16,10 @@ namespace Proyecto_POSFerreteria.Presentacion
         {
             InitializeComponent();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
