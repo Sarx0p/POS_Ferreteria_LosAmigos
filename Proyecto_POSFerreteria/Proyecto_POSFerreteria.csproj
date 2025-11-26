@@ -58,6 +58,12 @@
     <Compile Include="Presentacion\FrmMenuPrincipal.Designer.cs">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\FrmOlvidoSuContraseñacs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmOlvidoSuContraseñacs.Designer.cs">
+      <DependentUpon>FrmOlvidoSuContraseñacs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\FrmProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmOlvidoSuContraseñacs.resx">
+      <DependentUpon>FrmOlvidoSuContraseñacs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>

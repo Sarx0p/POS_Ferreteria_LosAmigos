@@ -34,11 +34,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnIniciodeSesion = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -63,7 +63,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(90, 155);
+            this.label3.Location = new System.Drawing.Point(103, 155);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(229, 31);
             this.label3.TabIndex = 3;
@@ -73,7 +73,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Palatino Linotype", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(134, 287);
+            this.label4.Location = new System.Drawing.Point(148, 259);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(141, 31);
             this.label4.TabIndex = 4;
@@ -99,11 +99,21 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Proyecto_POSFerreteria.Properties.Resources.iconosesion;
+            this.pictureBox1.Location = new System.Drawing.Point(154, 35);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(103, 76);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnIniciodeSesion
             // 
             this.btnIniciodeSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(127)))), ((int)(((byte)(84)))));
             this.btnIniciodeSesion.ForeColor = System.Drawing.Color.White;
-            this.btnIniciodeSesion.Location = new System.Drawing.Point(106, 410);
+            this.btnIniciodeSesion.Location = new System.Drawing.Point(106, 359);
             this.btnIniciodeSesion.Name = "btnIniciodeSesion";
             this.btnIniciodeSesion.Size = new System.Drawing.Size(196, 39);
             this.btnIniciodeSesion.TabIndex = 8;
@@ -121,7 +131,7 @@
             // txtContraseña
             // 
             this.txtContraseña.BackColor = System.Drawing.Color.White;
-            this.txtContraseña.Location = new System.Drawing.Point(109, 346);
+            this.txtContraseña.Location = new System.Drawing.Point(109, 310);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(193, 34);
             this.txtContraseña.TabIndex = 6;
@@ -135,16 +145,6 @@
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(193, 34);
             this.txtNombreUsuario.TabIndex = 5;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Proyecto_POSFerreteria.Properties.Resources.iconosesion;
-            this.pictureBox1.Location = new System.Drawing.Point(154, 35);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(103, 76);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
             // 
             // FrmLogin
             // 
