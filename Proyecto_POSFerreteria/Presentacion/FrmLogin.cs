@@ -15,6 +15,7 @@ namespace Proyecto_POSFerreteria
         public FrmLogin()
         {
             InitializeComponent();
+          
         }
 
         private void Form1_Load(object sender, EventArgs e)
