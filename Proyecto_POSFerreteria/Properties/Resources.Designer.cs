@@ -63,6 +63,36 @@ namespace Proyecto_POSFerreteria.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _457b9570_10b7_45b7_8730_09d88b153e9d {
+            get {
+                object obj = ResourceManager.GetObject("457b9570-10b7-45b7-8730-09d88b153e9d", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ce6daa67_7f15_4169_9699_81a1667282a9 {
+            get {
+                object obj = ResourceManager.GetObject("ce6daa67-7f15-4169-9699-81a1667282a9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap e1999f1b_cf9e_4b32_b68f_5a42856a1730 {
+            get {
+                object obj = ResourceManager.GetObject("e1999f1b-cf9e-4b32-b68f-5a42856a1730", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconosesion {
             get {
                 object obj = ResourceManager.GetObject("iconosesion", resourceCulture);

@@ -21,5 +21,10 @@ namespace Proyecto_POSFerreteria.Presentacion
         {
 
         }
+
+        private void FrmMenuPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

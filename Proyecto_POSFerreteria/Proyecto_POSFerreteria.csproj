@@ -132,5 +132,14 @@
   <ItemGroup>
     <None Include="Resources\iconosesion.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ce6daa67-7f15-4169-9699-81a1667282a9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e1999f1b-cf9e-4b32-b68f-5a42856a1730.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\457b9570-10b7-45b7-8730-09d88b153e9d.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
