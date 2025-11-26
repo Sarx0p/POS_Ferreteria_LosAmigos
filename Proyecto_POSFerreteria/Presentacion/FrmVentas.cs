@@ -16,5 +16,15 @@ namespace Proyecto_POSFerreteria.Presentacion
         {
             InitializeComponent();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+        }
+
+        private void FrmVentas_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
     }
 }
