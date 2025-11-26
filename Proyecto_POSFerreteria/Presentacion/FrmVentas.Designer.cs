@@ -53,7 +53,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(221, 9);
+            this.label1.Location = new System.Drawing.Point(87, 25);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(398, 38);
@@ -91,7 +91,7 @@
             // 
             this.dgvVentas.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVentas.Location = new System.Drawing.Point(63, 339);
+            this.dgvVentas.Location = new System.Drawing.Point(44, 339);
             this.dgvVentas.Name = "dgvVentas";
             this.dgvVentas.ReadOnly = true;
             this.dgvVentas.RowHeadersWidth = 51;
@@ -123,7 +123,7 @@
             this.lblFecha.BackColor = System.Drawing.Color.Transparent;
             this.lblFecha.Font = new System.Drawing.Font("Palatino Linotype", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblFecha.Location = new System.Drawing.Point(537, 70);
+            this.lblFecha.Location = new System.Drawing.Point(529, 35);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(123, 24);
             this.lblFecha.TabIndex = 7;
@@ -141,9 +141,10 @@
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(75, 97);
+            this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(62)))), ((int)(((byte)(43)))));
+            this.panel1.Location = new System.Drawing.Point(44, 97);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(687, 182);
+            this.panel1.Size = new System.Drawing.Size(751, 182);
             this.panel1.TabIndex = 8;
             // 
             // label6
@@ -217,7 +218,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(201)))), ((int)(((byte)(166)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(226)))), ((int)(((byte)(204)))));
             this.ClientSize = new System.Drawing.Size(851, 585);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblFecha);
