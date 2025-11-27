@@ -40,29 +40,33 @@ namespace Proyecto_POSFerreteria
 
         private void btnIniciodeSesion_Click(object sender, EventArgs e)
         {
-            try
             {
                 UsuarioBLL bll = new UsuarioBLL();
 
                 Usuario u = bll.Login(txtUsuario.Text, txtClave.Text);
 
-                // Guardar datos globales
-                SesionActual.NombreUsuario = u.Nombre;
-                SesionActual.Rol = u.Rol;
-                SesionActual.IdUsuario = u.IdUsuario;
+                // Verificar si el usuario existe
+                if (u != null)
+                {
+                    // Guardar datos globales
+                    SesionActual.NombreUsuario = u.Nombre;
+                    SesionActual.Rol = u.Rol;
+                    SesionActual.IdUsuario = u.IdUsuario;
 
-                // Enviar al menú
-                FrmMenuPrincipal frm = new FrmMenuPrincipal();
-                frm.Show();
-                //this.Hide();
+                    // Entrar al menú
+                    FrmMenuPrincipal frm = new FrmMenuPrincipal();
+                    frm.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña incorrectos.");
+                }
             }
-           catch (Exception ex)
-         {
-           //   MessageBox.Show(ex.Message);
-           //}
-        //}
-        }
-        }
+                catch (Exception ex)
+{
+                MessageBox.Show("Ocurrió un error: " + ex.Message);
+            }
 
         private void txtContraseña_TextChanged(object sender, EventArgs e)
         {
