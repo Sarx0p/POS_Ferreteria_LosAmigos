@@ -39,13 +39,13 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -128,6 +128,7 @@
             this.lblFecha.Size = new System.Drawing.Size(123, 24);
             this.lblFecha.TabIndex = 7;
             this.lblFecha.Text = "Fecha Actual:";
+           
             // 
             // panel1
             // 
@@ -156,37 +157,13 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "--";
             // 
-            // label5
+            // comboBox2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(484, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(187, 27);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Precio de Producto:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(315, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 27);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Cantidad";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(320, 49);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(77, 34);
-            this.textBox2.TabIndex = 5;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(15, 139);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(229, 34);
-            this.textBox1.TabIndex = 4;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(15, 49);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(229, 35);
+            this.comboBox2.TabIndex = 1;
             // 
             // label3
             // 
@@ -197,6 +174,15 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Pago:";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(315, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(95, 27);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Cantidad";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -206,13 +192,28 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Seleccione el Producto";
             // 
-            // comboBox2
+            // label5
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(15, 49);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(229, 35);
-            this.comboBox2.TabIndex = 1;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(484, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(187, 27);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Precio de Producto:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(15, 139);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(229, 34);
+            this.textBox1.TabIndex = 4;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(320, 49);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(77, 34);
+            this.textBox2.TabIndex = 5;
             // 
             // FrmVentas
             // 

@@ -37,8 +37,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnIniciodeSesion = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtContraseña = new System.Windows.Forms.TextBox();
-            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
+            this.txtClave = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -86,8 +86,8 @@
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.btnIniciodeSesion);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtContraseña);
-            this.groupBox1.Controls.Add(this.txtNombreUsuario);
+            this.groupBox1.Controls.Add(this.txtClave);
+            this.groupBox1.Controls.Add(this.txtUsuario);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
@@ -113,12 +113,13 @@
             // 
             this.btnIniciodeSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(127)))), ((int)(((byte)(84)))));
             this.btnIniciodeSesion.ForeColor = System.Drawing.Color.White;
-            this.btnIniciodeSesion.Location = new System.Drawing.Point(106, 359);
+            this.btnIniciodeSesion.Location = new System.Drawing.Point(109, 386);
             this.btnIniciodeSesion.Name = "btnIniciodeSesion";
             this.btnIniciodeSesion.Size = new System.Drawing.Size(196, 39);
             this.btnIniciodeSesion.TabIndex = 8;
             this.btnIniciodeSesion.Text = "INICIAR SESION";
             this.btnIniciodeSesion.UseVisualStyleBackColor = false;
+            this.btnIniciodeSesion.Click += new System.EventHandler(this.btnIniciodeSesion_Click);
             // 
             // label5
             // 
@@ -128,23 +129,24 @@
             this.label5.Size = new System.Drawing.Size(0, 27);
             this.label5.TabIndex = 7;
             // 
-            // txtContraseña
+            // txtClave
             // 
-            this.txtContraseña.BackColor = System.Drawing.Color.White;
-            this.txtContraseña.Location = new System.Drawing.Point(109, 310);
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(193, 34);
-            this.txtContraseña.TabIndex = 6;
-            this.txtContraseña.UseSystemPasswordChar = true;
+            this.txtClave.BackColor = System.Drawing.Color.White;
+            this.txtClave.Location = new System.Drawing.Point(109, 310);
+            this.txtClave.Name = "txtClave";
+            this.txtClave.Size = new System.Drawing.Size(193, 34);
+            this.txtClave.TabIndex = 6;
+            this.txtClave.UseSystemPasswordChar = true;
+            this.txtClave.TextChanged += new System.EventHandler(this.txtContraseña_TextChanged);
             // 
-            // txtNombreUsuario
+            // txtUsuario
             // 
-            this.txtNombreUsuario.BackColor = System.Drawing.Color.White;
-            this.txtNombreUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtNombreUsuario.Location = new System.Drawing.Point(109, 214);
-            this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(193, 34);
-            this.txtNombreUsuario.TabIndex = 5;
+            this.txtUsuario.BackColor = System.Drawing.Color.White;
+            this.txtUsuario.ForeColor = System.Drawing.Color.Black;
+            this.txtUsuario.Location = new System.Drawing.Point(109, 214);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(193, 34);
+            this.txtUsuario.TabIndex = 5;
             // 
             // FrmLogin
             // 
@@ -160,7 +162,7 @@
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio de sesión";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Form_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -175,8 +177,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtContraseña;
-        private System.Windows.Forms.TextBox txtNombreUsuario;
+        private System.Windows.Forms.TextBox txtClave;
+        private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Button btnIniciodeSesion;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox1;

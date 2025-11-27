@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\Conexion.cs" />
+    <Compile Include="Datos\UsuarioDAL.cs" />
+    <Compile Include="Entidades\SesionActual.cs" />
+    <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Negocio\UsuarioBLL.cs" />
     <Compile Include="Presentacion\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,10 +127,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Datos\" />
-    <Folder Include="Negocio\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\iconsesion.png" />
   </ItemGroup>

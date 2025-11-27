@@ -26,5 +26,7 @@ namespace Proyecto_POSFerreteria.Presentacion
         {
             timer1.Start();
         }
+
+        
     }
 }
