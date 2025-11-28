@@ -47,9 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\Conexion.cs" />
+    <Compile Include="Datos\RecuperacionDAL.cs" />
     <Compile Include="Datos\UsuarioDAL.cs" />
     <Compile Include="Entidades\SesionActual.cs" />
     <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Negocio\RecuperacionBLL.cs" />
     <Compile Include="Negocio\UsuarioBLL.cs" />
     <Compile Include="Presentacion\FrmLogin.cs">
       <SubType>Form</SubType>
@@ -63,11 +65,11 @@
     <Compile Include="Presentacion\FrmMenuPrincipal.Designer.cs">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\FrmOlvidoSuContraseñacs.cs">
+    <Compile Include="Presentacion\FrmOlvidoSuContraseña.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\FrmOlvidoSuContraseñacs.Designer.cs">
-      <DependentUpon>FrmOlvidoSuContraseñacs.cs</DependentUpon>
+    <Compile Include="Presentacion\FrmOlvidoSuContraseña.Designer.cs">
+      <DependentUpon>FrmOlvidoSuContraseña.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\FrmProductos.cs">
       <SubType>Form</SubType>
@@ -95,8 +97,8 @@
     <EmbeddedResource Include="Presentacion\FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\FrmOlvidoSuContraseñacs.resx">
-      <DependentUpon>FrmOlvidoSuContraseñacs.cs</DependentUpon>
+    <EmbeddedResource Include="Presentacion\FrmOlvidoSuContraseña.resx">
+      <DependentUpon>FrmOlvidoSuContraseña.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>

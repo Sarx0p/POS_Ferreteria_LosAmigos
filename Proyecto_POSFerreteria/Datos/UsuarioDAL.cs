@@ -16,13 +16,13 @@ using System.Threading.Tasks;
         {
             using (SqlConnection cn = new SqlConnection(Conexion.Cadena))
             {
-                string sql = @"SELECT Id, Nombre, Clave, Rol
+                string sql = @"SELECT Id, Username, Clave, Rol
                                FROM Usuario
-                               WHERE Nombre = @Nombre AND Clave = @Clave";
+                               WHERE Username = @Username AND Clave = @Clave";
 
                 using (SqlCommand cmd = new SqlCommand(sql, cn))
                 {
-                    cmd.Parameters.AddWithValue("@Nombre", nombre);
+                    cmd.Parameters.AddWithValue("@Username", nombre);
                     cmd.Parameters.AddWithValue("@Clave", clave);
 
                     cn.Open();
@@ -34,7 +34,7 @@ using System.Threading.Tasks;
                             return new Usuario
                             {
                                 Id = Convert.ToInt32(dr["Id"]),
-                                Nombre = dr["Nombre"].ToString(),
+                                Nombre = dr["Username"].ToString(),
                                 Clave = dr["Clave"].ToString(),
                                 Rol = dr["Rol"].ToString()
                             };

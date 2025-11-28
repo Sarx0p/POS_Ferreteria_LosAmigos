@@ -117,6 +117,17 @@
             this.label5.Size = new System.Drawing.Size(0, 27);
             this.label5.TabIndex = 7;
             // 
+
+            // txtClave
+            // 
+            this.txtClave.BackColor = System.Drawing.Color.White;
+            this.txtClave.Location = new System.Drawing.Point(109, 310);
+            this.txtClave.Name = "txtClave";
+            this.txtClave.Size = new System.Drawing.Size(193, 34);
+            this.txtClave.TabIndex = 6;
+         
+            // 
+
             // txtUsuario
             // 
             this.txtUsuario.BackColor = System.Drawing.Color.White;
