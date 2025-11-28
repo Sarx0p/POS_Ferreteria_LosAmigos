@@ -40,6 +40,7 @@ namespace Proyecto_POSFerreteria
 
         private void btnIniciodeSesion_Click(object sender, EventArgs e)
         {
+            try
             {
                 UsuarioBLL bll = new UsuarioBLL();
 
@@ -60,15 +61,24 @@ namespace Proyecto_POSFerreteria
                 }
                 else
                 {
-                    MessageBox.Show("Usuario o contraseña incorrectos.");
+                    MessageBox.Show("Usuario o Clave incorrectos.");
                 }
             }
-                catch (Exception ex)
-{
+            catch (Exception ex)
+            {
                 MessageBox.Show("Ocurrió un error: " + ex.Message);
             }
+        }
+
+
+
 
         private void txtContraseña_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

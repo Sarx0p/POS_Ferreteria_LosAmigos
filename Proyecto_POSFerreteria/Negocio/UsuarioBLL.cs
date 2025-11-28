@@ -14,12 +14,12 @@ namespace Proyecto_POSFerreteria.Negocio
             public Usuario Login(string nombre, string clave)
             {
                 if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(clave))
-                    throw new Exception("Debe ingresar usuario y contraseña.");
+                    throw new Exception("Debe ingresar usuario y Clave.");
 
                 Usuario u = dal.Login(nombre, clave);
 
                 if (u == null)
-                    throw new Exception("Usuario o contraseña incorrectos.");
+                    throw new Exception("Usuario o  incorrectos.");
 
                 return u;
             }
