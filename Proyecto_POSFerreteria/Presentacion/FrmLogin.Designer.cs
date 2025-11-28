@@ -35,10 +35,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnIniciodeSesion = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtClave = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtClave = new System.Windows.Forms.TextBox();
+            this.btnSesion = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -73,7 +73,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Palatino Linotype", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(148, 259);
+            this.label4.Location = new System.Drawing.Point(132, 274);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(141, 31);
             this.label4.TabIndex = 4;
@@ -83,10 +83,10 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Ivory;
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.btnIniciodeSesion);
-            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.btnSesion);
             this.groupBox1.Controls.Add(this.txtClave);
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtUsuario);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
@@ -109,18 +109,6 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // btnIniciodeSesion
-            // 
-            this.btnIniciodeSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(127)))), ((int)(((byte)(84)))));
-            this.btnIniciodeSesion.ForeColor = System.Drawing.Color.White;
-            this.btnIniciodeSesion.Location = new System.Drawing.Point(109, 386);
-            this.btnIniciodeSesion.Name = "btnIniciodeSesion";
-            this.btnIniciodeSesion.Size = new System.Drawing.Size(196, 39);
-            this.btnIniciodeSesion.TabIndex = 8;
-            this.btnIniciodeSesion.Text = "INICIAR SESION";
-            this.btnIniciodeSesion.UseVisualStyleBackColor = false;
-            this.btnIniciodeSesion.Click += new System.EventHandler(this.btnIniciodeSesion_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -128,16 +116,6 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(0, 27);
             this.label5.TabIndex = 7;
-            // 
-            // txtClave
-            // 
-            this.txtClave.BackColor = System.Drawing.Color.White;
-            this.txtClave.Location = new System.Drawing.Point(109, 310);
-            this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(193, 34);
-            this.txtClave.TabIndex = 6;
-            this.txtClave.UseSystemPasswordChar = true;
-            this.txtClave.TextChanged += new System.EventHandler(this.txtContraseña_TextChanged);
             // 
             // txtUsuario
             // 
@@ -147,6 +125,23 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(193, 34);
             this.txtUsuario.TabIndex = 5;
+            // 
+            // txtClave
+            // 
+            this.txtClave.Location = new System.Drawing.Point(109, 322);
+            this.txtClave.Name = "txtClave";
+            this.txtClave.Size = new System.Drawing.Size(195, 34);
+            this.txtClave.TabIndex = 10;
+            // 
+            // btnSesion
+            // 
+            this.btnSesion.Location = new System.Drawing.Point(125, 412);
+            this.btnSesion.Name = "btnSesion";
+            this.btnSesion.Size = new System.Drawing.Size(161, 38);
+            this.btnSesion.TabIndex = 11;
+            this.btnSesion.Text = "Iniciar Sesion";
+            this.btnSesion.UseVisualStyleBackColor = true;
+            this.btnSesion.Click += new System.EventHandler(this.btnSesion_Click);
             // 
             // FrmLogin
             // 
@@ -177,11 +172,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtClave;
         private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.Button btnIniciodeSesion;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnSesion;
+        private System.Windows.Forms.TextBox txtClave;
     }
 }
 

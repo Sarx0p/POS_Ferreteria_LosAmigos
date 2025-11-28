@@ -16,14 +16,14 @@ using System.Threading.Tasks;
         {
             using (SqlConnection cn = new SqlConnection(Conexion.Cadena))
             {
-                string sql = @"SELECT Id, Nombre, Contraseña, Rol
+                string sql = @"SELECT Id, Nombre, Clave, Rol
                                FROM Usuario
-                               WHERE Nombre = @nombre AND Contraseña = @clave";
+                               WHERE Nombre = @Nombre AND Clave = @Clave";
 
                 using (SqlCommand cmd = new SqlCommand(sql, cn))
                 {
-                    cmd.Parameters.AddWithValue("@nombre", nombre);
-                    cmd.Parameters.AddWithValue("@clave", clave);
+                    cmd.Parameters.AddWithValue("@Nombre", nombre);
+                    cmd.Parameters.AddWithValue("@Clave", clave);
 
                     cn.Open();
 
@@ -33,9 +33,9 @@ using System.Threading.Tasks;
                         {
                             return new Usuario
                             {
-                                IdUsuario = Convert.ToInt32(dr["Id"]),
+                                Id = Convert.ToInt32(dr["Id"]),
                                 Nombre = dr["Nombre"].ToString(),
-                                Contraseña = dr["Contraseña"].ToString(),
+                                Clave = dr["Clave"].ToString(),
                                 Rol = dr["Rol"].ToString()
                             };
                         }
@@ -43,7 +43,7 @@ using System.Threading.Tasks;
                 }
             }
 
-            return null;
+            return null; // usuario NO encontrado
         }
     }
 }

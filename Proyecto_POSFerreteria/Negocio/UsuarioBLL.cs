@@ -23,8 +23,7 @@ namespace Proyecto_POSFerreteria.Negocio
 
                 return u;
             }
-        
+        }
     }
-}
 
 
