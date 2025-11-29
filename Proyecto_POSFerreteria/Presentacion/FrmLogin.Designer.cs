@@ -86,7 +86,7 @@
             this.panel2.Controls.Add(this.txtUsuario);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel2.Location = new System.Drawing.Point(35, 62);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(411, 448);
@@ -96,23 +96,25 @@
             // 
             this.btnOlvidar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnOlvidar.BackColor = System.Drawing.Color.Ivory;
+            this.btnOlvidar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOlvidar.FlatAppearance.BorderColor = System.Drawing.Color.Ivory;
             this.btnOlvidar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Ivory;
             this.btnOlvidar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Ivory;
             this.btnOlvidar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOlvidar.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOlvidar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnOlvidar.Location = new System.Drawing.Point(198, 396);
+            this.btnOlvidar.Location = new System.Drawing.Point(90, 376);
             this.btnOlvidar.Name = "btnOlvidar";
-            this.btnOlvidar.Size = new System.Drawing.Size(196, 35);
+            this.btnOlvidar.Size = new System.Drawing.Size(241, 35);
             this.btnOlvidar.TabIndex = 18;
-            this.btnOlvidar.Text = "¿Olvidó su Clave/Usuario?";
-            this.btnOlvidar.UseVisualStyleBackColor = true;
+            this.btnOlvidar.Text = "¿OLVIDO SU CLAVE O USUARIO?\r\n";
+            this.btnOlvidar.UseVisualStyleBackColor = false;
             this.btnOlvidar.Click += new System.EventHandler(this.btnOlvidar_Click);
             // 
             // btnIniciodeSesion
             // 
             this.btnIniciodeSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
+            this.btnIniciodeSesion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnIniciodeSesion.FlatAppearance.BorderColor = System.Drawing.Color.Ivory;
             this.btnIniciodeSesion.FlatAppearance.BorderSize = 0;
             this.btnIniciodeSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -135,16 +137,17 @@
             // 
             // txtClave
             // 
-            this.txtClave.BackColor = System.Drawing.Color.White;
+            this.txtClave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
             this.txtClave.Location = new System.Drawing.Point(109, 261);
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(193, 24);
             this.txtClave.TabIndex = 14;
             this.txtClave.UseSystemPasswordChar = true;
+            this.txtClave.TextChanged += new System.EventHandler(this.txtClave_TextChanged);
             // 
             // txtUsuario
             // 
-            this.txtUsuario.BackColor = System.Drawing.Color.White;
+            this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
             this.txtUsuario.ForeColor = System.Drawing.Color.Black;
             this.txtUsuario.Location = new System.Drawing.Point(109, 168);
             this.txtUsuario.Name = "txtUsuario";
@@ -156,22 +159,22 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.label3.Location = new System.Drawing.Point(104, 126);
+            this.label3.Location = new System.Drawing.Point(148, 127);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(194, 26);
+            this.label3.Size = new System.Drawing.Size(116, 26);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Nombre de Usuario:";
+            this.label3.Text = "USUARIO :";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Palatino Linotype", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.label4.Location = new System.Drawing.Point(148, 219);
+            this.label4.Location = new System.Drawing.Point(116, 216);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 26);
+            this.label4.Size = new System.Drawing.Size(165, 26);
             this.label4.TabIndex = 12;
-            this.label4.Text = "Contraseña:";
+            this.label4.Text = "CONTRASEÑA :";
             // 
             // pictureBox1
             // 

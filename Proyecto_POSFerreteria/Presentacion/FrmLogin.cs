@@ -133,6 +133,11 @@ namespace Proyecto_POSFerreteria
             frm.ShowDialog();
         }
 
+        private void txtClave_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (move)
