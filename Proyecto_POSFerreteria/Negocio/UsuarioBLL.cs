@@ -19,7 +19,7 @@ namespace Proyecto_POSFerreteria.Negocio
                 Usuario u = dal.Login(nombre, clave);
 
                 if (u == null)
-                    throw new Exception("Usuario o  incorrectos.");
+                    throw new Exception("Usuario o Clave incorrectos.");
 
                 return u;
             }
