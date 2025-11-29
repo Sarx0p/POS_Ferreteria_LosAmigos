@@ -16,6 +16,7 @@ using System.Threading.Tasks;
         {
             using (SqlConnection cn = new SqlConnection(Conexion.Cadena))
             {
+<<<<<<< HEAD
                 string sql = @"SELECT Id, Username, Clave, Rol
                                FROM Usuario
                                WHERE Username = @Username AND Clave = @Clave";
@@ -23,6 +24,15 @@ using System.Threading.Tasks;
                 using (SqlCommand cmd = new SqlCommand(sql, cn))
                 {
                     cmd.Parameters.AddWithValue("@Username", nombre);
+=======
+                string sql = @"SELECT Id, Nombre, Clave, Rol
+                               FROM Usuario
+                               WHERE Nombre = @Nombre AND Clave = @Clave";
+
+                using (SqlCommand cmd = new SqlCommand(sql, cn))
+                {
+                    cmd.Parameters.AddWithValue("@Nombre", nombre);
+>>>>>>> master
                     cmd.Parameters.AddWithValue("@Clave", clave);
 
                     cn.Open();
@@ -33,9 +43,15 @@ using System.Threading.Tasks;
                         {
                             return new Usuario
                             {
+<<<<<<< HEAD
                                 Id = Convert.ToInt32(dr["Id"]),
                                 Nombre = dr["Username"].ToString(),
                                 Clave = dr["Clave"].ToString(),
+=======
+                                IdUsuario = Convert.ToInt32(dr["Id"]),
+                                Nombre = dr["Nombre"].ToString(),
+                                Clave = dr["Clave"].ToString(), 
+>>>>>>> master
                                 Rol = dr["Rol"].ToString()
                             };
                         }

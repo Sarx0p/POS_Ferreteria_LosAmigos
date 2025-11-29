@@ -50,21 +50,34 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(62)))), ((int)(((byte)(43)))));
+<<<<<<< HEAD
             this.groupBox1.Location = new System.Drawing.Point(21, 18);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Size = new System.Drawing.Size(411, 484);
+=======
+            this.groupBox1.Location = new System.Drawing.Point(16, 15);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(308, 393);
+>>>>>>> master
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Proyecto_POSFerreteria.Properties.Resources.iconosesion;
+<<<<<<< HEAD
             this.pictureBox1.Location = new System.Drawing.Point(155, 34);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+=======
+            this.pictureBox1.Location = new System.Drawing.Point(116, 28);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+>>>>>>> master
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(103, 76);
+            this.pictureBox1.Size = new System.Drawing.Size(77, 62);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
@@ -73,10 +86,15 @@
             // 
             this.btnIniciodeSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(127)))), ((int)(((byte)(84)))));
             this.btnIniciodeSesion.ForeColor = System.Drawing.Color.White;
+<<<<<<< HEAD
             this.btnIniciodeSesion.Location = new System.Drawing.Point(107, 302);
             this.btnIniciodeSesion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+=======
+            this.btnIniciodeSesion.Location = new System.Drawing.Point(80, 245);
+            this.btnIniciodeSesion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+>>>>>>> master
             this.btnIniciodeSesion.Name = "btnIniciodeSesion";
-            this.btnIniciodeSesion.Size = new System.Drawing.Size(196, 39);
+            this.btnIniciodeSesion.Size = new System.Drawing.Size(147, 32);
             this.btnIniciodeSesion.TabIndex = 8;
             this.btnIniciodeSesion.Text = "ENVIAR";
             this.btnIniciodeSesion.UseVisualStyleBackColor = false;
@@ -84,28 +102,39 @@
             // label5
             // 
             this.label5.AutoSize = true;
+<<<<<<< HEAD
             this.label5.Location = new System.Drawing.Point(165, 290);
+=======
+            this.label5.Location = new System.Drawing.Point(124, 236);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+>>>>>>> master
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 27);
+            this.label5.Size = new System.Drawing.Size(0, 22);
             this.label5.TabIndex = 7;
             // 
             // txtNombreUsuario
             // 
             this.txtNombreUsuario.BackColor = System.Drawing.Color.White;
             this.txtNombreUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+<<<<<<< HEAD
             this.txtNombreUsuario.Location = new System.Drawing.Point(110, 216);
             this.txtNombreUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+=======
+            this.txtNombreUsuario.Location = new System.Drawing.Point(82, 174);
+            this.txtNombreUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+>>>>>>> master
             this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(193, 34);
+            this.txtNombreUsuario.Size = new System.Drawing.Size(146, 29);
             this.txtNombreUsuario.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(103, 155);
+            this.label3.Location = new System.Drawing.Point(77, 126);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(187, 31);
+            this.label3.Size = new System.Drawing.Size(158, 26);
             this.label3.TabIndex = 3;
             this.label3.Text = "Ingresar Correo:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -113,19 +142,26 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 84);
+            this.label2.Location = new System.Drawing.Point(7, 68);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 27);
+            this.label2.Size = new System.Drawing.Size(0, 22);
             this.label2.TabIndex = 2;
             // 
             // FrmOlvidoSuContraseñacs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(227)))), ((int)(((byte)(202)))));
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(467, 614);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+=======
+            this.ClientSize = new System.Drawing.Size(803, 499);
+            this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+>>>>>>> master
             this.Name = "FrmOlvidoSuContraseñacs";
             this.Text = "FrmOlvidoSuContraseñacs";
             this.Load += new System.EventHandler(this.FrmOlvidoSuContraseñacs_Load);
