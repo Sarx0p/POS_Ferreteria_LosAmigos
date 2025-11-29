@@ -76,7 +76,7 @@
             this.btnUsuario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnUsuario.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuario.ForeColor = System.Drawing.Color.Black;
-            this.btnUsuario.Location = new System.Drawing.Point(14, 82);
+            this.btnUsuario.Location = new System.Drawing.Point(10, 82);
             this.btnUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUsuario.Name = "btnUsuario";
             this.btnUsuario.Size = new System.Drawing.Size(247, 113);
@@ -93,7 +93,7 @@
             this.btnVentas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(62)))), ((int)(((byte)(106)))));
             this.btnVentas.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVentas.ForeColor = System.Drawing.Color.Black;
-            this.btnVentas.Location = new System.Drawing.Point(11, 36);
+            this.btnVentas.Location = new System.Drawing.Point(8, 36);
             this.btnVentas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(247, 58);
@@ -110,7 +110,7 @@
             this.btnProductos.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
             this.btnProductos.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProductos.ForeColor = System.Drawing.Color.Black;
-            this.btnProductos.Location = new System.Drawing.Point(11, 109);
+            this.btnProductos.Location = new System.Drawing.Point(9, 109);
             this.btnProductos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Size = new System.Drawing.Size(247, 58);
@@ -126,7 +126,7 @@
             this.btnReportes.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnReportes.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.ForeColor = System.Drawing.Color.Black;
-            this.btnReportes.Location = new System.Drawing.Point(11, 175);
+            this.btnReportes.Location = new System.Drawing.Point(9, 175);
             this.btnReportes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(247, 58);
@@ -267,9 +267,9 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::Proyecto_POSFerreteria.Properties.Resources.area_restringida;
-            this.pictureBox4.Location = new System.Drawing.Point(22, 82);
+            this.pictureBox4.Location = new System.Drawing.Point(41, 82);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(220, 113);
+            this.pictureBox4.Size = new System.Drawing.Size(173, 113);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 13;
             this.pictureBox4.TabStop = false;
@@ -369,9 +369,9 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(15)))), ((int)(((byte)(127)))), ((int)(((byte)(78)))));
             this.panel4.Controls.Add(this.pictureBox5);
-            this.panel4.Location = new System.Drawing.Point(312, 50);
+            this.panel4.Location = new System.Drawing.Point(269, 50);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(933, 240);
+            this.panel4.Size = new System.Drawing.Size(976, 266);
             this.panel4.TabIndex = 15;
             // 
             // pictureBox5
@@ -380,9 +380,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox5.Image = global::Proyecto_POSFerreteria.Properties.Resources.aaSin_título__1_;
-            this.pictureBox5.Location = new System.Drawing.Point(277, -2);
+            this.pictureBox5.Location = new System.Drawing.Point(139, -86);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(382, 239);
+            this.pictureBox5.Size = new System.Drawing.Size(661, 432);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 14;
             this.pictureBox5.TabStop = false;
@@ -394,7 +394,7 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(224)))), ((int)(((byte)(207)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(312, 385);
+            this.dataGridView1.Location = new System.Drawing.Point(316, 385);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(430, 336);
             this.dataGridView1.TabIndex = 16;
@@ -429,7 +429,7 @@
             this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(224)))), ((int)(((byte)(207)))));
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(781, 385);
+            this.dataGridView2.Location = new System.Drawing.Point(762, 385);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(430, 336);
             this.dataGridView2.TabIndex = 20;
@@ -444,9 +444,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel4);
             this.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
