@@ -52,6 +52,24 @@
     <Compile Include="Entidades\SesionActual.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Negocio\UsuarioBLL.cs" />
+    <Compile Include="Presentacion\FrmEditarCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmEditarCategoria.Designer.cs">
+      <DependentUpon>FrmEditarCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FrmEliminarCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmEliminarCategoria.Designer.cs">
+      <DependentUpon>FrmEliminarCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FrmGuardarCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmGuardarCategoria.Designer.cs">
+      <DependentUpon>FrmGuardarCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +108,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentacion\FrmEditarCategoria.resx">
+      <DependentUpon>FrmEditarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmEliminarCategoria.resx">
+      <DependentUpon>FrmEliminarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmGuardarCategoria.resx">
+      <DependentUpon>FrmGuardarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
