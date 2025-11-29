@@ -181,7 +181,11 @@
             this.lblRol.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
             this.lblRol.Location = new System.Drawing.Point(264, 23);
             this.lblRol.Name = "lblRol";
+<<<<<<< Updated upstream
             this.lblRol.Size = new System.Drawing.Size(48, 27);
+=======
+            this.lblRol.Size = new System.Drawing.Size(57, 32);
+>>>>>>> Stashed changes
             this.lblRol.TabIndex = 1;
             this.lblRol.Text = "Rol:";
             // 
@@ -191,9 +195,79 @@
             this.lblUsuario.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
             this.lblUsuario.Location = new System.Drawing.Point(39, 23);
             this.lblUsuario.Name = "lblUsuario";
+<<<<<<< Updated upstream
             this.lblUsuario.Size = new System.Drawing.Size(89, 27);
             this.lblUsuario.TabIndex = 0;
             this.lblUsuario.Text = "Usuario:";
+=======
+            this.lblUsuario.Size = new System.Drawing.Size(106, 32);
+            this.lblUsuario.TabIndex = 0;
+            this.lblUsuario.Text = "Usuario:";
+            this.lblUsuario.Click += new System.EventHandler(this.lblUsuario_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.Ivory;
+            this.groupBox2.Controls.Add(this.btnProductos);
+            this.groupBox2.Controls.Add(this.btnReportes);
+            this.groupBox2.Controls.Add(this.btnVentas);
+            this.groupBox2.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.Black;
+            this.groupBox2.Location = new System.Drawing.Point(3, 160);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(266, 255);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "GESTION";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(15)))), ((int)(((byte)(127)))), ((int)(((byte)(78)))));
+            this.panel4.Controls.Add(this.pictureBox5);
+            this.panel4.Location = new System.Drawing.Point(312, 50);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(933, 240);
+            this.panel4.TabIndex = 15;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox5.Image = global::Proyecto_POSFerreteria.Properties.Resources.aaSin_título__1_;
+            this.pictureBox5.Location = new System.Drawing.Point(277, -2);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(382, 239);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 14;
+            this.pictureBox5.TabStop = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(224)))), ((int)(((byte)(207)))));
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(312, 385);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(430, 336);
+            this.dataGridView1.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(456, 319);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(173, 32);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "TOP VENTAS";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+>>>>>>> Stashed changes
             // 
             // label2
             // 
@@ -201,12 +275,18 @@
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(481, 235);
             this.label2.Name = "label2";
+<<<<<<< Updated upstream
             this.label2.Size = new System.Drawing.Size(206, 27);
             this.label2.TabIndex = 7;
+=======
+            this.label2.Size = new System.Drawing.Size(246, 32);
+            this.label2.TabIndex = 19;
+>>>>>>> Stashed changes
             this.label2.Text = "ALERTA DE STOCK";
             // 
             // dgvStock
             // 
+<<<<<<< Updated upstream
             this.dgvStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStock.Location = new System.Drawing.Point(417, 265);
             this.dgvStock.Name = "dgvStock";
@@ -238,6 +318,22 @@
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
+=======
+            this.dataGridView2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(224)))), ((int)(((byte)(207)))));
+            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(781, 385);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.Size = new System.Drawing.Size(430, 336);
+            this.dataGridView2.TabIndex = 20;
+            // 
+            // FrmMenuPrincipal
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
+>>>>>>> Stashed changes
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(226)))), ((int)(((byte)(204)))));
             this.ClientSize = new System.Drawing.Size(768, 624);
