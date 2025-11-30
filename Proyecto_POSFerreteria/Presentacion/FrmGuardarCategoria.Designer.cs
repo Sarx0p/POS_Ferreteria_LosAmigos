@@ -36,7 +36,6 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -103,7 +102,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(165)))), ((int)(((byte)(190)))));
-            this.panel2.Controls.Add(this.btnCerrarSesion);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -114,22 +112,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(535, 36);
             this.panel2.TabIndex = 61;
-            // 
-            // btnCerrarSesion
-            // 
-            this.btnCerrarSesion.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
-            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarSesion.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCerrarSesion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnCerrarSesion.Image = global::Proyecto_POSFerreteria.Properties.Resources.cerrar_sesion;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(455, 0);
-            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(80, 36);
-            this.btnCerrarSesion.TabIndex = 3;
-            this.btnCerrarSesion.UseVisualStyleBackColor = true;
-            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // pictureBox2
             // 
@@ -208,7 +190,6 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
