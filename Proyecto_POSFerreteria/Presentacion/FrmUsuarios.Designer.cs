@@ -30,59 +30,84 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsuarios));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbxRol = new System.Windows.Forms.ComboBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtClave = new System.Windows.Forms.TextBox();
-            this.txtRol = new System.Windows.Forms.TextBox();
             this.txtUsernName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvSolicitud = new System.Windows.Forms.DataGridView();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtLimpiar = new System.Windows.Forms.Button();
-            this.txtVolver = new System.Windows.Forms.Button();
-            this.txtEliminar = new System.Windows.Forms.Button();
-            this.txtGuardar = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnEliminarP = new System.Windows.Forms.Button();
+            this.btnCompletada = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.btnCerrarSesion = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSolicitud)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbxRol);
             this.groupBox1.Controls.Add(this.txtCorreo);
+            this.groupBox1.Controls.Add(this.btnLimpiar);
+            this.groupBox1.Controls.Add(this.btnEliminar);
+            this.groupBox1.Controls.Add(this.btnGuardar);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtClave);
-            this.groupBox1.Controls.Add(this.txtRol);
             this.groupBox1.Controls.Add(this.txtUsernName);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(13, 437);
+            this.groupBox1.Location = new System.Drawing.Point(3, 461);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(399, 246);
+            this.groupBox1.Size = new System.Drawing.Size(650, 231);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DATOS";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // cbxRol
+            // 
+            this.cbxRol.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
+            this.cbxRol.FormattingEnabled = true;
+            this.cbxRol.Items.AddRange(new object[] {
+            "ADMINISTRADOR",
+            "EMPLEADO"});
+            this.cbxRol.Location = new System.Drawing.Point(108, 122);
+            this.cbxRol.Name = "cbxRol";
+            this.cbxRol.Size = new System.Drawing.Size(201, 36);
+            this.cbxRol.TabIndex = 17;
             // 
             // txtCorreo
             // 
@@ -90,8 +115,60 @@
             this.txtCorreo.Location = new System.Drawing.Point(108, 67);
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(250, 36);
+            this.txtCorreo.Size = new System.Drawing.Size(201, 36);
             this.txtCorreo.TabIndex = 16;
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.btnLimpiar.Image = global::Proyecto_POSFerreteria.Properties.Resources.escoba;
+            this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiar.Location = new System.Drawing.Point(439, 170);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(121, 38);
+            this.btnLimpiar.TabIndex = 17;
+            this.btnLimpiar.Text = "LIMPIAR";
+            this.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.btnEliminar.Image = global::Proyecto_POSFerreteria.Properties.Resources.trash_16754002;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(506, 122);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(143, 38);
+            this.btnEliminar.TabIndex = 4;
+            this.btnEliminar.Text = "ELIMINAR";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.txtEliminar_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.btnGuardar.Image = global::Proyecto_POSFerreteria.Properties.Resources.diskette_689343;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(355, 122);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(143, 38);
+            this.btnGuardar.TabIndex = 2;
+            this.btnGuardar.Text = "GUARDAR";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardar.UseVisualStyleBackColor = false;
             // 
             // label5
             // 
@@ -110,14 +187,14 @@
             this.txtNombre.Location = new System.Drawing.Point(108, 23);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(250, 36);
+            this.txtNombre.Size = new System.Drawing.Size(201, 36);
             this.txtNombre.TabIndex = 14;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(28, 170);
+            this.label1.Location = new System.Drawing.Point(8, 130);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 22);
@@ -128,36 +205,26 @@
             // txtClave
             // 
             this.txtClave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
-            this.txtClave.Location = new System.Drawing.Point(111, 201);
+            this.txtClave.Location = new System.Drawing.Point(439, 67);
             this.txtClave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(250, 36);
+            this.txtClave.Size = new System.Drawing.Size(181, 36);
             this.txtClave.TabIndex = 10;
-            // 
-            // txtRol
-            // 
-            this.txtRol.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
-            this.txtRol.Location = new System.Drawing.Point(111, 158);
-            this.txtRol.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtRol.Name = "txtRol";
-            this.txtRol.Size = new System.Drawing.Size(250, 36);
-            this.txtRol.TabIndex = 8;
-            this.txtRol.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             // 
             // txtUsernName
             // 
             this.txtUsernName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
-            this.txtUsernName.Location = new System.Drawing.Point(108, 112);
+            this.txtUsernName.Location = new System.Drawing.Point(439, 20);
             this.txtUsernName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtUsernName.Name = "txtUsernName";
-            this.txtUsernName.Size = new System.Drawing.Size(250, 36);
+            this.txtUsernName.Size = new System.Drawing.Size(181, 36);
             this.txtUsernName.TabIndex = 7;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(8, 215);
+            this.label6.Location = new System.Drawing.Point(341, 73);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(72, 22);
@@ -179,7 +246,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(8, 123);
+            this.label3.Location = new System.Drawing.Point(337, 31);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 22);
@@ -203,77 +270,47 @@
             this.dgvUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
             this.dgvUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuarios.Location = new System.Drawing.Point(13, 163);
+            this.dgvUsuarios.Location = new System.Drawing.Point(10, 114);
             this.dgvUsuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.RowHeadersWidth = 51;
-            this.dgvUsuarios.Size = new System.Drawing.Size(562, 264);
+            this.dgvUsuarios.Size = new System.Drawing.Size(612, 266);
             this.dgvUsuarios.TabIndex = 1;
             this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(59)))), ((int)(((byte)(102)))));
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel2.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(993, 50);
-            this.panel2.TabIndex = 12;
-            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
-            this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseMove);
-            this.panel2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseUp);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.ErrorImage = null;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(4, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(48, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(227)))), ((int)(((byte)(202)))));
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(224)))), ((int)(((byte)(207)))));
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox1.Location = new System.Drawing.Point(222, 86);
+            this.textBox1.Location = new System.Drawing.Point(235, 21);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(134, 29);
             this.textBox1.TabIndex = 13;
             this.textBox1.Text = "USUARIOS";
             // 
-            // dataGridView1
+            // dgvSolicitud
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(608, 119);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(363, 374);
-            this.dataGridView1.TabIndex = 14;
+            this.dgvSolicitud.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
+            this.dgvSolicitud.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvSolicitud.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSolicitud.Location = new System.Drawing.Point(26, 64);
+            this.dgvSolicitud.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvSolicitud.Name = "dgvSolicitud";
+            this.dgvSolicitud.RowHeadersWidth = 51;
+            this.dgvSolicitud.Size = new System.Drawing.Size(301, 282);
+            this.dgvSolicitud.TabIndex = 14;
             // 
             // textBox2
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(227)))), ((int)(((byte)(202)))));
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(224)))), ((int)(((byte)(207)))));
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox2.Location = new System.Drawing.Point(608, 75);
+            this.textBox2.Location = new System.Drawing.Point(10, 14);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(363, 29);
+            this.textBox2.Size = new System.Drawing.Size(336, 26);
             this.textBox2.TabIndex = 15;
             this.textBox2.Text = "SOLICITUDES DE RECUPERACION";
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
@@ -281,10 +318,11 @@
             // txtBuscar
             // 
             this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
-            this.txtBuscar.Location = new System.Drawing.Point(140, 124);
+            this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBuscar.Location = new System.Drawing.Point(207, 71);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(288, 29);
+            this.txtBuscar.Size = new System.Drawing.Size(288, 22);
             this.txtBuscar.TabIndex = 16;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
@@ -292,98 +330,159 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(40, 124);
+            this.label7.Location = new System.Drawing.Point(103, 71);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 22);
             this.label7.TabIndex = 18;
             this.label7.Text = "BUSCAR :";
             // 
-            // txtLimpiar
+            // groupBox2
             // 
-            this.txtLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
-            this.txtLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.txtLimpiar.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLimpiar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.txtLimpiar.Image = global::Proyecto_POSFerreteria.Properties.Resources.escoba;
-            this.txtLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtLimpiar.Location = new System.Drawing.Point(397, 589);
-            this.txtLimpiar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtLimpiar.Name = "txtLimpiar";
-            this.txtLimpiar.Size = new System.Drawing.Size(143, 38);
-            this.txtLimpiar.TabIndex = 17;
-            this.txtLimpiar.Text = "LIMPIAR";
-            this.txtLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.txtLimpiar.UseVisualStyleBackColor = false;
+            this.groupBox2.Controls.Add(this.pictureBox3);
+            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.txtBuscar);
+            this.groupBox2.Controls.Add(this.dgvUsuarios);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Location = new System.Drawing.Point(13, 50);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(611, 380);
+            this.groupBox2.TabIndex = 19;
+            this.groupBox2.TabStop = false;
             // 
-            // txtVolver
+            // pictureBox3
             // 
-            this.txtVolver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
-            this.txtVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.txtVolver.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVolver.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.txtVolver.Image = global::Proyecto_POSFerreteria.Properties.Resources.cerrar_sesion;
-            this.txtVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtVolver.Location = new System.Drawing.Point(716, 575);
-            this.txtVolver.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtVolver.Name = "txtVolver";
-            this.txtVolver.Size = new System.Drawing.Size(141, 52);
-            this.txtVolver.TabIndex = 5;
-            this.txtVolver.Text = "VOLVER";
-            this.txtVolver.UseVisualStyleBackColor = false;
-            this.txtVolver.Click += new System.EventHandler(this.txtVolver_Click);
+            this.pictureBox3.Image = global::Proyecto_POSFerreteria.Properties.Resources.interface_14335926;
+            this.pictureBox3.Location = new System.Drawing.Point(51, 65);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(49, 28);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 52;
+            this.pictureBox3.TabStop = false;
             // 
-            // txtEliminar
+            // groupBox3
             // 
-            this.txtEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
-            this.txtEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.txtEliminar.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.txtEliminar.Image = global::Proyecto_POSFerreteria.Properties.Resources.trash_16754002;
-            this.txtEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtEliminar.Location = new System.Drawing.Point(397, 541);
-            this.txtEliminar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtEliminar.Name = "txtEliminar";
-            this.txtEliminar.Size = new System.Drawing.Size(143, 38);
-            this.txtEliminar.TabIndex = 4;
-            this.txtEliminar.Text = "ELIMINAR";
-            this.txtEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.txtEliminar.UseVisualStyleBackColor = false;
+            this.groupBox3.Controls.Add(this.btnEliminarP);
+            this.groupBox3.Controls.Add(this.btnCompletada);
+            this.groupBox3.Controls.Add(this.dgvSolicitud);
+            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.groupBox3.Location = new System.Drawing.Point(679, 55);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(352, 624);
+            this.groupBox3.TabIndex = 20;
+            this.groupBox3.TabStop = false;
             // 
-            // txtGuardar
+            // btnEliminarP
             // 
-            this.txtGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
-            this.txtGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.txtGuardar.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.txtGuardar.Image = global::Proyecto_POSFerreteria.Properties.Resources.diskette_689343;
-            this.txtGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtGuardar.Location = new System.Drawing.Point(397, 493);
-            this.txtGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtGuardar.Name = "txtGuardar";
-            this.txtGuardar.Size = new System.Drawing.Size(143, 38);
-            this.txtGuardar.TabIndex = 2;
-            this.txtGuardar.Text = "GUARDAR";
-            this.txtGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.txtGuardar.UseVisualStyleBackColor = false;
+            this.btnEliminarP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
+            this.btnEliminarP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarP.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.btnEliminarP.Image = global::Proyecto_POSFerreteria.Properties.Resources.trash_16754002;
+            this.btnEliminarP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarP.Location = new System.Drawing.Point(63, 437);
+            this.btnEliminarP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEliminarP.Name = "btnEliminarP";
+            this.btnEliminarP.Size = new System.Drawing.Size(242, 38);
+            this.btnEliminarP.TabIndex = 24;
+            this.btnEliminarP.Text = "ELMINAR PETICION";
+            this.btnEliminarP.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminarP.UseVisualStyleBackColor = false;
+            // 
+            // btnCompletada
+            // 
+            this.btnCompletada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
+            this.btnCompletada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompletada.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCompletada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.btnCompletada.Image = global::Proyecto_POSFerreteria.Properties.Resources.diskette_689343;
+            this.btnCompletada.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCompletada.Location = new System.Drawing.Point(63, 380);
+            this.btnCompletada.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCompletada.Name = "btnCompletada";
+            this.btnCompletada.Size = new System.Drawing.Size(242, 38);
+            this.btnCompletada.TabIndex = 23;
+            this.btnCompletada.Text = "PETICION FINALIZADA";
+            this.btnCompletada.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCompletada.UseVisualStyleBackColor = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(165)))), ((int)(((byte)(190)))));
+            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.btnCerrarSesion);
+            this.panel2.Controls.Add(this.pictureBox2);
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel2.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1043, 48);
+            this.panel2.TabIndex = 21;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(165)))), ((int)(((byte)(190)))));
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.textBox3.Location = new System.Drawing.Point(397, 8);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(278, 29);
+            this.textBox3.TabIndex = 14;
+            this.textBox3.Text = "GESTION DE USUARIOS";
+            // 
+            // btnCerrarSesion
+            // 
+            this.btnCerrarSesion.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
+            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCerrarSesion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnCerrarSesion.Image = global::Proyecto_POSFerreteria.Properties.Resources.cerrar_sesion;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(1000, 0);
+            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.Size = new System.Drawing.Size(43, 48);
+            this.btnCerrarSesion.TabIndex = 3;
+            this.btnCerrarSesion.UseVisualStyleBackColor = true;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click_1);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.ErrorImage = null;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(41, 42);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(0, 49);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(653, 383);
+            this.panel1.TabIndex = 22;
             // 
             // FrmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(227)))), ((int)(((byte)(202)))));
-            this.ClientSize = new System.Drawing.Size(993, 707);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtLimpiar);
-            this.Controls.Add(this.txtBuscar);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox1);
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(224)))), ((int)(((byte)(207)))));
+            this.ClientSize = new System.Drawing.Size(1043, 707);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.txtVolver);
-            this.Controls.Add(this.txtEliminar);
-            this.Controls.Add(this.txtGuardar);
-            this.Controls.Add(this.dgvUsuarios);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -396,11 +495,16 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSolicitud)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -411,24 +515,31 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button txtGuardar;
-        private System.Windows.Forms.Button txtEliminar;
-        private System.Windows.Forms.Button txtVolver;
-        private System.Windows.Forms.TextBox txtRol;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.TextBox txtUsernName;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox txtClave;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvSolicitud;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button txtLimpiar;
+        private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbxRol;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnCerrarSesion;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button btnEliminarP;
+        private System.Windows.Forms.Button btnCompletada;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }

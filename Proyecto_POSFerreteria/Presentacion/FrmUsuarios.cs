@@ -102,6 +102,32 @@ namespace Proyecto_POSFerreteria.Presentacion
 
         }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCerrarSesion_Click_1(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("DESEA SALIR?",
+                    "Confirmación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
         private void panel2_MouseMove(object sender, MouseEventArgs e)
         {
 
