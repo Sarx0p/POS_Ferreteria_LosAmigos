@@ -65,11 +65,21 @@ namespace Proyecto_POSFerreteria.Presentacion
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             // Cerrar este formulario (el menú)
-            this.Hide();
+            if (MessageBox.Show("¿ESTAS SEGURO DE CERRAR SESIÓN?", "CONFIRMACIÓN",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                this.Close();
+                FrmLogin login = new FrmLogin();
+                login.Show();
+            }
+            else
+            {
 
-            // Volver a mostrar el login
-            FrmLogin login = new FrmLogin();
-            login.Show();
+            }
+
+
+                
+                
         }
 
 
@@ -97,10 +107,7 @@ namespace Proyecto_POSFerreteria.Presentacion
 
 
 
-        private void dgvStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+    
 
 
         // DISEÑO
@@ -172,9 +179,11 @@ namespace Proyecto_POSFerreteria.Presentacion
             }
         }
 
+
         private void btnUsuario_Click(object sender, EventArgs e)
         {
-
+          FrmUsuarios frm = new FrmUsuarios();
+            frm.ShowDialog();
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -194,12 +203,14 @@ namespace Proyecto_POSFerreteria.Presentacion
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-
+            FrmReportes frm = new FrmReportes();
+            frm.ShowDialog();
         }
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-
+            FrmVentas frm = new FrmVentas();
+            frm.ShowDialog();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -220,6 +231,12 @@ namespace Proyecto_POSFerreteria.Presentacion
         private void label1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            FrmInventario frm = new FrmInventario();   
+            frm.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)
