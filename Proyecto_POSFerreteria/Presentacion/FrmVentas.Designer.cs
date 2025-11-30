@@ -41,7 +41,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtPago = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -52,11 +51,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dgvDetalleVenta = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblTotal = new System.Windows.Forms.Label();
+            this.cbxTipoPago = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
@@ -136,6 +136,7 @@
             // 
             // lblFecha
             // 
+            this.lblFecha.AllowDrop = true;
             this.lblFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFecha.AutoSize = true;
             this.lblFecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
@@ -199,17 +200,20 @@
             // 
             // panel3
             // 
+            this.panel3.AllowDrop = true;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(224)))), ((int)(((byte)(207)))));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.cbxTipoPago);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.txtPago);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.textBox3);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.lblFecha);
+            this.panel3.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.panel3.Location = new System.Drawing.Point(2, 49);
             this.panel3.Name = "panel3";
+            this.panel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.panel3.Size = new System.Drawing.Size(470, 169);
             this.panel3.TabIndex = 23;
             // 
@@ -225,15 +229,6 @@
             this.label3.Size = new System.Drawing.Size(146, 22);
             this.label3.TabIndex = 9;
             this.label3.Text = "FECHA ACTUAL :";
-            // 
-            // txtPago
-            // 
-            this.txtPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
-            this.txtPago.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPago.Location = new System.Drawing.Point(143, 84);
-            this.txtPago.Name = "txtPago";
-            this.txtPago.Size = new System.Drawing.Size(231, 29);
-            this.txtPago.TabIndex = 8;
             // 
             // label9
             // 
@@ -327,7 +322,7 @@
             // 
             // panel4
             // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.btnLimpiar);
             this.panel4.Controls.Add(this.btnQuitar);
@@ -337,6 +332,35 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(771, 560);
             this.panel4.TabIndex = 27;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.lblTotal);
+            this.panel5.Controls.Add(this.label5);
+            this.panel5.Location = new System.Drawing.Point(72, 392);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(626, 40);
+            this.panel5.TabIndex = 28;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Palatino Linotype", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(524, 2);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(26, 31);
+            this.lblTotal.TabIndex = 28;
+            this.lblTotal.Text = "$";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Palatino Linotype", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 2);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(94, 31);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "TOTAL";
             // 
             // btnLimpiar
             // 
@@ -368,34 +392,19 @@
             this.btnQuitar.Text = "QUITAR PRODUCTO";
             this.btnQuitar.UseVisualStyleBackColor = false;
             // 
-            // panel5
+            // cbxTipoPago
             // 
-            this.panel5.Controls.Add(this.lblTotal);
-            this.panel5.Controls.Add(this.label5);
-            this.panel5.Location = new System.Drawing.Point(72, 392);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(626, 40);
-            this.panel5.TabIndex = 28;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Palatino Linotype", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 2);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 31);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "TOTAL";
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Palatino Linotype", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(524, 2);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(26, 31);
-            this.lblTotal.TabIndex = 28;
-            this.lblTotal.Text = "$";
+            this.cbxTipoPago.AllowDrop = true;
+            this.cbxTipoPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
+            this.cbxTipoPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTipoPago.FormattingEnabled = true;
+            this.cbxTipoPago.Items.AddRange(new object[] {
+            "Efectivo",
+            "Tarjeta"});
+            this.cbxTipoPago.Location = new System.Drawing.Point(143, 80);
+            this.cbxTipoPago.Name = "cbxTipoPago";
+            this.cbxTipoPago.Size = new System.Drawing.Size(191, 37);
+            this.cbxTipoPago.TabIndex = 10;
             // 
             // FrmVentas
             // 
@@ -450,7 +459,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtPago;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvProducto;
@@ -463,5 +471,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbxTipoPago;
     }
 }
