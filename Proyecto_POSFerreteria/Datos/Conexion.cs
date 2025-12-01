@@ -8,7 +8,7 @@ namespace Proyecto_POSFerreteria.Datos
 {
     public class Conexion
     {
-        public static string Cadena = @"Data Source=DESKTOP-K12R4B5\SQLEXPRESS;Initial Catalog=FerreteriaElAmigo;Integrated Security=True";
+        public static string Cadena = @"Data Source=DESKTOP-503K00D\SQLEXPRESS;Initial Catalog=FerreteriaElAmigo;Integrated Security=True";
     }
 }
 // Computadora de Nomo de jardin DESKTOP-VEDDV2H\SQLEXPRESS
