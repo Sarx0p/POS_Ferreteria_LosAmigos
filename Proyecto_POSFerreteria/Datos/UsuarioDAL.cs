@@ -15,40 +15,55 @@ using System.Threading.Tasks;
     
     public class UsuarioDAL
     {
-        public Usuario Login(string nombre, string clave)
+        public Usuario Login(string username, string claveIngresada)
         {
-            using (SqlConnection cn = new SqlConnection(Conexion.Cadena))
+            using (var cn = new SqlConnection(connStr))
             {
-                string sql = @"SELECT Id, Nombre, Clave, Rol
-                               FROM Usuario
-                               WHERE Nombre = @Nombre AND Clave = @Clave";
+                string sql = @"SELECT Id, Nombre, Username, Rol, ContrasenaCifrada, Clave
+                       FROM Usuario
+                       WHERE Username = @Username";
 
-                using (SqlCommand cmd = new SqlCommand(sql, cn))
+                using (var cmd = new SqlCommand(sql, cn))
                 {
-                    cmd.Parameters.AddWithValue("@Nombre", nombre);
-                    cmd.Parameters.AddWithValue("@Clave", clave);
-
+                    cmd.Parameters.AddWithValue("@Username", username);
                     cn.Open();
 
-                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    using (var dr = cmd.ExecuteReader())
                     {
-                        if (dr.Read())
+                        if (!dr.Read()) return null;
+
+                        int id = Convert.ToInt32(dr["Id"]);
+                        string nombre = dr["Nombre"]?.ToString();
+                        string rol = dr["Rol"]?.ToString();
+
+                        // Si existe ContrasenaCifrada -> desencriptar y comparar
+                        if (!dr.IsDBNull(dr.GetOrdinal("ContrasenaCifrada")))
                         {
-                            return new Usuario
+                            var blob = (byte[])dr["ContrasenaCifrada"];
+                            string contrasenaPlano = Proyecto_POSFerreteria.Utilidades.CryptoDPAPI.DesencriptarContrasena(blob);
+                            if (contrasenaPlano == claveIngresada)
                             {
-                                IdUsuario = Convert.ToInt32(dr["Id"]),
-                                Nombre = dr["Nombre"].ToString(),
-                                Clave = dr["Clave"].ToString(), 
-                                Rol = dr["Rol"].ToString()
-                            };
+                                return new Usuario { IdUsuario = id, Nombre = nombre, Rol = rol, Username = dr["Username"]?.ToString() };
+                            }
+                            else
+                            {
+                                return null; // contraseña incorrecta
+                            }
                         }
+
+                        // Fallback: comparar con la columna Clave (texto)
+                        if (!dr.IsDBNull(dr.GetOrdinal("Clave")))
+                        {
+                            string claveBD = dr["Clave"].ToString();
+                            if (claveBD == claveIngresada)
+                                return new Usuario { IdUsuario = id, Nombre = nombre, Rol = rol, Username = dr["Username"]?.ToString() };
+                        }
+
+                        return null;
                     }
                 }
             }
-
-            return null;
         }
-
 
 
         // Buscar usuario por correo en bd
