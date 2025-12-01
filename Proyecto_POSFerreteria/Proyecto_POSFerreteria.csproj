@@ -88,12 +88,6 @@
     <Compile Include="Presentacion\FrmOlvidoSuContraseñacs.Designer.cs">
       <DependentUpon>FrmOlvidoSuContraseñacs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\FrmValidarToken.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Presentacion\FrmValidarToken.Designer.cs">
-      <DependentUpon>FrmValidarToken.cs</DependentUpon>
-    </Compile>
     <Compile Include="Presentacion\Inventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,9 +125,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmOlvidoSuContraseñacs.resx">
       <DependentUpon>FrmOlvidoSuContraseñacs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\FrmValidarToken.resx">
-      <DependentUpon>FrmValidarToken.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
@@ -280,6 +271,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\enviar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utilidades\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
