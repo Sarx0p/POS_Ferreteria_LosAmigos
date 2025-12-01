@@ -281,32 +281,5 @@
   <ItemGroup>
     <None Include="Resources\enviar.png" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\copy_4911574.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\gestion-de-equipos.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\dinero.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lista.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ventas.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\portapapeles.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\gestion-de-productos.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cancelar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\anadir.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
