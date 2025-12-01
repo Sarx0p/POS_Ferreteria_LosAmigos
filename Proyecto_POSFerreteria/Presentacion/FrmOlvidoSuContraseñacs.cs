@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Proyecto_POSFerreteria.Entidades;
-using Proyecto_POSFerreteria.Negocio;
 
 namespace Proyecto_POSFerreteria.Presentacion
 {
@@ -26,7 +24,7 @@ namespace Proyecto_POSFerreteria.Presentacion
 
         private void FrmOlvidoSuContraseñacs_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -86,40 +84,6 @@ namespace Proyecto_POSFerreteria.Presentacion
             { this.SetDesktopLocation(MousePosition.X - x, MousePosition.Y - y); }
 
         }
-
-        private void btnEnviar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // tomar correo si existe, sino DUI
-                string identificador = txtCorreo.Text.Trim();
-                if (string.IsNullOrWhiteSpace(identificador)) identificador = txtDui.Text.Trim();
-
-                if (string.IsNullOrWhiteSpace(identificador))
-                {
-                    MessageBox.Show("Ingrese su correo o DUI.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                var bll = new Proyecto_POSFerreteria.Negocio.UsuarioBLL();
-                bll.GenerarTokenPorIdentificador(identificador);
-
-                MessageBox.Show("Si su cuenta existe y tiene correo registrado, recibirá un código. Revise bandeja y spam.", "Enviado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // abrir formulario de validación (prefill)
-                var frm = new FrmValidarToken();
-                frm.PrefillIdentificador = identificador;
-                frm.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-       
-
-       
 
         private void panel2_MouseMove(object sender, MouseEventArgs e)
         {

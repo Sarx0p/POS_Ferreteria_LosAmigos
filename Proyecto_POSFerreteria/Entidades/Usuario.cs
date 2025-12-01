@@ -12,7 +12,6 @@ namespace Proyecto_POSFerreteria.Entidades
         public string Nombre { get; set; }
         public string Clave { get; set; }
         public string Rol { get; set; }
-        public string Dui { get; set; }
-
+        
     }
-    }
+}
