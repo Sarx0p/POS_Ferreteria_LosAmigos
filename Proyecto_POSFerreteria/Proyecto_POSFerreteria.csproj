@@ -97,6 +97,11 @@
     </Compile>
     <Compile Include="Presentacion\FrmValidarToken.Designer.cs">
       <DependentUpon>FrmValidarToken.cs</DependentUpon>
+    <Compile Include="Presentacion\FrmReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmReportes.Designer.cs">
+      <DependentUpon>FrmReportes.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Inventario.cs">
       <SubType>Form</SubType>
@@ -141,6 +146,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmValidarToken.resx">
       <DependentUpon>FrmValidarToken.cs</DependentUpon>
+    <EmbeddedResource Include="Presentacion\FrmReportes.resx">
+      <DependentUpon>FrmReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
@@ -288,6 +295,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\enviar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy_4911574.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gestion-de-equipos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dinero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lista.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ventas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\portapapeles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gestion-de-productos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anadir.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
