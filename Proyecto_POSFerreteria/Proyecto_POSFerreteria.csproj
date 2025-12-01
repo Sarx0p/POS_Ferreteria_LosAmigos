@@ -35,10 +35,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Security" />
-    <Reference Include="System.Security.Cryptography.ProtectedData, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Security.Cryptography.ProtectedData.10.0.0\lib\net462\System.Security.Cryptography.ProtectedData.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -92,11 +88,11 @@
     <Compile Include="Presentacion\FrmOlvidoSuContraseñacs.Designer.cs">
       <DependentUpon>FrmOlvidoSuContraseñacs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\FrmValidarToken.cs">
+    <Compile Include="Presentacion\FrmReportes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\FrmValidarToken.Designer.cs">
-      <DependentUpon>FrmValidarToken.cs</DependentUpon>
+    <Compile Include="Presentacion\FrmReportes.Designer.cs">
+      <DependentUpon>FrmReportes.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Inventario.cs">
       <SubType>Form</SubType>
@@ -118,9 +114,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilidades\CriptoDPAPI.cs" />
-    <Compile Include="Utilidades\MailService.cs" />
-    <Compile Include="Utilidades\ResetHelper.cs" />
     <EmbeddedResource Include="Presentacion\FrmEditarCategoria.resx">
       <DependentUpon>FrmEditarCategoria.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,8 +132,8 @@
     <EmbeddedResource Include="Presentacion\FrmOlvidoSuContraseñacs.resx">
       <DependentUpon>FrmOlvidoSuContraseñacs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\FrmValidarToken.resx">
-      <DependentUpon>FrmValidarToken.cs</DependentUpon>
+    <EmbeddedResource Include="Presentacion\FrmReportes.resx">
+      <DependentUpon>FrmReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
@@ -156,7 +149,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
