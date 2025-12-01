@@ -88,11 +88,11 @@
     <Compile Include="Presentacion\FrmOlvidoSuContraseñacs.Designer.cs">
       <DependentUpon>FrmOlvidoSuContraseñacs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\FrmReportes.cs">
+    <Compile Include="Presentacion\FrmValidarToken.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\FrmReportes.Designer.cs">
-      <DependentUpon>FrmReportes.cs</DependentUpon>
+    <Compile Include="Presentacion\FrmValidarToken.Designer.cs">
+      <DependentUpon>FrmValidarToken.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Inventario.cs">
       <SubType>Form</SubType>
@@ -132,8 +132,8 @@
     <EmbeddedResource Include="Presentacion\FrmOlvidoSuContraseñacs.resx">
       <DependentUpon>FrmOlvidoSuContraseñacs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\FrmReportes.resx">
-      <DependentUpon>FrmReportes.cs</DependentUpon>
+    <EmbeddedResource Include="Presentacion\FrmValidarToken.resx">
+      <DependentUpon>FrmValidarToken.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
