@@ -50,11 +50,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\Datos Hembert\ClienteDAL.cs" />
     <Compile Include="Datos\Conexion.cs" />
     <Compile Include="Datos\UsuarioDAL.cs" />
     <Compile Include="Entidades\AutoEscala.cs" />
+    <Compile Include="Entidades\Clases hembert\CategoriaProducto.cs" />
+    <Compile Include="Entidades\Clases hembert\Cliente.cs" />
+    <Compile Include="Entidades\Clases hembert\DetalleVenta.cs" />
+    <Compile Include="Entidades\Clases hembert\Devolucion.cs" />
+    <Compile Include="Entidades\Clases hembert\Producto.cs" />
+    <Compile Include="Entidades\Clases hembert\RegistroVenta.cs" />
+    <Compile Include="Entidades\Clases hembert\TipoPago.cs" />
+    <Compile Include="Entidades\Clases hembert\Venta.cs" />
     <Compile Include="Entidades\SesionActual.cs" />
     <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Negocio\Hembert\ClienteBLL.cs" />
     <Compile Include="Negocio\UsuarioBLL.cs" />
     <Compile Include="Presentacion\FrmEditarCategoria.cs">
       <SubType>Form</SubType>
@@ -67,6 +77,12 @@
     </Compile>
     <Compile Include="Presentacion\FrmEliminarCategoria.Designer.cs">
       <DependentUpon>FrmEliminarCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FrmFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmFactura.Designer.cs">
+      <DependentUpon>FrmFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\FrmGuardarCategoria.cs">
       <SubType>Form</SubType>
@@ -132,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmEliminarCategoria.resx">
       <DependentUpon>FrmEliminarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmFactura.resx">
+      <DependentUpon>FrmFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmGuardarCategoria.resx">
       <DependentUpon>FrmGuardarCategoria.cs</DependentUpon>

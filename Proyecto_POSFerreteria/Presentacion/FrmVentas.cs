@@ -27,7 +27,8 @@ namespace Proyecto_POSFerreteria.Presentacion
 
         private void FrmVentas_Load(object sender, EventArgs e)
         {
-            timer1.Start();
+           
+        
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -105,6 +106,45 @@ namespace Proyecto_POSFerreteria.Presentacion
             y = e.Y;
         }
 
+        private void txtCliente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxTipoPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvDetalleVenta_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void lblTotal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnQuitar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCliente_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
 
         private void panel2_MouseMove(object sender, MouseEventArgs e)
         {
