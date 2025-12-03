@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Datos\Datos Hembert\ClienteDAL.cs" />
     <Compile Include="Datos\Conexion.cs" />
+    <Compile Include="Datos\Datos Hembert\VentaDAL.cs" />
     <Compile Include="Datos\UsuarioDAL.cs" />
     <Compile Include="Entidades\AutoEscala.cs" />
     <Compile Include="Entidades\Clases hembert\CategoriaProducto.cs" />
