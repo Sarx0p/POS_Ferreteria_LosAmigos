@@ -15,8 +15,11 @@ namespace Proyecto_POSFerreteria.Presentacion
         int x, y;
         bool move;
         int ProductoId = 0;
+        int CategoriaId = 0;
 
         ProductoBLL bll = new ProductoBLL();
+        CategoriaProductoBLL bllc = new CategoriaProductoBLL();
+        string Modo = "Nuevo"; //Nuevo o Editar
 
         public FrmInventario()
         {
@@ -24,15 +27,17 @@ namespace Proyecto_POSFerreteria.Presentacion
 
         }
 
-    
 
 
+        // PRODUCTOOS
 
         private void FrmInventario_Load(object sender, EventArgs e)
         {
             CargarCategorias();
             CargarProductosEnGrid();
-            
+            //Categorias pe 
+            CargarDatosc();
+            HabilitarBotones();
         }
 
         private void CargarCategorias()
@@ -51,7 +56,7 @@ namespace Proyecto_POSFerreteria.Presentacion
         {
             DataTable dt = bll.ListarParaGrid();
             if (dt == null)
-                
+
             {
                 dgvProductos.DataSource = null;
                 return;
@@ -76,7 +81,7 @@ namespace Proyecto_POSFerreteria.Presentacion
 
 
         private void dgvProductos_CellClick_1(object sender, DataGridViewCellEventArgs e)
-        {    
+        {
             if (dgvProductos.SelectedRows.Count == 0)
                 return;
 
@@ -95,8 +100,8 @@ namespace Proyecto_POSFerreteria.Presentacion
                 cbxCategoriaProducto.FindStringExact(row.Cells["Categoria"].Value.ToString());
         }
 
-        
-        
+
+
 
 
 
@@ -107,7 +112,7 @@ namespace Proyecto_POSFerreteria.Presentacion
             {
                 Producto p = new Producto()
                 {
-                    Id = ProductoId, 
+                    Id = ProductoId,
                     NombreProducto = txtNombre.Text.Trim(),
                     Precio = decimal.TryParse(txtPrecio.Text.Trim(), out decimal pr) ? pr : 0,
                     Stock = int.TryParse(txtStock.Text.Trim(), out int st) ? st : 0,
@@ -135,13 +140,13 @@ namespace Proyecto_POSFerreteria.Presentacion
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
 
-  
-        
 
-        
-            private void Limpiar()
+
+
+
+
+        private void Limpiar()
         {
             ProductoId = 0;
             txtIdProducto.Text = "";
@@ -166,7 +171,7 @@ namespace Proyecto_POSFerreteria.Presentacion
             move = false;
         }
 
-     
+
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
@@ -237,6 +242,11 @@ namespace Proyecto_POSFerreteria.Presentacion
 
         }
 
+        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         private void panel2_MouseMove(object sender, MouseEventArgs e)
         {
             if (move)
@@ -244,5 +254,104 @@ namespace Proyecto_POSFerreteria.Presentacion
                 this.SetDesktopLocation(MousePosition.X - x, MousePosition.Y - y);
             }
         }
+
+
+        //Categorias
+
+
+        void HabilitarBotones()
+        {
+            btnModificar.Enabled = false;
+            btnElimiarCategoria.Enabled = false;
+            dgvCategorias.ClearSelection();
+            dgvCategorias.SelectionChanged += (s, e) =>
+            {
+                bool filaSeleccionada = dgvCategorias.SelectedRows.Count > 0;
+                btnModificar.Enabled = filaSeleccionada;
+                btnElimiarCategoria.Enabled = filaSeleccionada;
+            };
+        }
+
+        private void txtBuscarCategoria_TextChanged(object sender, EventArgs e)
+        {
+            dgvCategorias.DataSource = bllc.Buscar(txtBuscarCategoria.Text);
+        }
+
+        private void dgvCategorias_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                CategoriaId = Convert.ToInt32(dgvCategorias.Rows[e.RowIndex].Cells["Id"].Value);
+            }
+        }
+
+        private void btnAgregarCategoria_Click(object sender, EventArgs e)
+        {
+            FrmGuardarCategoria frm = new FrmGuardarCategoria(); //Aca dará error hasta que construyamos el Formulario llamado  FrmCategoriaGestion
+
+            // MODO CREAR NUEVA CATEGORIA
+            frm.Modo = "Nuevo"; //definimos por defecto que sea “nuevo”
+            frm.Id = 0; //Guardara el Id que traigamos  del FrmCategoriaGestion
+
+            frm.ShowDialog();  // Abrir como modal
+            CargarDatosc();     // Refrescar al cerrar
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (CategoriaId == 0)
+            {
+                MessageBox.Show("Seleccione una categoría",
+                   "Información",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Information);
+                return;
+            }
+            FrmGuardarCategoria frm = new FrmGuardarCategoria();
+            // MODO EDITAR
+            frm.Modo = "Editar";
+            frm.Id = CategoriaId;
+
+            // Pasar información desde el DGV
+            frm.Nombre = dgvCategorias.CurrentRow.Cells["NombreCategoria"].Value.ToString();
+            frm.Descripcion = dgvCategorias.CurrentRow.Cells["Descripcion"].Value.ToString();
+
+            frm.ShowDialog();
+            CargarDatosc();
+        }
+
+        private void btnElimiarCategoria_Click(object sender, EventArgs e)
+        {
+            if (CategoriaId == 0)
+            {
+                MessageBox.Show("Seleccione una categoría",
+                   "Información",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Information);
+                return;
+
+            }
+            // Abrir formulario de eliminación
+            FrmEliminarCategoria frm = new FrmEliminarCategoria();
+
+            frm.Id = CategoriaId;
+            frm.NombreCategoria = dgvCategorias.CurrentRow.Cells["Nombre"].Value.ToString();
+            frm.Descripcion = dgvCategorias.CurrentRow.Cells["Descripcion"].Value.ToString();
+
+            frm.ShowDialog();
+            CargarDatosc();
+        }
+
+        void CargarDatosc()
+        {
+            dgvCategorias.DataSource = bllc.Listar();
+            dgvCategorias.ClearSelection();
+            CategoriaId = 0;   // Reiniciar ID seleccionado
+
+        }
+
+
+
+
     }
 }
