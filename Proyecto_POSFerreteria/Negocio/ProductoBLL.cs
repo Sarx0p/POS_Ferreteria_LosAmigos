@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Proyecto_POSFerreteria.Negocio
 {
@@ -13,10 +14,7 @@ namespace Proyecto_POSFerreteria.Negocio
     {
         private readonly ProductoDAL dal = new ProductoDAL();
 
-        public List<Producto> Listar()
-        {
-            return ProductoDAL.Listar();
-        }
+   
 
         public DataTable ListarParaGrid()
         {
@@ -48,20 +46,20 @@ namespace Proyecto_POSFerreteria.Negocio
             return dal.Actualizar(p);
         }
 
-        public bool Eliminar(int id)
+        public bool Eliminar(int Id)
         {
-            if (id <= 0)
+            if (dal.ProductoEstaEnUso(Id))
+                throw new Exception("No se puede eliminar: el producto está asociado a ventas.");
+            if (Id <= 0)
                 throw new Exception("Id inválido.");
 
-            if (dal.ProductoTieneVentasAsociadas(id))
-                throw new Exception("No se puede eliminar: producto con ventas asociadas.");
-
-            return dal.Eliminar(id);
+            return dal.Eliminar(Id);
         }
 
         public DataTable Buscar(string filtro)
         {
             return dal.Buscar(filtro);
         }
+
     }
 }

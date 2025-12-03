@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Proyecto_POSFerreteria.Datos;
+using Proyecto_POSFerreteria.Entidades;
+using Proyecto_POSFerreteria.Negocio;
+using Proyecto_POSFerreteria.Negocio.Hembert;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proyecto_POSFerreteria.Presentacion
@@ -14,66 +14,235 @@ namespace Proyecto_POSFerreteria.Presentacion
     {
         int x, y;
         bool move;
+        int ProductoId = 0;
+
+        ProductoBLL bll = new ProductoBLL();
+
         public FrmInventario()
         {
             InitializeComponent();
+
         }
 
-        private void txtUsernName_TextChanged(object sender, EventArgs e)
+    
+
+
+
+        private void FrmInventario_Load(object sender, EventArgs e)
+        {
+            CargarCategorias();
+            CargarProductosEnGrid();
+            
+        }
+
+        private void CargarCategorias()
+        {
+            CategoriaDAL dal = new CategoriaDAL();
+            DataTable dt = dal.Listar(); // debe traer Id, NombreCategoria
+
+            cbxCategoriaProducto.DataSource = dt;
+            cbxCategoriaProducto.DisplayMember = "NombreCategoria";
+            cbxCategoriaProducto.ValueMember = "Id";
+            cbxCategoriaProducto.SelectedIndex = -1;
+        }
+
+
+        private void CargarProductosEnGrid(string filtro = "")
+        {
+            DataTable dt = bll.ListarParaGrid();
+            if (dt == null)
+                
+            {
+                dgvProductos.DataSource = null;
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(filtro))
+                dgvProductos.DataSource = dt;
+            else
+            {
+                string q = filtro.Replace("'", "''");
+                DataView dv = dt.DefaultView;
+                dv.RowFilter = $"NombreProducto LIKE '%{q}%' OR Categoria LIKE '%{q}%'";
+                dgvProductos.DataSource = dv;
+            }
+
+            if (dgvProductos.Columns.Contains("Id"))
+                dgvProductos.Columns["Id"].Visible = true;
+
+
+
+        }
+
+
+        private void dgvProductos_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {    
+            if (dgvProductos.SelectedRows.Count == 0)
+                return;
+
+            var row = dgvProductos.SelectedRows[0];
+
+            ProductoId = Convert.ToInt32(row.Cells["Id"].Value);
+            txtIdProducto.Text = ProductoId.ToString();
+
+            txtNombre.Text = row.Cells["NombreProducto"].Value.ToString();
+            txtPrecio.Text = row.Cells["Precio"].Value.ToString();
+            txtStock.Text = row.Cells["Stock"].Value.ToString();
+            chkEstado.Checked = Convert.ToBoolean(row.Cells["Estado"].Value);
+
+            // Categoría
+            cbxCategoriaProducto.SelectedIndex =
+                cbxCategoriaProducto.FindStringExact(row.Cells["Categoria"].Value.ToString());
+        }
+
+        
+        
+
+
+
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Producto p = new Producto()
+                {
+                    Id = ProductoId, 
+                    NombreProducto = txtNombre.Text.Trim(),
+                    Precio = decimal.TryParse(txtPrecio.Text.Trim(), out decimal pr) ? pr : 0,
+                    Stock = int.TryParse(txtStock.Text.Trim(), out int st) ? st : 0,
+                    IdCategoriaProducto = cbxCategoriaProducto.SelectedValue == null ? 0 : Convert.ToInt32(cbxCategoriaProducto.SelectedValue),
+                    Estado = chkEstado.Checked
+                };
+
+                if (p.Id == 0)
+                {
+                    int id = bll.Insertar(p); // Insertar devuelve Id
+                    MessageBox.Show("Producto guardado. ID: " + id, "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    bool ok = bll.Actualizar(p);
+                    MessageBox.Show(ok ? "Producto actualizado." : "No se actualizó.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                CargarProductosEnGrid();
+                Limpiar(); // usa tu método Limpiar actual
+                ProductoId = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        
+
+  
+        
+
+        
+            private void Limpiar()
+        {
+            ProductoId = 0;
+            txtIdProducto.Text = "";
+            txtNombre.Text = "";
+            txtPrecio.Text = "";
+            txtStock.Text = "";
+            chkEstado.Checked = false;
+            cbxCategoriaProducto.SelectedIndex = -1;
+            dgvProductos.ClearSelection();
+
+        }
+
+        // Event handlers de movimiento/otros
+        private void panel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            move = true;
+            x = e.X; y = e.Y;
+        }
+
+        private void panel2_MouseUp(object sender, MouseEventArgs e)
+        {
+            move = false;
+        }
+
+     
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
         {
-
-        }
-
-        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void txtClave_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
+            if (e.KeyCode == Keys.Enter)
+            {
+                CargarProductosEnGrid(txtBuscar.Text.Trim());
+            }
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿DESEAS SALIR?", "CONFIRMACIÓN",
-         MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            this.Close();
+        }
+
+        private void txtIdProducto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (ProductoId == 0)
             {
-                this.Close();
+                MessageBox.Show("Seleccione un producto para eliminar.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            if (MessageBox.Show("¿Está seguro de eliminar el producto?", "Confirmación",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+
+            try
+            {
+                bool ok = bll.Eliminar(ProductoId);
+
+                if (ok)
+                {
+                    MessageBox.Show("Producto eliminado correctamente.", "Éxito");
+                    CargarProductosEnGrid();
+                    Limpiar();
+                    ProductoId = 0;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró el producto para eliminar.", "Aviso");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar: " + ex.Message);
+            }
+
         }
 
-        private void btnAgregarCategoria_Click(object sender, EventArgs e)
+        private void txtNombre_TextChanged(object sender, EventArgs e)
         {
-            FrmGuardarCategoria frm = new FrmGuardarCategoria();
-            frm.ShowDialog();
+
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void panel2_MouseMove(object sender, MouseEventArgs e)
         {
-            FrmEditarCategoria frm = new FrmEditarCategoria();
-            frm.ShowDialog();
-        }
-
-        private void btnElimiarCategoria_Click(object sender, EventArgs e)
-        {
-            FrmEliminarCategoria frm = new FrmEliminarCategoria();
-            frm.ShowDialog();
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
+            if (move)
+            {
+                this.SetDesktopLocation(MousePosition.X - x, MousePosition.Y - y);
+            }
         }
     }
 }

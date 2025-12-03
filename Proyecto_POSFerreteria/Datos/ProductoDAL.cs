@@ -74,13 +74,12 @@ namespace Proyecto_POSFerreteria.Datos
             using (SqlConnection con = new SqlConnection(Conexion.Cadena))
             {
                 string sql = @"UPDATE Producto SET 
-                NombreProducto, 
-                Precio, 
-                Stock, 
-                Estado, 
-                IdCategoriaProducto
-                 
-                   WHERE Id=@Id";
+                             NombreProducto = @NombreProducto, 
+                            Precio = @Precio, 
+                            Stock = @Stock, 
+                            Estado = @Estado, 
+                            IdCategoriaProducto = @IdCategoriaProducto
+                          WHERE Id = @Id";
 
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
@@ -89,11 +88,9 @@ namespace Proyecto_POSFerreteria.Datos
                     cmd.Parameters.AddWithValue("@Precio", p.Precio);
                     cmd.Parameters.AddWithValue("@Stock", p.Stock);
                     cmd.Parameters.AddWithValue("@Estado", p.Estado);
-                    cmd.Parameters.AddWithValue("@IdCategoria", p.IdCategoriaProducto);
+                    cmd.Parameters.AddWithValue("@IdCategoriaProducto", p.IdCategoriaProducto);
 
                     con.Open();
-
-                    // ExecuteNonQuery devuelve número de filas afectadas
                     return cmd.ExecuteNonQuery() > 0;
                 }
             }
@@ -104,12 +101,12 @@ namespace Proyecto_POSFerreteria.Datos
             using (SqlConnection con = new SqlConnection(Conexion.Cadena))
             {
                 string sql = "DELETE FROM Producto WHERE Id=@Id";
+
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
                     cmd.Parameters.AddWithValue("@Id", Id);
                     con.Open();
-                    return cmd.ExecuteNonQuery() > 0;
-                    //Elimina y devuleve true si se elimino almenos una fila
+                    return cmd.ExecuteNonQuery() > 0;  
                 }
             }
         }
@@ -126,7 +123,9 @@ namespace Proyecto_POSFerreteria.Datos
                      p.Stock,
                      p.Estado
               FROM Producto p
-              INNER JOIN CategoriaProducto c ON p.IdCategoriaProducto = c.Id";
+              INNER JOIN CategoriaProducto c ON p.IdCategoriaProducto = c.Id
+                WHERE p.NombreProducto LIKE @filtro OR c.NombreCategoria LIKE @filtro"";";
+
 
                 using (SqlCommand cmd = new SqlCommand(sql, cn))
                 {
@@ -157,23 +156,28 @@ namespace Proyecto_POSFerreteria.Datos
             }
         }
 
-        public bool ProductoTieneVentasAsociadas(int id)
+        public bool ProductoEstaEnUso(int id)
         {
             using (SqlConnection cn = new SqlConnection(Conexion.Cadena))
             {
-                string sql = @"SELECT COUNT(*) 
-                       FROM Venta
-                       WHERE Id_Producto = @idProducto";
+                string sql = @"SELECT COUNT(*)
+                       FROM DetalleVenta
+                       WHERE IdProducto = @IdProducto";
 
                 using (SqlCommand cmd = new SqlCommand(sql, cn))
                 {
-                    cmd.Parameters.AddWithValue("@idProducto", id);
+                    cmd.Parameters.AddWithValue("@IdProducto", id);
 
                     cn.Open();
-                    return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    return count > 0; // Si hay registros → está en uso
                 }
             }
         }
+
+
+
 
         public bool ExisteNombreProductoEnOtro(string nombre, int id)
         {
