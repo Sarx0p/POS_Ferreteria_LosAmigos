@@ -75,14 +75,14 @@ namespace Proyecto_POSFerreteria.Negocio
 
         // ELIMINAR
 
-        public bool Eliminar(int id)
+        public bool Eliminar(int Id)
         {
             // Validación de FK ANTES de intentar eliminar
-            if (dal.TieneProductosAsociados(id))
+            if (dal.TieneProductosAsociados(Id))
                 throw new Exception("No se puede eliminar esta categoría porque tiene productos asociados.");
 
             // Si no tiene dependencias, eliminar
-            return dal.Eliminar(id);
+            return dal.Eliminar(Id);
 
         }
 

@@ -81,11 +81,11 @@ namespace Proyecto_POSFerreteria.Datos
 
 
 
-        public bool Eliminar(int Id)
+         public bool Eliminar(int Id)
         {
             using (SqlConnection cn = new SqlConnection(Conexion.Cadena))
             {
-                string sql = "DELETE FROM Producto WHERE Id=@id";
+                string sql = "DELETE FROM CategoriaProducto WHERE Id=@id";
 
                 using (SqlCommand cmd = new SqlCommand(sql, cn))
                 {
@@ -165,22 +165,23 @@ namespace Proyecto_POSFerreteria.Datos
 
 
 
-        public bool TieneProductosAsociados(int Id_CategoriaProducto)
+        public bool TieneProductosAsociados(int idCategoriaProducto)
         {
             using (SqlConnection cn = new SqlConnection(Conexion.Cadena))
             {
                 string sql = @"SELECT COUNT(*) 
-                               FROM Producto 
-                               WHERE Id_CategoriaProducto = @id_CategoriaProducto";
+                       FROM Producto 
+                       WHERE IdCategoriaProducto = @idCategoriaProducto";
 
                 using (SqlCommand cmd = new SqlCommand(sql, cn))
                 {
-                    cmd.Parameters.AddWithValue("@id_CategoriaProducto", Id_CategoriaProducto);
+                    cmd.Parameters.AddWithValue("@idCategoriaProducto", idCategoriaProducto);
 
                     cn.Open();
                     return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
                 }
             }
         }
+
     }
 }

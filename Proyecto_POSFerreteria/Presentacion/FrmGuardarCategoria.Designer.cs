@@ -35,11 +35,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblTitulo = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.panel2.SuspendLayout();
+            this.lblTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,19 +99,19 @@
             this.txtDescripcion.Size = new System.Drawing.Size(260, 20);
             this.txtDescripcion.TabIndex = 58;
             // 
-            // panel2
+            // lblTitulo
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(165)))), ((int)(((byte)(190)))));
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel2.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(535, 36);
-            this.panel2.TabIndex = 61;
+            this.lblTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(165)))), ((int)(((byte)(190)))));
+            this.lblTitulo.Controls.Add(this.pictureBox2);
+            this.lblTitulo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblTitulo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTitulo.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.lblTitulo.Location = new System.Drawing.Point(0, 0);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(535, 36);
+            this.lblTitulo.TabIndex = 61;
             // 
             // pictureBox2
             // 
@@ -154,6 +154,7 @@
             this.btnGuardar.TabIndex = 79;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // FrmGuardarCategoria
             // 
@@ -164,7 +165,7 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label4);
@@ -175,7 +176,8 @@
             this.Name = "FrmGuardarCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmGuardarCategoria";
-            this.panel2.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.FrmGuardarCategoria_Load);
+            this.lblTitulo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -189,7 +191,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel lblTitulo;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;

@@ -160,6 +160,7 @@
             this.txtBuscarCategoria.Name = "txtBuscarCategoria";
             this.txtBuscarCategoria.Size = new System.Drawing.Size(376, 29);
             this.txtBuscarCategoria.TabIndex = 48;
+            this.txtBuscarCategoria.TextChanged += new System.EventHandler(this.txtBuscarCategoria_TextChanged);
             // 
             // dgvCategorias
             // 
@@ -173,6 +174,7 @@
             this.dgvCategorias.RowHeadersWidth = 51;
             this.dgvCategorias.Size = new System.Drawing.Size(526, 240);
             this.dgvCategorias.TabIndex = 44;
+            this.dgvCategorias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategorias_CellClick);
             // 
             // label7
             // 
@@ -389,6 +391,7 @@
             this.btnAgregarCategoria.Text = "AGREGAR CATEGORIA";
             this.btnAgregarCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarCategoria.UseVisualStyleBackColor = false;
+            this.btnAgregarCategoria.Click += new System.EventHandler(this.btnAgregarCategoria_Click_1);
             // 
             // btnModificar
             // 
@@ -405,6 +408,7 @@
             this.btnModificar.Text = "MODIFICAR CATEGORIA";
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click_1);
             // 
             // btnElimiarCategoria
             // 
@@ -421,6 +425,7 @@
             this.btnElimiarCategoria.Text = "ELIMINAR CATEGORIA";
             this.btnElimiarCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnElimiarCategoria.UseVisualStyleBackColor = false;
+            this.btnElimiarCategoria.Click += new System.EventHandler(this.btnElimiarCategoria_Click_1);
             // 
             // panel1
             // 
