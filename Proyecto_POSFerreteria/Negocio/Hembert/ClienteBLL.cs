@@ -1,4 +1,5 @@
 ﻿using Proyecto_POSFerreteria.Datos;
+using Proyecto_POSFerreteria.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,8 +14,27 @@ namespace Proyecto_POSFerreteria.Negocio.Hembert
         ClienteDAL dal = new ClienteDAL();
 
         public DataTable Listar()
-        { 
-        return dal.Listar();
+        {
+            return dal.Listar();
+        }
+    
+
+    public int Guardar(Cliente c)
+        {
+            if (string.IsNullOrWhiteSpace(c.NombreCompleto))
+            {
+                throw new Exception("El Nombre del Cliente es Obligatorio.");
+            }
+
+            if (c.Id == 0)
+            {
+                return dal.Insertar(c);
+            }
+            else
+            {
+                 return c.Id;
+
+            }
         }
     }
 }

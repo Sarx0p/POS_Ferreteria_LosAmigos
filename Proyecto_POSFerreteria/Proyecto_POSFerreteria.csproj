@@ -53,7 +53,7 @@
     <Compile Include="Datos\CategoriaDAL.cs" />
     <Compile Include="Datos\Datos Hembert\ClienteDAL.cs" />
     <Compile Include="Datos\Conexion.cs" />
-    <Compile Include="Datos\ProductoDAL.cs" />
+    <Compile Include="Datos\Datos Hembert\VentaDAL.cs" />
     <Compile Include="Datos\UsuarioDAL.cs" />
     <Compile Include="Entidades\AutoEscala.cs" />
     <Compile Include="Entidades\Clases hembert\CategoriaProducto.cs" />
@@ -62,13 +62,14 @@
     <Compile Include="Entidades\Clases hembert\Devolucion.cs" />
     <Compile Include="Entidades\Clases hembert\Producto.cs" />
     <Compile Include="Entidades\Clases hembert\RegistroVenta.cs" />
+    <Compile Include="Entidades\Clases hembert\RespuestaOperacion.cs" />
     <Compile Include="Entidades\Clases hembert\TipoPago.cs" />
     <Compile Include="Entidades\Clases hembert\Venta.cs" />
     <Compile Include="Entidades\SesionActual.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Negocio\CategoriaProductoBLL.cs" />
     <Compile Include="Negocio\Hembert\ClienteBLL.cs" />
-    <Compile Include="Negocio\ProductoBLL.cs" />
+    <Compile Include="Negocio\Hembert\VentaBLL.cs" />
     <Compile Include="Negocio\UsuarioBLL.cs" />
     <Compile Include="Presentacion\FrmEditarCategoria.cs">
       <SubType>Form</SubType>
