@@ -115,7 +115,7 @@
             this.btnReportes.ForeColor = System.Drawing.Color.Black;
             this.btnReportes.Image = global::Proyecto_POSFerreteria.Properties.Resources.dinero;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(9, 175);
+            this.btnReportes.Location = new System.Drawing.Point(8, 175);
             this.btnReportes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(247, 58);
