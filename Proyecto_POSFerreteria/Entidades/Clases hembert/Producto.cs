@@ -12,7 +12,7 @@ namespace Proyecto_POSFerreteria.Entidades
         public string NombreProducto { get; set; }
         public decimal Precio { get; set; }
         public int Stock { get; set; }
-        public bool Activo { get; set; }
+        public bool Estado { get; set; }
         public int IdCategoriaProducto { get; set; }
     }
 }

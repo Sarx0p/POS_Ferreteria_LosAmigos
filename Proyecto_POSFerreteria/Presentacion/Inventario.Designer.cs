@@ -63,6 +63,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.Moficiar = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -404,6 +405,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.Moficiar);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.btnLimpiar);
             this.panel1.Controls.Add(this.btnEliminar);
@@ -461,7 +463,7 @@
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.btnGuardar.Image = global::Proyecto_POSFerreteria.Properties.Resources.diskette_689343;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(408, 432);
+            this.btnGuardar.Location = new System.Drawing.Point(408, 373);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(143, 38);
@@ -504,6 +506,24 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 51;
             this.pictureBox3.TabStop = false;
+            // 
+            // Moficiar
+            // 
+            this.Moficiar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Moficiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
+            this.Moficiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Moficiar.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Moficiar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.Moficiar.Image = global::Proyecto_POSFerreteria.Properties.Resources.diskette_689343;
+            this.Moficiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Moficiar.Location = new System.Drawing.Point(408, 421);
+            this.Moficiar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Moficiar.Name = "Moficiar";
+            this.Moficiar.Size = new System.Drawing.Size(143, 38);
+            this.Moficiar.TabIndex = 53;
+            this.Moficiar.Text = "GUARDAR";
+            this.Moficiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Moficiar.UseVisualStyleBackColor = false;
             // 
             // FrmInventario
             // 
@@ -572,5 +592,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button Moficiar;
     }
 }
