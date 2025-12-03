@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\CategoriaDAL.cs" />
     <Compile Include="Datos\Datos Hembert\ClienteDAL.cs" />
     <Compile Include="Datos\Conexion.cs" />
     <Compile Include="Datos\Datos Hembert\VentaDAL.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Entidades\Clases hembert\Venta.cs" />
     <Compile Include="Entidades\SesionActual.cs" />
     <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Negocio\CategoriaProductoBLL.cs" />
     <Compile Include="Negocio\Hembert\ClienteBLL.cs" />
     <Compile Include="Negocio\Hembert\VentaBLL.cs" />
     <Compile Include="Negocio\UsuarioBLL.cs" />
