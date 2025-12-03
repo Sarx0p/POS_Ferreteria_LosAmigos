@@ -54,6 +54,7 @@
     <Compile Include="Datos\Datos Hembert\ClienteDAL.cs" />
     <Compile Include="Datos\Conexion.cs" />
     <Compile Include="Datos\Datos Hembert\VentaDAL.cs" />
+    <Compile Include="Datos\ProductoDAL.cs" />
     <Compile Include="Datos\UsuarioDAL.cs" />
     <Compile Include="Entidades\AutoEscala.cs" />
     <Compile Include="Entidades\Clases hembert\CategoriaProducto.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Negocio\CategoriaProductoBLL.cs" />
     <Compile Include="Negocio\Hembert\ClienteBLL.cs" />
     <Compile Include="Negocio\Hembert\VentaBLL.cs" />
+    <Compile Include="Negocio\ProductoBLL.cs" />
     <Compile Include="Negocio\UsuarioBLL.cs" />
     <Compile Include="Presentacion\FrmEditarCategoria.cs">
       <SubType>Form</SubType>
@@ -88,6 +90,12 @@
     </Compile>
     <Compile Include="Presentacion\FrmFactura.Designer.cs">
       <DependentUpon>FrmFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FrmFactura1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmFactura1.Designer.cs">
+      <DependentUpon>FrmFactura1.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\FrmGuardarCategoria.cs">
       <SubType>Form</SubType>
@@ -156,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmFactura.resx">
       <DependentUpon>FrmFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmFactura1.resx">
+      <DependentUpon>FrmFactura1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmGuardarCategoria.resx">
       <DependentUpon>FrmGuardarCategoria.cs</DependentUpon>

@@ -63,8 +63,8 @@ namespace Proyecto_POSFerreteria.Negocio.Hembert
 
                 //Falta producto DAL para obtener stock
 
-                int stockActual = ProductoDAL.ObtenerStockProducto(detalle.IdProducto);
-                if (stockActual < detalle.Cantidad)
+              //  int stockActual = Producto.ObtenerStockProducto(detalle.IdProducto);
+              //  if (stockActual < detalle.Cantidad)
                 {
                     return new RespuestaOperacion
                     {
