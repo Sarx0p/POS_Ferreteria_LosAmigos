@@ -61,6 +61,8 @@ namespace Proyecto_POSFerreteria.Negocio.Hembert
                         Mensaje = "El subtotal de cada detalle debe ser igual a cantidad por precio unitario."
                     };
 
+                //Falta producto DAL para obtener stock
+
                 int stockActual = ProductoDAL.ObtenerStockProducto(detalle.IdProducto);
                 if (stockActual < detalle.Cantidad)
                 {

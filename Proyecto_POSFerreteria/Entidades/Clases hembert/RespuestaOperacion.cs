@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Proyecto_POSFerreteria.Entidades.Clases_hembert
 {
-    internal class RespuestaOperacion
+    public class RespuestaOperacion
     {
+        public bool Exito { get; set; }
+        public string Mensaje { get; set; }
     }
 }

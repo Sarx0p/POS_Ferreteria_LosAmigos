@@ -61,11 +61,13 @@
     <Compile Include="Entidades\Clases hembert\Devolucion.cs" />
     <Compile Include="Entidades\Clases hembert\Producto.cs" />
     <Compile Include="Entidades\Clases hembert\RegistroVenta.cs" />
+    <Compile Include="Entidades\Clases hembert\RespuestaOperacion.cs" />
     <Compile Include="Entidades\Clases hembert\TipoPago.cs" />
     <Compile Include="Entidades\Clases hembert\Venta.cs" />
     <Compile Include="Entidades\SesionActual.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Negocio\Hembert\ClienteBLL.cs" />
+    <Compile Include="Negocio\Hembert\VentaBLL.cs" />
     <Compile Include="Negocio\UsuarioBLL.cs" />
     <Compile Include="Presentacion\FrmEditarCategoria.cs">
       <SubType>Form</SubType>
