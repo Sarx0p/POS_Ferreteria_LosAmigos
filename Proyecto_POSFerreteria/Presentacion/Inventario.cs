@@ -27,7 +27,8 @@ namespace Proyecto_POSFerreteria.Presentacion
 
         }
 
-
+     
+        
 
         // PRODUCTOOS
 
@@ -272,20 +273,9 @@ namespace Proyecto_POSFerreteria.Presentacion
             };
         }
 
-        private void txtBuscarCategoria_TextChanged(object sender, EventArgs e)
-        {
-            dgvCategorias.DataSource = bllc.Buscar(txtBuscarCategoria.Text);
-        }
+       
 
-        private void dgvCategorias_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                CategoriaId = Convert.ToInt32(dgvCategorias.Rows[e.RowIndex].Cells["Id"].Value);
-            }
-        }
-
-        private void btnAgregarCategoria_Click(object sender, EventArgs e)
+        private void btnAgregarCategoria_Click_1(object sender, EventArgs e)
         {
             FrmGuardarCategoria frm = new FrmGuardarCategoria(); //Aca dará error hasta que construyamos el Formulario llamado  FrmCategoriaGestion
 
@@ -295,9 +285,10 @@ namespace Proyecto_POSFerreteria.Presentacion
 
             frm.ShowDialog();  // Abrir como modal
             CargarDatosc();     // Refrescar al cerrar
+            CargarCategorias();
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void btnModificar_Click_1(object sender, EventArgs e)
         {
             if (CategoriaId == 0)
             {
@@ -318,11 +309,12 @@ namespace Proyecto_POSFerreteria.Presentacion
 
             frm.ShowDialog();
             CargarDatosc();
+            CargarCategorias();
         }
 
-        private void btnElimiarCategoria_Click(object sender, EventArgs e)
+        private void btnElimiarCategoria_Click_1(object sender, EventArgs e)
         {
-            if (CategoriaId == 0)
+           if (CategoriaId == 0)
             {
                 MessageBox.Show("Seleccione una categoría",
                    "Información",
@@ -335,11 +327,32 @@ namespace Proyecto_POSFerreteria.Presentacion
             FrmEliminarCategoria frm = new FrmEliminarCategoria();
 
             frm.Id = CategoriaId;
-            frm.NombreCategoria = dgvCategorias.CurrentRow.Cells["Nombre"].Value.ToString();
+            frm.NombreCategoria= dgvCategorias.CurrentRow.Cells["NombreCategoria"].Value.ToString();
             frm.Descripcion = dgvCategorias.CurrentRow.Cells["Descripcion"].Value.ToString();
 
             frm.ShowDialog();
             CargarDatosc();
+            CargarCategorias();
+
+        }
+
+        private void txtBuscarCategoria_TextChanged(object sender, EventArgs e)
+        {
+            dgvCategorias.DataSource = bllc.Buscar(txtBuscarCategoria.Text);
+        }
+
+        private void dgvCategorias_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                CategoriaId = Convert.ToInt32(dgvCategorias.Rows[e.RowIndex].Cells["Id"].Value);
+            }
+
+        }
+
+        private void cbxCategoriaProducto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
 
         void CargarDatosc()

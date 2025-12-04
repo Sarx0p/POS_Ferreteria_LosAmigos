@@ -106,7 +106,7 @@ namespace Proyecto_POSFerreteria.Datos
                 {
                     cmd.Parameters.AddWithValue("@Id", Id);
                     con.Open();
-                    return cmd.ExecuteNonQuery() > 0;  
+                    return cmd.ExecuteNonQuery() > 0;
                 }
             }
         }
@@ -199,46 +199,6 @@ namespace Proyecto_POSFerreteria.Datos
         }
 
 
-        public static List<Producto> Listar()
-        {
-            List<Producto> lista = new List<Producto>();
-
-            using (SqlConnection con = new SqlConnection(Conexion.Cadena))
-            {
-                string sql = @"
-        SELECT 
-            p.Id,
-            p.NombreProducto,
-            p.Precio,
-            p.Stock,
-            p.Estado,
-            c.NombreCategoria AS Categoria
-        FROM Producto p
-        INNER JOIN CategoriaProducto c ON p.IdCategoriaProducto = c.Id";
-
-                using (SqlCommand cmd = new SqlCommand(sql, con))
-                {
-                    con.Open();
-                    using (SqlDataReader dr = cmd.ExecuteReader())
-                    {
-                        while (dr.Read())
-                        {
-                            lista.Add(new Producto
-                            {
-                                Id = Convert.ToInt32(dr["Id"]),
-                                NombreProducto = dr["NombreProducto"].ToString(),
-                                Precio = Convert.ToDecimal(dr["Precio"]),
-                                Stock = Convert.ToInt32(dr["Stock"]),
-                                Estado = Convert.ToBoolean(dr["Estado"]),
-                                IdCategoriaProducto = int.Parse(dr["IdCategoriaProducto"].ToString())
-                            });
-                        }
-                    }
-                }
-            }
-
-            return lista;
-        }
     }
 }
         
