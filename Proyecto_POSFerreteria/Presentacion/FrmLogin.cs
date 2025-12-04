@@ -116,7 +116,11 @@ namespace Proyecto_POSFerreteria
             }
         }
 
-        
+        private void btnOlvidar_Click(object sender, EventArgs e)
+        {
+            FrmOlvidoSuContraseñacs frm = new FrmOlvidoSuContraseñacs();
+            frm.Show();
+        }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {

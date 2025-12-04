@@ -89,15 +89,74 @@ namespace Proyecto_POSFerreteria.Presentacion
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            
-              
+
+            try
+            {
+                // Leer campos
+                string nombre = txtNombreApellido.Text?.Trim();
+                string dui = txtDui.Text?.Trim();
+                string correo = txtCorreo.Text?.Trim();
+
+                // Validaciones básicas
+                if (string.IsNullOrWhiteSpace(nombre) && string.IsNullOrWhiteSpace(dui) && string.IsNullOrWhiteSpace(correo))
+                {
+                    MessageBox.Show("Ingrese al menos uno de los datos: Nombre, DUI o Correo.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Preferimos correo (porque la BLL envía correo). Si no hay correo, usamos DUI.
+                string identificador = null;
+                if (!string.IsNullOrWhiteSpace(correo))
+                {
+                    identificador = correo;
+                }
+                else if (!string.IsNullOrWhiteSpace(dui))
+                {
+                    identificador = dui;
+                }
+                else
+                {
+                    // Si solo hay nombre (sin correo/dui), podemos mostrar instrucción:
+                    MessageBox.Show("Para recuperar la cuenta necesita proporcionar al menos el correo o el DUI asociado.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // Desactivar botón para evitar doble click
+                btnEnviar.Enabled = false;
+                Cursor = Cursors.WaitCursor;
+
+                // Llamada a la BLL (genera token y envía correo)
+                try
+                {
+                    // Esto usa UsuarioBLL.GenerarTokenPorIdentificador
+                    UsuarioBLL.GenerarTokenPorIdentificador(identificador);
+
+                    MessageBox.Show("Solicitud enviada. Si existe una cuenta con esos datos, recibirá un correo con el código de recuperación.", "Enviado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // opcional: limpiar formulario
+                    txtNombreApellido.Text = "";
+                    txtDui.Text = "";
+                    txtCorreo.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    // Mensajes claros para el usuario
+                    MessageBox.Show("No se pudo generar la solicitud: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    // Adicional: registrar en log (si tienes logger) o dejar trace
+                    // Logger.LogError(ex);
+                }
+            }
+            finally
+            {
+                // Restaurar UI
+                btnEnviar.Enabled = true;
+                Cursor = Cursors.Default;
+            }
         }
+        
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
+    
         private void panel2_MouseMove(object sender, MouseEventArgs e)
         {
             if (move)

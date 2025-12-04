@@ -69,7 +69,7 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "SOLICITUD DE DATOS DE ACCESO";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+           
             // 
             // txtCorreo
             // 
