@@ -26,6 +26,14 @@ namespace Proyecto_POSFerreteria.Utilidades
                 this.pass = pass;
                 this.from = from;
             }
+
+        // metodos para el correo
+        private static readonly string smtpHost = "smtp.gmail.com";
+        private static readonly int smtpPort = 587;
+        private static readonly string smtpUser = "ferreterialosamigossv@gmail.com";
+        private static readonly string smtpPass = "rhew obnv wcag lscb"; // clave APP
+        private static readonly string fromAddress = "ferreterialosamigossv@gmail.com";
+
         public void Send(string to, string subject, string body, bool isHtml = false)
         {
             var msg = new MailMessage();

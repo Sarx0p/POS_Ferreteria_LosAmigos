@@ -19,14 +19,17 @@ namespace Proyecto_POSFerreteria.Presentacion
         int x, y;
         bool move = false;
    
+        
+        
         public FrmOlvidoSuContraseñacs()
         {
             InitializeComponent();
+            
+
         }
 
         private void FrmOlvidoSuContraseñacs_Load(object sender, EventArgs e)
-        {
-           
+        { 
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -43,10 +46,6 @@ namespace Proyecto_POSFerreteria.Presentacion
         {
 
         }
-
-
-
-
 
 
 
@@ -92,71 +91,72 @@ namespace Proyecto_POSFerreteria.Presentacion
 
             try
             {
-                // Leer campos
-                string nombre = txtNombreApellido.Text?.Trim();
-                string dui = txtDui.Text?.Trim();
+                // Tomar los campos del form (ajusta nombres si tus controles se llaman diferente)
                 string correo = txtCorreo.Text?.Trim();
+                string dui = txtDui.Text?.Trim();
+                string nombre = txtNombreApellido.Text?.Trim();
+           
 
-                // Validaciones básicas
-                if (string.IsNullOrWhiteSpace(nombre) && string.IsNullOrWhiteSpace(dui) && string.IsNullOrWhiteSpace(correo))
-                {
-                    MessageBox.Show("Ingrese al menos uno de los datos: Nombre, DUI o Correo.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Preferimos correo (porque la BLL envía correo). Si no hay correo, usamos DUI.
+                // Elegir identificador: preferimos correo, sino DUI
                 string identificador = null;
-                if (!string.IsNullOrWhiteSpace(correo))
+                if (!string.IsNullOrWhiteSpace(correo)) identificador = correo;
+                else if (!string.IsNullOrWhiteSpace(dui)) identificador = dui;
+
+                if (string.IsNullOrWhiteSpace(identificador))
                 {
-                    identificador = correo;
-                }
-                else if (!string.IsNullOrWhiteSpace(dui))
-                {
-                    identificador = dui;
-                }
-                else
-                {
-                    // Si solo hay nombre (sin correo/dui), podemos mostrar instrucción:
-                    MessageBox.Show("Para recuperar la cuenta necesita proporcionar al menos el correo o el DUI asociado.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Ingrese su correo o su DUI para enviar el código.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
-                }
+                
+                UsuarioBLL.GenerarTokenPorIdentificador(identificador);
 
-                // Desactivar botón para evitar doble click
-                btnEnviar.Enabled = false;
-                Cursor = Cursors.WaitCursor;
+                MessageBox.Show("Código enviado correctamente. Revise su correo (o su solicitud se registró para revisión).", "Enviado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Llamada a la BLL (genera token y envía correo)
-                try
-                {
-                    // Esto usa UsuarioBLL.GenerarTokenPorIdentificador
-                    UsuarioBLL.GenerarTokenPorIdentificador(identificador);
-
-                    MessageBox.Show("Solicitud enviada. Si existe una cuenta con esos datos, recibirá un correo con el código de recuperación.", "Enviado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // opcional: limpiar formulario
-                    txtNombreApellido.Text = "";
-                    txtDui.Text = "";
-                    txtCorreo.Text = "";
-                }
-                catch (Exception ex)
-                {
-                    // Mensajes claros para el usuario
-                    MessageBox.Show("No se pudo generar la solicitud: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    // Adicional: registrar en log (si tienes logger) o dejar trace
-                    // Logger.LogError(ex);
-                }
+               
+                var frmVal = new FrmValidarToken(identificador); 
+                frmVal.StartPosition = FormStartPosition.CenterParent;
+                frmVal.ShowDialog();
             }
-            finally
+            }
+            catch (Exception ex)
             {
-                // Restaurar UI
-                btnEnviar.Enabled = true;
-                Cursor = Cursors.Default;
+                MessageBox.Show("No se pudo generar la solicitud: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+            try
+    {
+        // Tomar los campos del form 
+        string correo = txtCorreo.Text?.Trim();
+        string dui = txtDui.Text?.Trim();
+        string nombre = txtNombreApellido.Text?.Trim();
         
 
-    
+        
+        string identificador = null;
+        if (!string.IsNullOrWhiteSpace(correo)) identificador = correo;
+        else if (!string.IsNullOrWhiteSpace(dui)) identificador = dui;
+
+        if (string.IsNullOrWhiteSpace(identificador))
+        {
+            MessageBox.Show("Ingrese su correo o su DUI para enviar el código.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return;
+        }
+
+        // Lgenera token
+        UsuarioBLL.GenerarTokenPorIdentificador(identificador);
+
+        MessageBox.Show("Código enviado correctamente. Revise su correo (o su solicitud se registró para revisión).", "Enviado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        // Abre form
+        var frmVal = new FrmValidarToken(identificador); // requiere constructor que acepte string
+        frmVal.StartPosition = FormStartPosition.CenterParent;
+        frmVal.ShowDialog();
+    }
+    catch (Exception ex)
+    {
+                    MessageBox.Show("No se pudo generar la solicitud: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+
         private void panel2_MouseMove(object sender, MouseEventArgs e)
         {
             if (move)
@@ -166,4 +166,5 @@ namespace Proyecto_POSFerreteria.Presentacion
         }
 
     }
-}
+    }
+

@@ -34,22 +34,21 @@
             this.btnValidar = new System.Windows.Forms.Button();
             this.cbxTipoRecuperacion = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbxOpcion = new System.Windows.Forms.ComboBox();
-            this.panelCambiar = new System.Windows.Forms.Panel();
-            this.txtNueva = new System.Windows.Forms.TextBox();
-            this.txtConfirm = new System.Windows.Forms.TextBox();
-            this.btnCambiar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.groupCambio = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnCambiar = new System.Windows.Forms.Button();
+            this.txtConfirm = new System.Windows.Forms.TextBox();
+            this.txtNueva = new System.Windows.Forms.TextBox();
             this.txtIdentificador = new System.Windows.Forms.TextBox();
-            this.panelCambiar.SuspendLayout();
+            this.lblUsuarioMostrado = new System.Windows.Forms.Label();
+            this.groupCambio.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(208, 23);
+            this.lblEstado.Location = new System.Drawing.Point(204, 21);
             this.lblEstado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(151, 27);
@@ -58,7 +57,7 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(307, 86);
+            this.txtCodigo.Location = new System.Drawing.Point(269, 138);
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(202, 34);
@@ -97,59 +96,45 @@
             this.cbxTipoRecuperacion.Name = "cbxTipoRecuperacion";
             this.cbxTipoRecuperacion.Size = new System.Drawing.Size(0, 35);
             this.cbxTipoRecuperacion.TabIndex = 15;
-            this.cbxTipoRecuperacion.SelectedIndexChanged += new System.EventHandler(this.cbxTipoRecuperacion_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(182, 86);
+            this.label2.Location = new System.Drawing.Point(147, 141);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 27);
             this.label2.TabIndex = 16;
             this.label2.Text = "Codigo";
             // 
-            // label3
+            // groupCambio
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(77, 144);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(228, 27);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Opcion de recuperacion";
+            this.groupCambio.Controls.Add(this.label4);
+            this.groupCambio.Controls.Add(this.label1);
+            this.groupCambio.Controls.Add(this.btnCambiar);
+            this.groupCambio.Controls.Add(this.txtConfirm);
+            this.groupCambio.Controls.Add(this.txtNueva);
+            this.groupCambio.Location = new System.Drawing.Point(59, 238);
+            this.groupCambio.Name = "groupCambio";
+            this.groupCambio.Size = new System.Drawing.Size(431, 185);
+            this.groupCambio.TabIndex = 20;
             // 
-            // cbxOpcion
+            // label4
             // 
-            this.cbxOpcion.FormattingEnabled = true;
-            this.cbxOpcion.Location = new System.Drawing.Point(322, 144);
-            this.cbxOpcion.Name = "cbxOpcion";
-            this.cbxOpcion.Size = new System.Drawing.Size(187, 35);
-            this.cbxOpcion.TabIndex = 19;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 79);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(213, 27);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Confirmar Contrasena";
             // 
-            // panelCambiar
+            // label1
             // 
-            this.panelCambiar.Controls.Add(this.label4);
-            this.panelCambiar.Controls.Add(this.label1);
-            this.panelCambiar.Controls.Add(this.btnCambiar);
-            this.panelCambiar.Controls.Add(this.txtConfirm);
-            this.panelCambiar.Controls.Add(this.txtNueva);
-            this.panelCambiar.Location = new System.Drawing.Point(59, 238);
-            this.panelCambiar.Name = "panelCambiar";
-            this.panelCambiar.Size = new System.Drawing.Size(431, 185);
-            this.panelCambiar.TabIndex = 20;
-            // 
-            // txtNueva
-            // 
-            this.txtNueva.Location = new System.Drawing.Point(229, 23);
-            this.txtNueva.Name = "txtNueva";
-            this.txtNueva.Size = new System.Drawing.Size(155, 34);
-            this.txtNueva.TabIndex = 0;
-            // 
-            // txtConfirm
-            // 
-            this.txtConfirm.Location = new System.Drawing.Point(229, 76);
-            this.txtConfirm.Name = "txtConfirm";
-            this.txtConfirm.Size = new System.Drawing.Size(155, 34);
-            this.txtConfirm.TabIndex = 1;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(30, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(179, 27);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Nueva Contrasena";
             // 
             // btnCambiar
             // 
@@ -161,41 +146,44 @@
             this.btnCambiar.UseVisualStyleBackColor = true;
             this.btnCambiar.Click += new System.EventHandler(this.btnCambiar_Click);
             // 
-            // label1
+            // txtConfirm
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 27);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Nueva Contrasena";
+            this.txtConfirm.Location = new System.Drawing.Point(229, 76);
+            this.txtConfirm.Name = "txtConfirm";
+            this.txtConfirm.Size = new System.Drawing.Size(155, 34);
+            this.txtConfirm.TabIndex = 1;
             // 
-            // label4
+            // txtNueva
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 79);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(213, 27);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "Confirmar Contrasena";
+            this.txtNueva.Location = new System.Drawing.Point(229, 23);
+            this.txtNueva.Name = "txtNueva";
+            this.txtNueva.Size = new System.Drawing.Size(155, 34);
+            this.txtNueva.TabIndex = 0;
             // 
             // txtIdentificador
             // 
-            this.txtIdentificador.Location = new System.Drawing.Point(12, 20);
+            this.txtIdentificador.Location = new System.Drawing.Point(30, 21);
             this.txtIdentificador.Name = "txtIdentificador";
             this.txtIdentificador.ReadOnly = true;
-            this.txtIdentificador.Size = new System.Drawing.Size(148, 34);
+            this.txtIdentificador.Size = new System.Drawing.Size(129, 34);
             this.txtIdentificador.TabIndex = 21;
+            // 
+            // lblUsuarioMostrado
+            // 
+            this.lblUsuarioMostrado.AutoSize = true;
+            this.lblUsuarioMostrado.Location = new System.Drawing.Point(247, 75);
+            this.lblUsuarioMostrado.Name = "lblUsuarioMostrado";
+            this.lblUsuarioMostrado.Size = new System.Drawing.Size(0, 27);
+            this.lblUsuarioMostrado.TabIndex = 22;
             // 
             // FrmValidarToken
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(548, 435);
+            this.Controls.Add(this.lblUsuarioMostrado);
             this.Controls.Add(this.txtIdentificador);
-            this.Controls.Add(this.panelCambiar);
-            this.Controls.Add(this.cbxOpcion);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.groupCambio);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbxTipoRecuperacion);
             this.Controls.Add(this.btnValidar);
@@ -206,8 +194,8 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmValidarToken";
             this.Load += new System.EventHandler(this.FrmValidarToken_Load);
-            this.panelCambiar.ResumeLayout(false);
-            this.panelCambiar.PerformLayout();
+            this.groupCambio.ResumeLayout(false);
+            this.groupCambio.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,14 +209,13 @@
         private System.Windows.Forms.Button btnValidar;
         private System.Windows.Forms.ComboBox cbxTipoRecuperacion;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbxOpcion;
-        private System.Windows.Forms.Panel panelCambiar;
+        private System.Windows.Forms.Panel groupCambio;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCambiar;
         private System.Windows.Forms.TextBox txtConfirm;
         private System.Windows.Forms.TextBox txtNueva;
         private System.Windows.Forms.TextBox txtIdentificador;
+        private System.Windows.Forms.Label lblUsuarioMostrado;
     }
 }

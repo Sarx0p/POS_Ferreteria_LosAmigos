@@ -56,7 +56,7 @@ namespace Proyecto_POSFerreteria.Presentacion
                     da.Fill(dt);
                     dgvSolicitudes.DataSource = dt;
 
-                    // Opcional: ocultar Id si no quieres que lo vean
+                    //  ocultar Id 
                     if (dgvSolicitudes.Columns["Id"] != null) dgvSolicitudes.Columns["Id"].Visible = false;
                     dgvSolicitudes.AutoResizeColumns();
                 }
