@@ -27,7 +27,8 @@ namespace Proyecto_POSFerreteria.Presentacion
 
         }
 
-
+     
+        
 
         // PRODUCTOOS
 
@@ -284,6 +285,7 @@ namespace Proyecto_POSFerreteria.Presentacion
 
             frm.ShowDialog();  // Abrir como modal
             CargarDatosc();     // Refrescar al cerrar
+            CargarCategorias();
         }
 
         private void btnModificar_Click_1(object sender, EventArgs e)
@@ -307,6 +309,7 @@ namespace Proyecto_POSFerreteria.Presentacion
 
             frm.ShowDialog();
             CargarDatosc();
+            CargarCategorias();
         }
 
         private void btnElimiarCategoria_Click_1(object sender, EventArgs e)
@@ -329,6 +332,7 @@ namespace Proyecto_POSFerreteria.Presentacion
 
             frm.ShowDialog();
             CargarDatosc();
+            CargarCategorias();
 
         }
 
@@ -344,6 +348,11 @@ namespace Proyecto_POSFerreteria.Presentacion
                 CategoriaId = Convert.ToInt32(dgvCategorias.Rows[e.RowIndex].Cells["Id"].Value);
             }
 
+        }
+
+        private void cbxCategoriaProducto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
 
         void CargarDatosc()
