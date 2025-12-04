@@ -31,48 +31,7 @@ namespace Proyecto_POSFerreteria
         {
 
         }
-        private void btnIniciodeSesion_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                UsuarioBLL bll = new UsuarioBLL();
-
-                Usuario u = bll.Login(txtUsuario.Text, txtClave.Text);
-
-                // Verificar si el usuario existe
-                if (u != null)
-                {
-                    // Guardar datos globales
-                    SesionActual.NombreUsuario = u.Nombre;
-                    SesionActual.Rol = u.Rol;
-                    SesionActual.IdUsuario = u.IdUsuario;
-
-                    // Entrar al menú
-                    FrmMenuPrincipal frm = new FrmMenuPrincipal();
-                    frm.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("Usuario o Clave incorrectos.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocurrió un error: " + ex.Message);
-            }
-        }
-
-        
-
-
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-      
+       
 
 
 
@@ -127,16 +86,37 @@ namespace Proyecto_POSFerreteria
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void btnOlvidar_Click(object sender, EventArgs e)
+        private void btnIniciodeSesion_Click(object sender, EventArgs e)
         {
-            FrmOlvidoSuContraseñacs frm = new FrmOlvidoSuContraseñacs();
-            frm.ShowDialog();
+           try
+            {
+                string user = txtUsuario.Text.Trim();
+                string pass = txtClave.Text; // texto plano que el usuario escribió
+
+                var u = UsuarioBLL.Login(user, pass);
+                if (u == null)
+                {
+                    MessageBox.Show("Usuario o contraseña incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // login OK: guarda sesión, abre form principal
+                // ejemplo:
+                SesionActual.IdUsuario = u.IdUsuario;
+                SesionActual.Username = u.Username;
+                SesionActual.Rol = u.Rol;
+
+                var frm = new FrmMenuPrincipal();
+                frm.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en login: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void txtClave_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {

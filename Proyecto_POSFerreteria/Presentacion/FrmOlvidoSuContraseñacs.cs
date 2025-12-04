@@ -89,32 +89,8 @@ namespace Proyecto_POSFerreteria.Presentacion
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // tomar correo si existe, sino DUI
-                string identificador = txtCorreo.Text.Trim();
-                if (string.IsNullOrWhiteSpace(identificador)) identificador = txtDui.Text.Trim();
-
-                if (string.IsNullOrWhiteSpace(identificador))
-                {
-                    MessageBox.Show("Ingrese su correo o DUI.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                var bll = new Proyecto_POSFerreteria.Negocio.UsuarioBLL();
-                bll.GenerarTokenPorIdentificador(identificador);
-
-                MessageBox.Show("Si su cuenta existe y tiene correo registrado, recibirá un código. Revise bandeja y spam.", "Enviado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // abrir formulario de validación (prefill)
-                var frm = new FrmValidarToken();
-                frm.PrefillIdentificador = identificador;
-                frm.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
+              
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
