@@ -54,7 +54,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 17);
+            this.label1.Size = new System.Drawing.Size(0, 20);
             this.label1.TabIndex = 1;
             // 
             // panel1
@@ -115,7 +115,6 @@
             this.button3.TabIndex = 20;
             this.button3.Text = "\r\n";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // pictureBox2
             // 
@@ -127,7 +126,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             this.pictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseDown);
             this.pictureBox2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseMove);
             this.pictureBox2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseUp);
@@ -166,7 +164,6 @@
             this.btnOlvidar.TabIndex = 18;
             this.btnOlvidar.Text = "¿OLVIDO SU CLAVE O USUARIO?\r\n";
             this.btnOlvidar.UseVisualStyleBackColor = false;
-            this.btnOlvidar.Click += new System.EventHandler(this.btnOlvidar_Click);
             // 
             // pictureBox1
             // 
@@ -192,14 +189,14 @@
             this.btnIniciodeSesion.TabIndex = 16;
             this.btnIniciodeSesion.Text = "INICIAR SESION";
             this.btnIniciodeSesion.UseVisualStyleBackColor = false;
-            this.btnIniciodeSesion.Click += new System.EventHandler(this.btnIniciodeSesion_Click_1);
+            this.btnIniciodeSesion.Click += new System.EventHandler(this.btnIniciodeSesion_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(166, 279);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 17);
+            this.label5.Size = new System.Drawing.Size(0, 20);
             this.label5.TabIndex = 15;
             // 
             // txtClave
@@ -207,10 +204,9 @@
             this.txtClave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
             this.txtClave.Location = new System.Drawing.Point(109, 261);
             this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(193, 24);
+            this.txtClave.Size = new System.Drawing.Size(193, 28);
             this.txtClave.TabIndex = 14;
             this.txtClave.UseSystemPasswordChar = true;
-            this.txtClave.TextChanged += new System.EventHandler(this.txtClave_TextChanged);
             // 
             // txtUsuario
             // 
@@ -218,7 +214,7 @@
             this.txtUsuario.ForeColor = System.Drawing.Color.Black;
             this.txtUsuario.Location = new System.Drawing.Point(109, 168);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(193, 24);
+            this.txtUsuario.Size = new System.Drawing.Size(193, 28);
             this.txtUsuario.TabIndex = 13;
             // 
             // label3
@@ -228,7 +224,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.label3.Location = new System.Drawing.Point(148, 127);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 26);
+            this.label3.Size = new System.Drawing.Size(138, 31);
             this.label3.TabIndex = 11;
             this.label3.Text = "USUARIO :";
             // 
@@ -239,13 +235,13 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.label4.Location = new System.Drawing.Point(116, 216);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(165, 26);
+            this.label4.Size = new System.Drawing.Size(195, 31);
             this.label4.TabIndex = 12;
             this.label4.Text = "CONTRASEÑA :";
             // 
             // FrmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(227)))), ((int)(((byte)(202)))));
             this.ClientSize = new System.Drawing.Size(480, 530);

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace Proyecto_POSFerreteria.Negocio
 {
    
-        public static class UsuarioBLL
+        public class UsuarioBLL
         {
             // Instancia única del DAL (corta, limpia)
             private static readonly UsuarioDAL dal = new UsuarioDAL();
@@ -178,8 +178,8 @@ namespace Proyecto_POSFerreteria.Negocio
             {
                 byte[] blob = dal.ObtenerContrasenaCifrada(idUsuario);
                 if (blob != null) contrasenaDesencriptada = CryptoDPAPI.DesencriptarContrasena(blob);
-                else if (user.Table.Columns.Contains("Clave") && user["Clave"] != DBNull.Value)
-                    contrasenaDesencriptada = user["Clave"].ToString();
+                else if (user.Table.Columns.Contains("ContrasenaCifrada") && user["ContrasenaCifrada"] != DBNull.Value)
+                    contrasenaDesencriptada = user["ContrasenaCifrada"].ToString();
             }
 
             // reglas para permitir cambio

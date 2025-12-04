@@ -271,8 +271,6 @@
             this.btnActualizar.Text = "ACTUALIZAR";
             this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnActualizar.UseVisualStyleBackColor = false;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
@@ -289,7 +287,7 @@
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+           
             // 
             // btnGuardar
             // 
@@ -307,7 +305,7 @@
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+           
             // 
             // dgvUsuarios
             // 
@@ -320,7 +318,7 @@
             this.dgvUsuarios.RowHeadersWidth = 51;
             this.dgvUsuarios.Size = new System.Drawing.Size(660, 218);
             this.dgvUsuarios.TabIndex = 1;
-            this.dgvUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellClick);
+            
             // 
             // textBox1
             // 
@@ -367,7 +365,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(443, 27);
             this.txtBuscar.TabIndex = 16;
-            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            
             // 
             // label7
             // 
@@ -530,7 +528,7 @@
             this.btnRefrescar.Text = "REFRESCAR";
             this.btnRefrescar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRefrescar.UseVisualStyleBackColor = false;
-            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
+            
             // 
             // FrmUsuarios
             // 

@@ -16,12 +16,12 @@ using System.Threading.Tasks;
         // <-- campo a nivel de clase (NO dentro de un método)
         private static readonly string cnStr = Conexion.Cadena;
 
-        // LOGIN (usa la versión que querías: recibe username y clavePlain o hash)
+        // LOGIN 
         public Usuario Login(string username, string claveIngresada)
         {
             using (var cn = new SqlConnection(cnStr))
             {
-                string sql = @"SELECT Id, Nombre, Username, Rol, ContrasenaCifrada, Clave
+                string sql = @"SELECT Id, Nombre, Username, Rol, ContrasenaCifrada
                                FROM Usuario
                                WHERE Username = @Username";
 
@@ -74,11 +74,11 @@ using System.Threading.Tasks;
 
                         // Fallback: comparar con la columna Clave (texto)
                         int idxClave = -1;
-                        try { idxClave = dr.GetOrdinal("Clave"); } catch { idxClave = -1; }
+                        try { idxClave = dr.GetOrdinal("ContrasenaCifrada"); } catch { idxClave = -1; }
 
                         if (idxClave >= 0 && !dr.IsDBNull(idxClave))
                         {
-                            string claveBD = dr["Clave"]?.ToString();
+                            string claveBD = dr["ContrasenaCifrada"]?.ToString();
                             if (!string.IsNullOrEmpty(claveBD) && claveBD == claveIngresada)
                             {
                                 return new Usuario
