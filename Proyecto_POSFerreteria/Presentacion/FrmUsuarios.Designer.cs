@@ -50,7 +50,7 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dgvSolicitud = new System.Windows.Forms.DataGridView();
+            this.dgvSolicitudes = new System.Windows.Forms.DataGridView();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -65,9 +65,10 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnRefrescar = new System.Windows.Forms.Button();
+            this.btnMarcarAtendida = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSolicitud)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSolicitudes)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -271,6 +272,8 @@
             this.btnActualizar.Text = "ACTUALIZAR";
             this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
@@ -287,7 +290,7 @@
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.UseVisualStyleBackColor = false;
-           
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnGuardar
             // 
@@ -305,7 +308,7 @@
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = false;
-           
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // dgvUsuarios
             // 
@@ -318,7 +321,7 @@
             this.dgvUsuarios.RowHeadersWidth = 51;
             this.dgvUsuarios.Size = new System.Drawing.Size(660, 218);
             this.dgvUsuarios.TabIndex = 1;
-            
+            this.dgvUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellClick);
             // 
             // textBox1
             // 
@@ -332,17 +335,17 @@
             this.textBox1.TabIndex = 13;
             this.textBox1.Text = "USUARIOS";
             // 
-            // dgvSolicitud
+            // dgvSolicitudes
             // 
-            this.dgvSolicitud.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
-            this.dgvSolicitud.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvSolicitud.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSolicitud.Location = new System.Drawing.Point(26, 64);
-            this.dgvSolicitud.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dgvSolicitud.Name = "dgvSolicitud";
-            this.dgvSolicitud.RowHeadersWidth = 51;
-            this.dgvSolicitud.Size = new System.Drawing.Size(301, 282);
-            this.dgvSolicitud.TabIndex = 14;
+            this.dgvSolicitudes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
+            this.dgvSolicitudes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvSolicitudes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSolicitudes.Location = new System.Drawing.Point(26, 64);
+            this.dgvSolicitudes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvSolicitudes.Name = "dgvSolicitudes";
+            this.dgvSolicitudes.RowHeadersWidth = 51;
+            this.dgvSolicitudes.Size = new System.Drawing.Size(301, 282);
+            this.dgvSolicitudes.TabIndex = 14;
             // 
             // textBox2
             // 
@@ -365,7 +368,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(443, 27);
             this.txtBuscar.TabIndex = 16;
-            
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // label7
             // 
@@ -403,9 +406,10 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnMarcarAtendida);
             this.groupBox3.Controls.Add(this.btnEliminarP);
             this.groupBox3.Controls.Add(this.btnCompletada);
-            this.groupBox3.Controls.Add(this.dgvSolicitud);
+            this.groupBox3.Controls.Add(this.dgvSolicitudes);
             this.groupBox3.Controls.Add(this.textBox2);
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox3.Location = new System.Drawing.Point(704, 55);
@@ -430,6 +434,7 @@
             this.btnEliminarP.Text = "ELMINAR PETICION";
             this.btnEliminarP.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminarP.UseVisualStyleBackColor = false;
+            this.btnEliminarP.Click += new System.EventHandler(this.btnEliminarP_Click);
             // 
             // btnCompletada
             // 
@@ -528,7 +533,25 @@
             this.btnRefrescar.Text = "REFRESCAR";
             this.btnRefrescar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRefrescar.UseVisualStyleBackColor = false;
-            
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
+            // 
+            // btnMarcarAtendida
+            // 
+            this.btnMarcarAtendida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
+            this.btnMarcarAtendida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMarcarAtendida.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMarcarAtendida.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.btnMarcarAtendida.Image = global::Proyecto_POSFerreteria.Properties.Resources.trash_16754002;
+            this.btnMarcarAtendida.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMarcarAtendida.Location = new System.Drawing.Point(63, 493);
+            this.btnMarcarAtendida.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnMarcarAtendida.Name = "btnMarcarAtendida";
+            this.btnMarcarAtendida.Size = new System.Drawing.Size(242, 38);
+            this.btnMarcarAtendida.TabIndex = 25;
+            this.btnMarcarAtendida.Text = "ATENDIDA";
+            this.btnMarcarAtendida.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMarcarAtendida.UseVisualStyleBackColor = false;
+            this.btnMarcarAtendida.Click += new System.EventHandler(this.btnMarcarAtendida_Click);
             // 
             // FrmUsuarios
             // 
@@ -557,7 +580,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSolicitud)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSolicitudes)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -585,7 +608,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dgvSolicitud;
+        private System.Windows.Forms.DataGridView dgvSolicitudes;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.TextBox txtCorreo;
@@ -608,5 +631,6 @@
         private System.Windows.Forms.TextBox txtDui;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnRefrescar;
+        private System.Windows.Forms.Button btnMarcarAtendida;
     }
 }

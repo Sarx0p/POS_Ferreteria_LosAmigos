@@ -164,6 +164,7 @@
             this.btnOlvidar.TabIndex = 18;
             this.btnOlvidar.Text = "¿OLVIDO SU CLAVE O USUARIO?\r\n";
             this.btnOlvidar.UseVisualStyleBackColor = false;
+            this.btnOlvidar.Click += new System.EventHandler(this.btnOlvidar_Click);
             // 
             // pictureBox1
             // 

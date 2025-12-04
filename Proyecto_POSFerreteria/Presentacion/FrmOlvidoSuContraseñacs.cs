@@ -19,14 +19,17 @@ namespace Proyecto_POSFerreteria.Presentacion
         int x, y;
         bool move = false;
    
+        
+        
         public FrmOlvidoSuContraseñacs()
         {
             InitializeComponent();
+            
+
         }
 
         private void FrmOlvidoSuContraseñacs_Load(object sender, EventArgs e)
-        {
-           
+        { 
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -43,10 +46,6 @@ namespace Proyecto_POSFerreteria.Presentacion
         {
 
         }
-
-
-
-
 
 
 
@@ -89,14 +88,74 @@ namespace Proyecto_POSFerreteria.Presentacion
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            
-              
-        }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+            try
+            {
+                // Tomar los campos del form (ajusta nombres si tus controles se llaman diferente)
+                string correo = txtCorreo.Text?.Trim();
+                string dui = txtDui.Text?.Trim();
+                string nombre = txtNombreApellido.Text?.Trim();
+           
+
+                // Elegir identificador: preferimos correo, sino DUI
+                string identificador = null;
+                if (!string.IsNullOrWhiteSpace(correo)) identificador = correo;
+                else if (!string.IsNullOrWhiteSpace(dui)) identificador = dui;
+
+                if (string.IsNullOrWhiteSpace(identificador))
+                {
+                    MessageBox.Show("Ingrese su correo o su DUI para enviar el código.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                
+                UsuarioBLL.GenerarTokenPorIdentificador(identificador);
+
+                MessageBox.Show("Código enviado correctamente. Revise su correo (o su solicitud se registró para revisión).", "Enviado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+               
+                var frmVal = new FrmValidarToken(identificador); 
+                frmVal.StartPosition = FormStartPosition.CenterParent;
+                frmVal.ShowDialog();
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo generar la solicitud: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            try
+    {
+        // Tomar los campos del form 
+        string correo = txtCorreo.Text?.Trim();
+        string dui = txtDui.Text?.Trim();
+        string nombre = txtNombreApellido.Text?.Trim();
+        
+
+        
+        string identificador = null;
+        if (!string.IsNullOrWhiteSpace(correo)) identificador = correo;
+        else if (!string.IsNullOrWhiteSpace(dui)) identificador = dui;
+
+        if (string.IsNullOrWhiteSpace(identificador))
         {
-
+            MessageBox.Show("Ingrese su correo o su DUI para enviar el código.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return;
         }
+
+        // Lgenera token
+        UsuarioBLL.GenerarTokenPorIdentificador(identificador);
+
+        MessageBox.Show("Código enviado correctamente. Revise su correo (o su solicitud se registró para revisión).", "Enviado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        // Abre form
+        var frmVal = new FrmValidarToken(identificador); // requiere constructor que acepte string
+        frmVal.StartPosition = FormStartPosition.CenterParent;
+        frmVal.ShowDialog();
+    }
+    catch (Exception ex)
+    {
+                    MessageBox.Show("No se pudo generar la solicitud: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
 
         private void panel2_MouseMove(object sender, MouseEventArgs e)
         {
@@ -107,4 +166,5 @@ namespace Proyecto_POSFerreteria.Presentacion
         }
 
     }
-}
+    }
+
