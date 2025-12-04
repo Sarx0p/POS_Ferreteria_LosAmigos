@@ -104,7 +104,6 @@
   <ItemGroup>
     <Compile Include="Datos\Datos Hembert\ClienteDAL.cs" />
     <Compile Include="Datos\Conexion.cs" />
-    <Compile Include="Datos\GestionUsuarioDAL.cs" />
     <Compile Include="Datos\ProductoDAL.cs" />
     <Compile Include="Datos\UsuarioDAL.cs" />
     <Compile Include="Entidades\AutoEscala.cs" />
@@ -119,7 +118,6 @@
     <Compile Include="Entidades\SesionActual.cs" />
     <Compile Include="Entidades\TokenRestablecimiento.cs" />
     <Compile Include="Entidades\Usuario.cs" />
-    <Compile Include="Negocio\GestionUsuarioBLL.cs" />
     <Compile Include="Negocio\Hembert\ClienteBLL.cs" />
     <Compile Include="Negocio\ProductoBLL.cs" />
     <Compile Include="Negocio\UsuarioBLL.cs" />

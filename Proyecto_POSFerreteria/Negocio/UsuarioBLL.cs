@@ -3,36 +3,93 @@ using Proyecto_POSFerreteria.Entidades;
 using Proyecto_POSFerreteria.Negocio;
 using Proyecto_POSFerreteria.Utilidades;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace Proyecto_POSFerreteria.Negocio
 {
-    public class UsuarioBLL
+   
+        public static class UsuarioBLL
+        {
+            // Instancia única del DAL (corta, limpia)
+            private static readonly UsuarioDAL dal = new UsuarioDAL();
 
-    {
-        UsuarioDAL dal = new UsuarioDAL();
+            // LOGIN
+            public static Usuario Login(string usuario, string clave)
+            {
+                if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(clave))
+                    throw new ArgumentException("Debe ingresar usuario y contraseña.");
+
+                return dal.Login(usuario.Trim(), clave);
+            }
+
+            // LISTAR
+            public static List<Usuario> Listar()
+            {
+                return UsuarioDAL.Listar( );
+            }
+
+            // INSERTAR
+            public static int Insertar(string nombre, string apellido, string username, string clave,
+                                       string rol, string correo, string dui,
+                                       int diasMinimos = 90, bool debeCambiar = false)
+            {
+                if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(clave))
+                    throw new ArgumentException("Usuario y contraseña requeridos.");
+
+                byte[] blob = CryptoDPAPI.CifrarContrasena(clave);
+
+                return UsuarioDAL.Insertar(nombre?.Trim(), apellido?.Trim(), username.Trim(), rol,
+                                    correo?.Trim(), dui?.Trim(), blob,
+                                    diasMinimos, debeCambiar);
+            }
+
+            // ACTUALIZAR (sin cambiar contraseña)
+            public static bool Actualizar(int id, string nombre, string apellido, string username,
+                                          string rol, string correo, string dui,
+                                          int diasMinimos = 90, bool debeCambiar = false)
+            {
+                if (id <= 0) throw new ArgumentException("Id inválido.");
+                if (string.IsNullOrWhiteSpace(username)) throw new ArgumentException("Nombre de usuario requerido.");
+
+                return UsuarioDAL.Actualizar(id, nombre?.Trim(), apellido?.Trim(), username.Trim(), rol,
+                                      correo?.Trim(), dui?.Trim(),
+                                      diasMinimos, debeCambiar);
+            }
+
+            // ELIMINAR
+            public static bool Eliminar(int id)
+            {
+                if (id <= 0) throw new ArgumentException("Id inválido.");
+                return UsuarioDAL.Eliminar(id);
+            }
+
+            // CAMBIAR CONTRASEÑA
+            public static bool CambiarContrasena(int id, string nuevaClave, bool debeCambiar = false)
+            {
+                if (id <= 0) throw new ArgumentException("Id inválido.");
+                if (string.IsNullOrWhiteSpace(nuevaClave))
+                    throw new ArgumentException("La nueva contraseña no puede estar vacía.");
+
+                byte[] blob = CryptoDPAPI.CifrarContrasena(nuevaClave);
+
+                return UsuarioDAL.CambiarContrasena(id, blob, debeCambiar);
+            }
+
+
+
+        // NAO
 
         // metodos para el correo
-        private readonly string smtpHost = "smtp.gmail.com";
-        private readonly int smtpPort = 587;
-        private readonly string smtpUser = "ferreterialosamigossv@gmail.com";
-        private readonly string smtpPass = "jtgc ceve fqxk fdhv";
-        private readonly string fromAddress = "ferreterialosamigossv@gmail.com";
+        private static readonly string smtpHost = "smtp.gmail.com";
+        private static readonly int smtpPort = 587;
+        private static readonly string smtpUser = "ferreterialosamigossv@gmail.com";
+        private static readonly string smtpPass = "jfgc ceve fqxl kdhv"; // clave APP
+        private static readonly string fromAddress = "ferreterialosamigossv@gmail.com";
 
-        public Usuario Login(string nombre, string clave)
-        {
-            if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(clave))
-                throw new Exception("Debe ingresar usuario y Clave.");
-
-            Usuario u = dal.Login(nombre, clave);
-
-            if (u == null)
-                throw new Exception("Usuario o Clave incorrectos.");
-
-            return u;
-        }
+      
 
 
 
@@ -41,7 +98,7 @@ namespace Proyecto_POSFerreteria.Negocio
         public enum TipoRecordatorio { RecordarUsuario = 0, RecordarContrasena = 1 }
 
         // Generar token por identificador (correo preferido, si pasa DUI busca usuario y usa su Correo)
-        public void GenerarTokenPorIdentificador(string identificador)
+        public static void GenerarTokenPorIdentificador(string identificador)
         {
             if (string.IsNullOrWhiteSpace(identificador)) throw new Exception("Ingrese correo o DUI.");
 
@@ -82,7 +139,7 @@ namespace Proyecto_POSFerreteria.Negocio
         }
 
         // Validar token y decidir si permite cambio o mostrar usuario/contraseña
-        public (string Username, string Contrasena, bool CanChange, string Mensaje, int IdUsuario) ValidarTokenYDecidir(string identificador, string codigoIngresado, TipoRecordatorio tipo)
+        public static (string Username, string Contrasena, bool CanChange, string Mensaje, int IdUsuario) ValidarTokenYDecidir(string identificador, string codigoIngresado, TipoRecordatorio tipo)
         {
             if (string.IsNullOrWhiteSpace(identificador) || string.IsNullOrWhiteSpace(codigoIngresado))
                 throw new Exception("Identificador y código son obligatorios.");
@@ -158,7 +215,7 @@ namespace Proyecto_POSFerreteria.Negocio
         }
 
         // Cambiar contraseña por Id (se usa si CanChange == true)
-        public void CambiarContrasenaPorId(int idUsuario, string nuevaContrasena)
+        public static void CambiarContrasenaPorId(int idUsuario, string nuevaContrasena)
         {
             if (idUsuario <= 0) throw new Exception("Id inválido.");
             if (string.IsNullOrWhiteSpace(nuevaContrasena)) throw new Exception("Contraseña vacía.");

@@ -12,11 +12,12 @@ namespace Proyecto_POSFerreteria.Entidades
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Username { get; set; }
-        public string ContrasenaCifrada { get; set; } // bcrypt hash
+        public byte[] ContrasenaCifrada { get; set; } // bcrypt hash
         public string Rol { get; set; }
         public string Correo { get; set; }
         public string Dui { get; set; }
         public DateTime? Fecha_Ultimo_Cambio { get; set; }
         public bool Debe_Cambiar_Contrasena { get; set; }
+        public int Dias_Minimos_Entre_Cambios { get; set; }
     }
 }
