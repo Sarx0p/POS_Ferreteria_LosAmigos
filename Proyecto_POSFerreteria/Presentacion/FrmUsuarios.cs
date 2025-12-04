@@ -20,11 +20,11 @@ namespace Proyecto_POSFerreteria.Presentacion
         {
             InitializeComponent();
 
-
+        }
         int x, y;
         bool move = false;
 
-    }
+    GestionUsuarioBLL bll = new GestionUsuarioBLL();
 
         private void FrmUsuarios_Load(object sender, EventArgs e)
         {
@@ -48,7 +48,7 @@ namespace Proyecto_POSFerreteria.Presentacion
 
                 var tabla = lista.Select(u => new
                 {
-                    IdUsuario = u.Id ??"",
+                    IdUsuario = u.IdUsuario.ToString(),
                     Nombre = (u.Nombre ?? "") + " " + (u.Apellido ?? ""),
                     Username = u.Username ?? u.Username ?? "",
                     Dui = u.Dui ?? "",
@@ -78,16 +78,16 @@ namespace Proyecto_POSFerreteria.Presentacion
 
                 var filtrado = lista
                     .Where(u =>
-                        ((u.Username ?? u.NombreUsuario ?? "").ToLower().Contains(q)) ||
+                        ((u.Username ?? u.Nombre ?? "").ToLower().Contains(q)) ||
                         ((u.Nombre ?? "").ToLower().Contains(q)) ||
                         ((u.Apellido ?? "").ToLower().Contains(q)) ||
                         ((u.Dui ?? "").ToLower().Contains(q)) ||
                         ((u.Rol ?? "").ToLower().Contains(q)))
                     .Select(u => new
                     {
-                        IdUsuario = u.Id,
+                        IdUsuario = u.IdUsuario,
                         Nombre = (u.Nombre ?? "") + " " + (u.Apellido ?? ""),
-                        Username = u.Username ?? u.NombreUsuario ?? "",
+                        Username = u.Username ?? u.Nombre ?? "",
                         Dui = u.Dui ?? "",
                         Correo = u.Correo ?? "",
                         Rol = u.Rol ?? "",
