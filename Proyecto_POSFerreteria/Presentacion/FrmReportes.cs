@@ -42,5 +42,10 @@ namespace Proyecto_POSFerreteria.Presentacion
                 this.Close();
             }
         }
+
+        private void dgbRegistroVentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

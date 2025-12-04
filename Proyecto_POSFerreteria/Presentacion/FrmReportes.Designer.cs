@@ -179,6 +179,7 @@
             this.dgbRegistroVentas.Name = "dgbRegistroVentas";
             this.dgbRegistroVentas.Size = new System.Drawing.Size(670, 452);
             this.dgbRegistroVentas.TabIndex = 1;
+            this.dgbRegistroVentas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbRegistroVentas_CellContentClick);
             // 
             // label1
             // 

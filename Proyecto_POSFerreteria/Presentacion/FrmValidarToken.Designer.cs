@@ -51,7 +51,7 @@
             this.lblEstado.Location = new System.Drawing.Point(204, 21);
             this.lblEstado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(151, 27);
+            this.lblEstado.Size = new System.Drawing.Size(117, 22);
             this.lblEstado.TabIndex = 0;
             this.lblEstado.Text = "VALIDACION";
             // 
@@ -60,7 +60,7 @@
             this.txtCodigo.Location = new System.Drawing.Point(269, 138);
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(202, 34);
+            this.txtCodigo.Size = new System.Drawing.Size(202, 29);
             this.txtCodigo.TabIndex = 1;
             // 
             // lblMensaje
@@ -68,7 +68,7 @@
             this.lblMensaje.AutoSize = true;
             this.lblMensaje.Location = new System.Drawing.Point(105, 201);
             this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(18, 27);
+            this.lblMensaje.Size = new System.Drawing.Size(15, 22);
             this.lblMensaje.TabIndex = 2;
             this.lblMensaje.Text = "/";
             // 
@@ -94,7 +94,7 @@
             this.cbxTipoRecuperacion.Location = new System.Drawing.Point(247, 141);
             this.cbxTipoRecuperacion.Margin = new System.Windows.Forms.Padding(4);
             this.cbxTipoRecuperacion.Name = "cbxTipoRecuperacion";
-            this.cbxTipoRecuperacion.Size = new System.Drawing.Size(0, 35);
+            this.cbxTipoRecuperacion.Size = new System.Drawing.Size(0, 30);
             this.cbxTipoRecuperacion.TabIndex = 15;
             // 
             // label2
@@ -102,7 +102,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(147, 141);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 27);
+            this.label2.Size = new System.Drawing.Size(64, 22);
             this.label2.TabIndex = 16;
             this.label2.Text = "Codigo";
             // 
@@ -123,7 +123,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(10, 79);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(213, 27);
+            this.label4.Size = new System.Drawing.Size(177, 22);
             this.label4.TabIndex = 22;
             this.label4.Text = "Confirmar Contrasena";
             // 
@@ -132,7 +132,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(30, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 27);
+            this.label1.Size = new System.Drawing.Size(147, 22);
             this.label1.TabIndex = 21;
             this.label1.Text = "Nueva Contrasena";
             // 
@@ -150,14 +150,15 @@
             // 
             this.txtConfirm.Location = new System.Drawing.Point(229, 76);
             this.txtConfirm.Name = "txtConfirm";
-            this.txtConfirm.Size = new System.Drawing.Size(155, 34);
+            this.txtConfirm.Size = new System.Drawing.Size(155, 29);
             this.txtConfirm.TabIndex = 1;
+            this.txtConfirm.TextChanged += new System.EventHandler(this.txtConfirm_TextChanged);
             // 
             // txtNueva
             // 
             this.txtNueva.Location = new System.Drawing.Point(229, 23);
             this.txtNueva.Name = "txtNueva";
-            this.txtNueva.Size = new System.Drawing.Size(155, 34);
+            this.txtNueva.Size = new System.Drawing.Size(155, 29);
             this.txtNueva.TabIndex = 0;
             // 
             // txtIdentificador
@@ -165,7 +166,7 @@
             this.txtIdentificador.Location = new System.Drawing.Point(30, 21);
             this.txtIdentificador.Name = "txtIdentificador";
             this.txtIdentificador.ReadOnly = true;
-            this.txtIdentificador.Size = new System.Drawing.Size(129, 34);
+            this.txtIdentificador.Size = new System.Drawing.Size(129, 29);
             this.txtIdentificador.TabIndex = 21;
             // 
             // lblUsuarioMostrado
@@ -173,12 +174,12 @@
             this.lblUsuarioMostrado.AutoSize = true;
             this.lblUsuarioMostrado.Location = new System.Drawing.Point(247, 75);
             this.lblUsuarioMostrado.Name = "lblUsuarioMostrado";
-            this.lblUsuarioMostrado.Size = new System.Drawing.Size(0, 27);
+            this.lblUsuarioMostrado.Size = new System.Drawing.Size(0, 22);
             this.lblUsuarioMostrado.TabIndex = 22;
             // 
             // FrmValidarToken
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(548, 435);
             this.Controls.Add(this.lblUsuarioMostrado);

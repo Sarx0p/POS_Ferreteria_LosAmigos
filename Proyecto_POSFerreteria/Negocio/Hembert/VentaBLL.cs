@@ -1,11 +1,12 @@
-﻿using Proyecto_POSFerreteria.Entidades.Clases_hembert;
+﻿using Proyecto_POSFerreteria.Datos;
+using Proyecto_POSFerreteria.Datos.Datos_Hembert;
+using Proyecto_POSFerreteria.Entidades;
+using Proyecto_POSFerreteria.Entidades.Clases_hembert;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Proyecto_POSFerreteria.Entidades;
-using Proyecto_POSFerreteria.Datos.Datos_Hembert;
 
 namespace Proyecto_POSFerreteria.Negocio.Hembert
 {
@@ -16,12 +17,15 @@ namespace Proyecto_POSFerreteria.Negocio.Hembert
             // 1) Validar existencia del objeto Venta 
             if (venta == null)
                 return new RespuestaOperacion { Exito = false, Mensaje = "Venta no válida." };
+
             // 2) Validar cliente 
             if (venta.IdCliente <= 0)
                 return new RespuestaOperacion { Exito = false, Mensaje = "Debe seleccionar un cliente." };
+
             // 3) Validar tipo de pago 
             if (venta.IdTipoPago <= 0)
                 return new RespuestaOperacion { Exito = false, Mensaje = "Debe seleccionar un tipo de pago." };
+
             // 4) Validar detalles 
             if (detalles == null || detalles.Count == 0)
             {
@@ -35,7 +39,7 @@ namespace Proyecto_POSFerreteria.Negocio.Hembert
             if (venta.Total <= 0)
                 return new RespuestaOperacion { Exito = false, Mensaje = "El total de la venta debe ser mayor a cero." };
 
-            // Si todas las validaciones pasan, retornar éxito
+            // Validar cada detalle
             foreach (var detalle in detalles)
             {
                 if (detalle.Cantidad <= 0)
@@ -46,6 +50,7 @@ namespace Proyecto_POSFerreteria.Negocio.Hembert
                         Mensaje = "La cantidad de cada producto debe ser mayor a cero."
                     };
                 }
+
                 if (detalle.PrecioUnitario <= 0)
                 {
                     return new RespuestaOperacion
@@ -54,17 +59,17 @@ namespace Proyecto_POSFerreteria.Negocio.Hembert
                         Mensaje = "El precio unitario de cada producto debe ser mayor a cero."
                     };
                 }
+
                 if (detalle.SubTotal != detalle.Cantidad * detalle.PrecioUnitario)
                     return new RespuestaOperacion
                     {
                         Exito = false,
-                        Mensaje = "El subtotal de cada detalle debe ser igual a cantidad por precio unitario."
+                        Mensaje = "El subtotal debe ser cantidad × precio unitario."
                     };
 
-                //Falta producto DAL para obtener stock
+                int stockActual = ProductoDAL.ObtenerStock(detalle.IdProducto);
 
-              //  int stockActual = Producto.ObtenerStockProducto(detalle.IdProducto);
-              //  if (stockActual < detalle.Cantidad)
+                if (stockActual < detalle.Cantidad)
                 {
                     return new RespuestaOperacion
                     {
@@ -73,8 +78,10 @@ namespace Proyecto_POSFerreteria.Negocio.Hembert
                     };
                 }
             }
-            return new RespuestaOperacion { Exito = true, Mensaje = "Validación exitosa." };
-
+            // Si llega hasta aquí, todo está validado
+            return new RespuestaOperacion
+            { Exito = true, Mensaje = "Validación exitosa." };
         }
+
     }
 }

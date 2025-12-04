@@ -1,6 +1,7 @@
 ﻿using Proyecto_POSFerreteria.Entidades.Clases_hembert;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
@@ -43,9 +44,9 @@ namespace Proyecto_POSFerreteria.Datos.Datos_Hembert
                                 cmdDetalle.Parameters.AddWithValue("@PrecioUnitario", detalle.PrecioUnitario);
                                 cmdDetalle.ExecuteNonQuery();
                             }
-                           if (acumulador.ContainsKey(detalle.IdProducto))
+                            if (acumulador.ContainsKey(detalle.IdProducto))
                                 acumulador[detalle.IdProducto] = 0;
-                                acumulador[detalle.IdProducto] += detalle.Cantidad;
+                            acumulador[detalle.IdProducto] += detalle.Cantidad;
                         }
                         string sqlStock = @" UPDATE Producto SET Stock = Stock - @Cantidad WHERE Id = @IdProducto AND Stock >= @Cantidad;";
 
@@ -67,9 +68,9 @@ namespace Proyecto_POSFerreteria.Datos.Datos_Hembert
                         return (true, "Venta registrada exitosamente." + venta.Id);
 
                     }
-                    
+
                 }
-                   catch (Exception ex)
+                catch (Exception ex)
                 {
                     tx.Rollback();
                     return (false, "Error al registrar la venta: " + ex.Message);
@@ -78,5 +79,64 @@ namespace Proyecto_POSFerreteria.Datos.Datos_Hembert
             }
         }
 
-    } 
+        //NUEVOS METODOS
+
+        //Obtener venta por ID
+        public static DataTable ObtenerVentaPorId(int idVenta)
+        {
+            using (SqlConnection con = new SqlConnection(Conexion.Cadena))
+            {
+                string query = @"
+        SELECT 
+            v.Id,
+            v.FechaVenta,
+            c.Nombre AS Cliente,
+            u.Nombre AS Usuario,
+            t.Pago AS TipoPago,
+            v.Total
+        FROM Venta v
+        INNER JOIN Cliente c ON v.IdCliente = c.Id
+        INNER JOIN Usuario u ON v.IdUsuario = u.Id
+        INNER JOIN TipoPago t ON v.IdTipoPago = t.Id
+        WHERE v.Id = @IdVenta";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@IdVenta", idVenta);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
+            }
+        }
+
+        //Obtener detalles de venta por ID de venta
+        public static DataTable ObtenerDetallesVenta(int idVenta)
+        {
+            using (SqlConnection con = new SqlConnection(Conexion.Cadena))
+            {
+                string query = @"
+        SELECT 
+            dv.IdProducto,
+            p.NombreProducto AS Producto,
+            dv.Cantidad,
+            dv.PrecioUnitario,
+            dv.SubTotal
+        FROM DetalleVenta dv
+        INNER JOIN Producto p ON dv.IdProducto = p.Id
+        WHERE dv.IdVenta = @IdVenta";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@IdVenta", idVenta);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
+            }
+        }
+
+    }
 }

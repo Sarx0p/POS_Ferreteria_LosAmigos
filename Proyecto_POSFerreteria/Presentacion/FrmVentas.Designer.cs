@@ -33,21 +33,24 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnAgregarCompra = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lblFecha = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.cbxTipoPago = new System.Windows.Forms.ComboBox();
+            this.cboCliente = new System.Windows.Forms.ComboBox();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.cboTipoPago = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dgvProducto = new System.Windows.Forms.DataGridView();
+            this.txtBuscarProducto = new System.Windows.Forms.TextBox();
+            this.labelFiltrar = new System.Windows.Forms.Label();
+            this.dvgProducto = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dgvDetalleVenta = new System.Windows.Forms.DataGridView();
+            this.dvgDetalles = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -56,13 +59,13 @@
             this.btnQuitar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtCliente = new System.Windows.Forms.TextBox();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleVenta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgProducto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgDetalles)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
@@ -101,21 +104,6 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.AllowDrop = true;
-            this.lblFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
-            this.lblFecha.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblFecha.Location = new System.Drawing.Point(160, 129);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(14, 22);
-            this.lblFecha.TabIndex = 7;
-            this.lblFecha.Text = " ";
-            this.lblFecha.Click += new System.EventHandler(this.lblFecha_Click);
             // 
             // panel2
             // 
@@ -171,13 +159,14 @@
             this.panel3.AllowDrop = true;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(224)))), ((int)(((byte)(207)))));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.txtCliente);
-            this.panel3.Controls.Add(this.cbxTipoPago);
+            this.panel3.Controls.Add(this.btnNuevo);
+            this.panel3.Controls.Add(this.cboCliente);
+            this.panel3.Controls.Add(this.dtpFecha);
+            this.panel3.Controls.Add(this.cboTipoPago);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.lblFecha);
             this.panel3.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.panel3.Location = new System.Drawing.Point(2, 49);
             this.panel3.Name = "panel3";
@@ -185,20 +174,37 @@
             this.panel3.Size = new System.Drawing.Size(470, 169);
             this.panel3.TabIndex = 23;
             // 
-            // cbxTipoPago
+            // cboCliente
             // 
-            this.cbxTipoPago.AllowDrop = true;
-            this.cbxTipoPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
-            this.cbxTipoPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxTipoPago.FormattingEnabled = true;
-            this.cbxTipoPago.Items.AddRange(new object[] {
+            this.cboCliente.FormattingEnabled = true;
+            this.cboCliente.Location = new System.Drawing.Point(129, 39);
+            this.cboCliente.Name = "cboCliente";
+            this.cboCliente.Size = new System.Drawing.Size(184, 37);
+            this.cboCliente.TabIndex = 13;
+            // 
+            // dtpFecha
+            // 
+            this.dtpFecha.CalendarFont = new System.Drawing.Font("Papyrus", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFecha.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFecha.Location = new System.Drawing.Point(152, 129);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(236, 25);
+            this.dtpFecha.TabIndex = 12;
+            // 
+            // cboTipoPago
+            // 
+            this.cboTipoPago.AllowDrop = true;
+            this.cboTipoPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
+            this.cboTipoPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoPago.FormattingEnabled = true;
+            this.cboTipoPago.Items.AddRange(new object[] {
             "Efectivo",
             "Tarjeta"});
-            this.cbxTipoPago.Location = new System.Drawing.Point(143, 80);
-            this.cbxTipoPago.Name = "cbxTipoPago";
-            this.cbxTipoPago.Size = new System.Drawing.Size(191, 37);
-            this.cbxTipoPago.TabIndex = 10;
-            this.cbxTipoPago.SelectedIndexChanged += new System.EventHandler(this.cbxTipoPago_SelectedIndexChanged);
+            this.cboTipoPago.Location = new System.Drawing.Point(128, 78);
+            this.cboTipoPago.Name = "cboTipoPago";
+            this.cboTipoPago.Size = new System.Drawing.Size(185, 37);
+            this.cboTipoPago.TabIndex = 10;
+            this.cboTipoPago.SelectedIndexChanged += new System.EventHandler(this.cbxTipoPago_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -217,7 +223,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(13, 87);
+            this.label9.Location = new System.Drawing.Point(6, 87);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(109, 22);
             this.label9.TabIndex = 3;
@@ -247,7 +253,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(224)))), ((int)(((byte)(207)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.dgvProducto);
+            this.panel1.Controls.Add(this.txtBuscarProducto);
+            this.panel1.Controls.Add(this.labelFiltrar);
+            this.panel1.Controls.Add(this.dvgProducto);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btnAgregarCompra);
             this.panel1.Location = new System.Drawing.Point(2, 214);
@@ -255,15 +263,35 @@
             this.panel1.Size = new System.Drawing.Size(470, 549);
             this.panel1.TabIndex = 24;
             // 
-            // dgvProducto
+            // txtBuscarProducto
             // 
-            this.dgvProducto.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
-            this.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducto.Location = new System.Drawing.Point(10, 52);
-            this.dgvProducto.Name = "dgvProducto";
-            this.dgvProducto.Size = new System.Drawing.Size(441, 407);
-            this.dgvProducto.TabIndex = 1;
-            this.dgvProducto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto_CellContentClick);
+            this.txtBuscarProducto.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarProducto.Location = new System.Drawing.Point(94, 75);
+            this.txtBuscarProducto.Name = "txtBuscarProducto";
+            this.txtBuscarProducto.Size = new System.Drawing.Size(336, 28);
+            this.txtBuscarProducto.TabIndex = 8;
+            this.txtBuscarProducto.TextChanged += new System.EventHandler(this.txtBuscarProducto_TextChanged);
+            // 
+            // labelFiltrar
+            // 
+            this.labelFiltrar.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFiltrar.Location = new System.Drawing.Point(13, 77);
+            this.labelFiltrar.Name = "labelFiltrar";
+            this.labelFiltrar.Size = new System.Drawing.Size(121, 28);
+            this.labelFiltrar.TabIndex = 7;
+            this.labelFiltrar.Text = "FILTRAR:";
+            // 
+            // dvgProducto
+            // 
+            this.dvgProducto.AllowUserToAddRows = false;
+            this.dvgProducto.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
+            this.dvgProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgProducto.Location = new System.Drawing.Point(10, 108);
+            this.dvgProducto.Name = "dvgProducto";
+            this.dvgProducto.Size = new System.Drawing.Size(441, 351);
+            this.dvgProducto.TabIndex = 1;
+            this.dvgProducto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto_CellContentClick);
+            this.dvgProducto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgProducto_CellDoubleClick);
             // 
             // label4
             // 
@@ -285,16 +313,17 @@
             this.label2.Text = "DETALLE VENTA";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // dgvDetalleVenta
+            // dvgDetalles
             // 
-            this.dgvDetalleVenta.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
-            this.dgvDetalleVenta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvDetalleVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetalleVenta.Location = new System.Drawing.Point(72, 68);
-            this.dgvDetalleVenta.Name = "dgvDetalleVenta";
-            this.dgvDetalleVenta.Size = new System.Drawing.Size(626, 323);
-            this.dgvDetalleVenta.TabIndex = 2;
-            this.dgvDetalleVenta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleVenta_CellContentClick);
+            this.dvgDetalles.AllowUserToAddRows = false;
+            this.dvgDetalles.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
+            this.dvgDetalles.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dvgDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgDetalles.Location = new System.Drawing.Point(72, 68);
+            this.dvgDetalles.Name = "dvgDetalles";
+            this.dvgDetalles.Size = new System.Drawing.Size(626, 323);
+            this.dvgDetalles.TabIndex = 2;
+            this.dvgDetalles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleVenta_CellContentClick);
             // 
             // panel4
             // 
@@ -303,11 +332,12 @@
             this.panel4.Controls.Add(this.btnLimpiar);
             this.panel4.Controls.Add(this.btnQuitar);
             this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.dgvDetalleVenta);
+            this.panel4.Controls.Add(this.dvgDetalles);
             this.panel4.Location = new System.Drawing.Point(472, 49);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(771, 560);
+            this.panel4.Size = new System.Drawing.Size(765, 560);
             this.panel4.TabIndex = 27;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // panel5
             // 
@@ -322,7 +352,7 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Palatino Linotype", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(524, 2);
+            this.lblTotal.Location = new System.Drawing.Point(395, 2);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(26, 31);
             this.lblTotal.TabIndex = 28;
@@ -402,13 +432,20 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // txtCliente
+            // btnNuevo
             // 
-            this.txtCliente.Location = new System.Drawing.Point(143, 39);
-            this.txtCliente.Name = "txtCliente";
-            this.txtCliente.Size = new System.Drawing.Size(253, 37);
-            this.txtCliente.TabIndex = 11;
-            this.txtCliente.TextChanged += new System.EventHandler(this.txtCliente_TextChanged_1);
+            this.btnNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(154)))), ((int)(((byte)(29)))));
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnNuevo.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.ForeColor = System.Drawing.Color.Black;
+            this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevo.Location = new System.Drawing.Point(361, 48);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(90, 40);
+            this.btnNuevo.TabIndex = 28;
+            this.btnNuevo.Text = "NUEVO";
+            this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // FrmVentas
             // 
@@ -437,8 +474,8 @@
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleVenta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgProducto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgDetalles)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -454,7 +491,6 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnAgregarCompra;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -464,9 +500,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dgvProducto;
+        private System.Windows.Forms.DataGridView dvgProducto;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dgvDetalleVenta;
+        private System.Windows.Forms.DataGridView dvgDetalles;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnLimpiar;
@@ -474,7 +510,11 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cbxTipoPago;
-        private System.Windows.Forms.TextBox txtCliente;
+        private System.Windows.Forms.ComboBox cboTipoPago;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.TextBox txtBuscarProducto;
+        private System.Windows.Forms.Label labelFiltrar;
+        private System.Windows.Forms.ComboBox cboCliente;
+        private System.Windows.Forms.Button btnNuevo;
     }
 }

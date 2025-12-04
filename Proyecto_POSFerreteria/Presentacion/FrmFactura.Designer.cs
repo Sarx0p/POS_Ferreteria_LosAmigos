@@ -29,22 +29,24 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNumeroVenta = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtFecha = new System.Windows.Forms.TextBox();
+            this.txtFechaVenta = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtAtendido = new System.Windows.Forms.TextBox();
+            this.txtAtendidoPor = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTipoPago = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
-            this.dgvDetalle = new System.Windows.Forms.DataGridView();
+            this.dgvDetalleFactura = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.panelInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleFactura)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -58,6 +60,7 @@
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "FACTURA DE VENTA";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitulo.Click += new System.EventHandler(this.lblTitulo_Click);
             // 
             // panelInfo
             // 
@@ -66,11 +69,11 @@
             this.panelInfo.Controls.Add(this.label1);
             this.panelInfo.Controls.Add(this.txtNumeroVenta);
             this.panelInfo.Controls.Add(this.label2);
-            this.panelInfo.Controls.Add(this.txtFecha);
+            this.panelInfo.Controls.Add(this.txtFechaVenta);
             this.panelInfo.Controls.Add(this.label3);
             this.panelInfo.Controls.Add(this.txtCliente);
             this.panelInfo.Controls.Add(this.label4);
-            this.panelInfo.Controls.Add(this.txtAtendido);
+            this.panelInfo.Controls.Add(this.txtAtendidoPor);
             this.panelInfo.Controls.Add(this.label6);
             this.panelInfo.Controls.Add(this.txtTipoPago);
             this.panelInfo.Controls.Add(this.label5);
@@ -104,13 +107,13 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Fecha Venta:";
             // 
-            // txtFecha
+            // txtFechaVenta
             // 
-            this.txtFecha.Location = new System.Drawing.Point(490, 16);
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.ReadOnly = true;
-            this.txtFecha.Size = new System.Drawing.Size(180, 20);
-            this.txtFecha.TabIndex = 3;
+            this.txtFechaVenta.Location = new System.Drawing.Point(490, 16);
+            this.txtFechaVenta.Name = "txtFechaVenta";
+            this.txtFechaVenta.ReadOnly = true;
+            this.txtFechaVenta.Size = new System.Drawing.Size(180, 20);
+            this.txtFechaVenta.TabIndex = 3;
             // 
             // label3
             // 
@@ -136,13 +139,13 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Atendido por:";
             // 
-            // txtAtendido
+            // txtAtendidoPor
             // 
-            this.txtAtendido.Location = new System.Drawing.Point(150, 96);
-            this.txtAtendido.Name = "txtAtendido";
-            this.txtAtendido.ReadOnly = true;
-            this.txtAtendido.Size = new System.Drawing.Size(520, 20);
-            this.txtAtendido.TabIndex = 7;
+            this.txtAtendidoPor.Location = new System.Drawing.Point(150, 96);
+            this.txtAtendidoPor.Name = "txtAtendidoPor";
+            this.txtAtendidoPor.ReadOnly = true;
+            this.txtAtendidoPor.Size = new System.Drawing.Size(520, 20);
+            this.txtAtendidoPor.TabIndex = 7;
             // 
             // label6
             // 
@@ -176,26 +179,26 @@
             this.txtTotal.Size = new System.Drawing.Size(180, 20);
             this.txtTotal.TabIndex = 11;
             // 
-            // dgvDetalle
+            // dgvDetalleFactura
             // 
-            this.dgvDetalle.AllowUserToAddRows = false;
-            this.dgvDetalle.AllowUserToResizeRows = false;
-            this.dgvDetalle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDetalle.BackgroundColor = System.Drawing.Color.White;
-            this.dgvDetalle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvDetalle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvDetalleFactura.AllowUserToAddRows = false;
+            this.dgvDetalleFactura.AllowUserToResizeRows = false;
+            this.dgvDetalleFactura.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDetalleFactura.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDetalleFactura.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvDetalleFactura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            this.dgvDetalle.Location = new System.Drawing.Point(20, 255);
-            this.dgvDetalle.MultiSelect = false;
-            this.dgvDetalle.Name = "dgvDetalle";
-            this.dgvDetalle.ReadOnly = true;
-            this.dgvDetalle.RowHeadersVisible = false;
-            this.dgvDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalle.Size = new System.Drawing.Size(710, 280);
-            this.dgvDetalle.TabIndex = 2;
+            this.dgvDetalleFactura.Location = new System.Drawing.Point(20, 255);
+            this.dgvDetalleFactura.MultiSelect = false;
+            this.dgvDetalleFactura.Name = "dgvDetalleFactura";
+            this.dgvDetalleFactura.ReadOnly = true;
+            this.dgvDetalleFactura.RowHeadersVisible = false;
+            this.dgvDetalleFactura.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDetalleFactura.Size = new System.Drawing.Size(718, 239);
+            this.dgvDetalleFactura.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -221,14 +224,36 @@
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(655, 500);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.Text = "CANCELAR";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(558, 500);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(75, 23);
+            this.btnImprimir.TabIndex = 4;
+            this.btnImprimir.Text = "IMPRIMIR";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
             // FrmFactura
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(750, 560);
+            this.Controls.Add(this.btnImprimir);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.panelInfo);
-            this.Controls.Add(this.dgvDetalle);
+            this.Controls.Add(this.dgvDetalleFactura);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "FrmFactura";
@@ -237,7 +262,7 @@
             this.Load += new System.EventHandler(this.FrmFactura_Load);
             this.panelInfo.ResumeLayout(false);
             this.panelInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleFactura)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -249,19 +274,21 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNumeroVenta;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtFecha;
+        private System.Windows.Forms.TextBox txtFechaVenta;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCliente;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtAtendido;
+        private System.Windows.Forms.TextBox txtAtendidoPor;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtTipoPago;
-        private System.Windows.Forms.DataGridView dgvDetalle;
+        private System.Windows.Forms.DataGridView dgvDetalleFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }

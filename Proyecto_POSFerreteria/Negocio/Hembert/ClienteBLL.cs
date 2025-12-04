@@ -17,9 +17,9 @@ namespace Proyecto_POSFerreteria.Negocio.Hembert
         {
             return dal.Listar();
         }
-    
 
-    public int Guardar(Cliente c)
+
+        public int Guardar(Cliente c)
         {
             if (string.IsNullOrWhiteSpace(c.NombreCompleto))
             {
@@ -32,9 +32,37 @@ namespace Proyecto_POSFerreteria.Negocio.Hembert
             }
             else
             {
-                 return c.Id;
+                return c.Id;
 
             }
         }
+
+        public bool Eliminar(int id)
+        {
+            if (id <= 0)
+            {
+                throw new Exception("ID de Cliente inválido.");
+            }
+            return dal.Eliminar(id);
+        }
+
+        public DataTable BuscarPorNombre(string nombre)
+        {
+
+            return dal.Buscar(nombre);
+        }
+
+        public bool Editar(Cliente c)
+        {
+            if (c.Id <= 0)
+            {
+                throw new Exception("ID de Cliente inválido.");
+            }
+            return dal.Editar(c);
+
+        }
+
+
+
     }
 }

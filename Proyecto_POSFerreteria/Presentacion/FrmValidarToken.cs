@@ -139,5 +139,10 @@ namespace Proyecto_POSFerreteria.Presentacion
                 MessageBox.Show("Error validando token: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void txtConfirm_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

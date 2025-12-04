@@ -198,9 +198,56 @@ namespace Proyecto_POSFerreteria.Datos
             }
         }
 
+        public static DataTable Listar()
+        {
+            DataTable tabla = new DataTable();
+            using (SqlConnection con = new SqlConnection(Conexion.Cadena))
+            {
+                string sql = @"SELECT 
+                     p.Id,
+                     p.NombreProducto,
+                     c.NombreCategoria AS Categoria,
+                     p.Precio,
+                     p.Stock,
+                     p.Estado
+              FROM Producto p
+              INNER JOIN CategoriaProducto c ON p.IdCategoriaProducto = c.Id";
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    con.Open();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(tabla);
+                    }
+                }
+                return tabla;
 
+            }
+
+        }
+
+
+        //Agrege esto para obtener el stock de un producto 
+        public static int ObtenerStock(int idProducto)
+        {
+            using (SqlConnection con = new SqlConnection(Conexion.Cadena))
+            {
+                string sql = "SELECT Stock FROM Producto WHERE Id = @IdProducto";
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                    con.Open();
+                    object result = cmd.ExecuteScalar();
+                    if (result == null || result == DBNull.Value)
+                        return 0;
+                    return Convert.ToInt32(result);
+                }
+            }
+        }
     }
+
 }
+
         
     
 
