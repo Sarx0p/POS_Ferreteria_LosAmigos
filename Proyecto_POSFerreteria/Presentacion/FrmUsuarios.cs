@@ -298,7 +298,12 @@ namespace Proyecto_POSFerreteria.Presentacion
                 CargarSolicitudes();
             }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
-        }        
+        }
+
+        private void btnCompletada_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void CargarUsuarios()
         {

@@ -144,5 +144,10 @@ namespace Proyecto_POSFerreteria.Presentacion
         {
 
         }
+
+        private void lblEstado_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
