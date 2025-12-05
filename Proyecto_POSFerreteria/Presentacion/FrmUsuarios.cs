@@ -305,6 +305,21 @@ namespace Proyecto_POSFerreteria.Presentacion
 
         }
 
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿ESTAS SEGURO SALIR?", "CONFIRMACIÓN",
+                  MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                this.Close();
+                FrmLogin login = new FrmLogin();
+                login.Show();
+            }
+            else
+            {
+
+            }
+        }
+
         private void CargarUsuarios()
         {
             try

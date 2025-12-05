@@ -29,7 +29,7 @@ namespace Proyecto_POSFerreteria.Presentacion
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            this.Close(); 
+            this.Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -47,6 +47,7 @@ namespace Proyecto_POSFerreteria.Presentacion
         {
             try
             {
+                // Validaciones
                 if (string.IsNullOrWhiteSpace(txtNombre.Text))
                 {
                     MessageBox.Show(
@@ -57,24 +58,37 @@ namespace Proyecto_POSFerreteria.Presentacion
                     );
                     return;
                 }
-                // Creamos objeto categoría
+
+                if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+                {
+                    MessageBox.Show(
+                        "Debe ingresar una descripción.",
+                        "Validación",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                    return;
+                }
+
+                // Crear objeto
                 CategoriaProducto c = new CategoriaProducto()
                 {
                     Id = Id,
                     Nombre = txtNombre.Text.Trim(),
                     Descripcion = txtDescripcion.Text.Trim()
                 };
+
                 bllc.Guardar(c);
 
                 MessageBox.Show(
-                    Modo == "Nuevo"
-                        ? "La categoría ha sido registrada correctamente."
-                        : "Los cambios han sido guardados correctamente.",
-                    "Operación exitosa",
+                    Modo == "Nuevo" ?
+                    "La categoría ha sido registrada correctamente." :
+                    "Los cambios han sido guardados correctamente.",
+                    "Éxito",
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Information,
-                    MessageBoxDefaultButton.Button1
+                    MessageBoxIcon.Information
                 );
+
                 Close();
             }
             catch (SqlException ex)
@@ -89,14 +103,15 @@ namespace Proyecto_POSFerreteria.Presentacion
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Ocurrió un error inesperado:\n" + ex.Message,
-                    "Error general",
+                    ex.Message,
+                    "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
             }
-        }
+            }
         
+
 
         private void FrmGuardarCategoria_Load(object sender, EventArgs e)
         {
@@ -111,6 +126,36 @@ namespace Proyecto_POSFerreteria.Presentacion
                 txtNombre.Text = Nombre;
                 txtDescripcion.Text = Descripcion;
             }
+
+
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtDescripcion_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
         }
     }
+
 }
+
