@@ -111,6 +111,44 @@ namespace Proyecto_POSFerreteria.Presentacion
         {
             try
             {
+
+                //Validaciónes
+                if (string.IsNullOrWhiteSpace(txtNombre.Text))
+                {
+                    MessageBox.Show(
+                        "Debe ingresar el Nombre del producto.",
+                        "Validación",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                    return;
+
+                }
+
+
+                if (string.IsNullOrWhiteSpace(txtPrecio.Text))
+                {
+                    MessageBox.Show(
+                        "Debe ingresar el precio del producto.",
+                        "Validación",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                    return;
+
+                }
+                if (string.IsNullOrWhiteSpace(txtStock.Text))
+                {
+                    MessageBox.Show(
+                        "Debe ingresar la cantidad de stock.",
+                        "Validación",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                    return;
+                }
+
+
                 Producto p = new Producto()
                 {
                     Id = ProductoId,
@@ -138,7 +176,7 @@ namespace Proyecto_POSFerreteria.Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Elegir una categoria", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -352,6 +390,32 @@ namespace Proyecto_POSFerreteria.Presentacion
 
         private void cbxCategoriaProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; 
+            }
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
             
         }
 
