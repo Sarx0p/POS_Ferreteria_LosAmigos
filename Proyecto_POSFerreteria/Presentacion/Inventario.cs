@@ -395,10 +395,20 @@ namespace Proyecto_POSFerreteria.Presentacion
 
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+           
+            if (char.IsControl(e.KeyChar))
+                return;
+
+      
+            if (char.IsDigit(e.KeyChar))
+                return;
+
+        
+            if (e.KeyChar == '.' && !txtPrecio.Text.Contains("."))
+                return;
+
+          
+            e.Handled = true;
         }
 
         private void txtStock_KeyPress(object sender, KeyPressEventArgs e)
