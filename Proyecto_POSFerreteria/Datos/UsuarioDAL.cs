@@ -437,7 +437,7 @@ using System.Threading.Tasks;
         UPDATE Usuario SET ContrasenaCifrada = @c, Fecha_Ultimo_Cambio = @now WHERE Id = @id", cn))
             {
                 cmd.Parameters.Add("@c", SqlDbType.VarBinary).Value = (object)contrasenaCifrada ?? DBNull.Value;
-                cmd.Parameters.AddWithValue("@now", DateTime.UtcNow);
+                cmd.Parameters.AddWithValue("@now", DBNull.Value);
                 cmd.Parameters.AddWithValue("@id", idUsuario);
                 cn.Open(); cmd.ExecuteNonQuery();
             }
