@@ -480,6 +480,7 @@
             this.btnCerrarSesion.Size = new System.Drawing.Size(43, 48);
             this.btnCerrarSesion.TabIndex = 3;
             this.btnCerrarSesion.UseVisualStyleBackColor = true;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // pictureBox2
             // 
