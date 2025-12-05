@@ -179,7 +179,7 @@ using System.Threading.Tasks;
                     cmd.Parameters.AddWithValue("@c", (object)correo ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@d", (object)dui ?? DBNull.Value);
                     cmd.Parameters.Add("@blob", SqlDbType.VarBinary).Value = (object)contrasenaCifrada ?? DBNull.Value;
-                    cmd.Parameters.AddWithValue("@now", DateTime.UtcNow);
+                    cmd.Parameters.AddWithValue("@now", DBNull.Value);
                     cmd.Parameters.AddWithValue("@dias", diasMinimos);
                     cmd.Parameters.AddWithValue("@debe", debeCambiar);
 
