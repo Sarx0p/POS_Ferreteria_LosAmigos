@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVentas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAgregarCompra = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -306,14 +305,6 @@
             this.dvgProducto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dvgProducto.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(241)))), ((int)(((byte)(230)))));
             this.dvgProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dvgProducto.DefaultCellStyle = dataGridViewCellStyle1;
             this.dvgProducto.Location = new System.Drawing.Point(10, 108);
             this.dvgProducto.Name = "dvgProducto";
             this.dvgProducto.ReadOnly = true;
@@ -353,7 +344,11 @@
             this.dvgDetalles.Name = "dvgDetalles";
             this.dvgDetalles.Size = new System.Drawing.Size(626, 323);
             this.dvgDetalles.TabIndex = 2;
+            this.dvgDetalles.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dvgDetalles_CellBeginEdit);
             this.dvgDetalles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleVenta_CellContentClick);
+            this.dvgDetalles.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgDetalles_CellEndEdit);
+            this.dvgDetalles.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dvgDetalles_RowsAdded);
+            this.dvgDetalles.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dvgDetalles_RowsRemoved);
             // 
             // panel4
             // 

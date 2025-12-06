@@ -14,5 +14,6 @@ namespace Proyecto_POSFerreteria.Entidades.Clases_hembert
         public int IdCliente { get; set; }
         public int IdUsuario { get; set; }
         public int IdTipoPago { get; set; }
+        public string NombreUsuario { get; set; }
     }
 }

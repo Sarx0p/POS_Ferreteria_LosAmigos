@@ -21,6 +21,7 @@ namespace Proyecto_POSFerreteria.Presentacion
         //MIRAR SI DA ERROR
         CategoriaProductoBLL bll = new CategoriaProductoBLL();
 
+
         int x,y;
         bool move = false;
         public FrmVentas()
@@ -31,7 +32,7 @@ namespace Proyecto_POSFerreteria.Presentacion
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-           
+
         }
 
         private void FrmVentas_Load(object sender, EventArgs e)
@@ -47,6 +48,13 @@ namespace Proyecto_POSFerreteria.Presentacion
             dtpFecha.Value = DateTime.Now;//obtiene la fecha de ahora 
             CargarProductos(string.Empty);                              // --- CONFIGURAR COLUMNAS DEL DETALLE --- 
             ConfigurarTablaDetalles();
+
+            //EVENTOS:
+
+            dvgDetalles.CellEndEdit += dvgDetalles_CellEndEdit;
+            
+            dvgDetalles.RowsRemoved += dvgDetalles_RowsRemoved;
+            dvgDetalles.RowsAdded += dvgDetalles_RowsAdded;
         }
 
         private void ConfigurarTablaDetalles()
@@ -202,15 +210,15 @@ namespace Proyecto_POSFerreteria.Presentacion
                     FechaVenta = dtpFecha.Value,
                     Total = ObtenerTotalVenta(),
                     IdCliente = Convert.ToInt32(cboCliente.SelectedValue),
-                    IdTipoPago = Convert.ToInt32(cboTipoPago.SelectedValue)
+                    IdTipoPago = Convert.ToInt32(cboTipoPago.SelectedValue),
+                    IdUsuario = SesionActual.IdUsuario
                 };
-
 
                 // --------------------------------------------------- 
                 // 2) CREAR LISTA DE DETALLES 
                 // --------------------------------------------------- 
-
                 List<DetalleVenta> detalles = new List<DetalleVenta>();
+
                 foreach (DataGridViewRow row in dvgDetalles.Rows)
                 {
                     detalles.Add(new DetalleVenta()
@@ -221,9 +229,9 @@ namespace Proyecto_POSFerreteria.Presentacion
                         SubTotal = Convert.ToDecimal(row.Cells["SubTotal"].Value)
                     });
                 }
+
                 var validacion = VentaBLL.ValidarVenta(venta, detalles);
 
-                // Si la validación falla → mostramos error y salimos
                 if (!validacion.Exito)
                 {
                     MessageBox.Show(validacion.Mensaje, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -231,13 +239,19 @@ namespace Proyecto_POSFerreteria.Presentacion
                 }
 
                 // ================================
-                // GUARDAR EN BASE DE DATOS (TRANSACCIÓN)
+                // 3) GUARDAR EN BASE DE DATOS
                 // ================================
                 var resultado = VentaDAL.RegistrarVenta(venta, detalles);
 
                 if (resultado.Exito)
                 {
                     MessageBox.Show(resultado.Mensaje, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // ABRIR FACTURA AQUÍ MISMO
+                    FrmFactura frm = new FrmFactura();
+                    frm.IdVenta = resultado.IdGenerado; // <--- AQUÍ VA EL ID
+                    frm.ShowDialog();
+
                     LimpiarFormulario();
                 }
                 else
@@ -245,13 +259,10 @@ namespace Proyecto_POSFerreteria.Presentacion
                     MessageBox.Show(resultado.Mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show("Error inesperado: " + ex.Message);
             }
-
-
 
         }
 
@@ -369,11 +380,102 @@ namespace Proyecto_POSFerreteria.Presentacion
             frm.ShowDialog();
         }
 
+        private void dvgDetalles_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+
+        }
+
+        private void dvgDetalles_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex < 0) return;
+
+                var row = dvgDetalles.Rows[e.RowIndex];
+
+                // Si usas nombres de columnas:
+                var cellCantidad = row.Cells[COL_CANTIDAD];
+                var cellPrecio = row.Cells[COL_PRECIO];
+                var cellSub = row.Cells[COL_SUBTOTAL];
+
+                // Si tu grilla usa índices en lugar de nombres, usa:
+                // var cellCantidad = row.Cells[IDX_CANTIDAD];
+                // var cellPrecio = row.Cells[IDX_PRECIO];
+                // var cellSub = row.Cells[IDX_SUBTOTAL];
+
+                decimal cantidad = 0m;
+                decimal precio = 0m;
+
+                // Parsear cantidad
+                if (cellCantidad.Value != null && !string.IsNullOrWhiteSpace(cellCantidad.Value.ToString()))
+                    decimal.TryParse(cellCantidad.Value.ToString(), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out cantidad);
+
+                // Parsear precio
+                if (cellPrecio.Value != null && !string.IsNullOrWhiteSpace(cellPrecio.Value.ToString()))
+                    decimal.TryParse(cellPrecio.Value.ToString(), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out precio);
+
+                decimal subtotal = Math.Round(cantidad * precio, 2);
+
+                // Setear Subtotal (dependiendo si la celda es editable o no)
+                cellSub.Value = subtotal.ToString("0.00");
+
+                // Si la grilla está enlazada a DataTable y quieres actualizar la fuente:
+                // var dt = dgvDetalles.DataSource as DataTable;
+                // if (dt != null) dt.Rows[e.RowIndex][COL_SUBTOTAL] = subtotal;
+
+                // Recalcular total general
+                RecalcularTotal();
+            }
+            catch
+            {
+                MessageBox.Show("Error al actualizar los totales. Verifica los datos ingresados.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        
+
         private void panel2_MouseMove(object sender, MouseEventArgs e)
         {
             if (move) {
                 this.SetDesktopLocation(MousePosition.X-x, MousePosition.Y-y);
             }
         }
+
+        private void CalcularTotalGeneral()
+        {
+            decimal total = 0;
+
+            foreach (DataGridViewRow fila in dvgDetalles.Rows)
+            {
+                if (fila.Cells[3].Value != null) // Columna SubTotal
+                {
+                    if (decimal.TryParse(fila.Cells[3].Value.ToString(), out decimal sub))
+                        total += sub;
+                }
+            }
+
+            lblTotal.Text = total.ToString("0.00"); // Cambia al nombre de tu textbox total
+        }
+
+        // NOMBRES/ÍNDICES de columnas (ajusta si tus columnas tienen otros índices o nombres)
+        private const string COL_CANTIDAD = "Cantidad";        // o usa el índice "1"
+        private const string COL_PRECIO = "PrecioUnitario";   // o índice "2"
+        private const string COL_SUBTOTAL = "SubTotal";       // o índice "3"
+
+        // Si usas índices en vez de nombres, define:
+        private const int IDX_CANTIDAD = 1;
+        private const int IDX_PRECIO = 2;
+
+        private void dvgDetalles_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            RecalcularTotal();
+        }
+
+        private void dvgDetalles_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            RecalcularTotal();
+        }
+
+        private const int IDX_SUBTOTAL = 3;
+
     }
 }

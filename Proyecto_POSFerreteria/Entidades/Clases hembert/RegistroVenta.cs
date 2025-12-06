@@ -13,5 +13,6 @@ namespace Proyecto_POSFerreteria.Entidades.Clases_hembert
         public int IdUsuario { get; set; }
         public DateTime FechaRegistro { get; set; }
         public string NombreUsuario { get; set; }
+      
     }
 }

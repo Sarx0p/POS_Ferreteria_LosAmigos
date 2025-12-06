@@ -13,107 +13,132 @@ namespace Proyecto_POSFerreteria.Entidades.Clases_hembert
     {
         private readonly int IdVenta;
 
+        private DataRow Venta;
+        private DataTable Detalles;
+
         public FacturaDocument(int idVenta)
         {
             IdVenta = idVenta;
+
+            // Estos sí existen en tu DAL
+            DataTable v = VentaDAL.ObtenerVentaPorId(IdVenta);
+            DataTable d = VentaDAL.ObtenerDetallesVenta(IdVenta);
+
+            if (v == null || v.Rows.Count == 0)
+                throw new Exception("No se encontró la venta.");
+
+            Venta = v.Rows[0];
+            Detalles = d;
         }
 
-        // Método de instancia seguro que siempre funciona:
-        // construye un IDocument a partir del Compose de esta instancia y lo genera.
+        // ======================================================
+        // GENERAR PDF (Modelo universal QuestPDF)
+        // ======================================================
         public void GeneratePdf(string filePath)
         {
-            // Document.Create crea un IDocument usando el lambda que llama a Compose.
-            // Luego llamamos a la extensión GeneratePdf sobre ese IDocument.
-            var doc = Document.Create(container => Compose(container));
+            var doc = Document.Create(container =>
+            {
+                container.Page(page =>
+                {
+                    page.Margin(35);
+
+                    page.Header().Element(Encabezado);
+                    page.Content().Element(Contenido);
+                    page.Footer().Element(PiePagina);
+                });
+            });
+
             doc.GeneratePdf(filePath);
         }
 
-        // Compose mantiene tu diseño; lo usamos desde Document.Create(...)
-        public void Compose(IDocumentContainer container)
+        // ======================================================
+        // ENCABEZADO
+        // ======================================================
+        private void Encabezado(IContainer container)
         {
-            // OBTENER DATOS DE VENTA
-            DataTable dtVenta = VentaDAL.ObtenerVentaPorId(IdVenta);
-            DataTable dtDetalle = VentaDAL.ObtenerDetallesVenta(IdVenta);
-
-            if (dtVenta == null || dtVenta.Rows.Count == 0)
-                throw new Exception("No se encontró la venta.");
-
-            var v = dtVenta.Rows[0];
-
-            container.Page(page =>
+            container.Row(row =>
             {
-                page.Margin(35);
-
-                page.Header().BorderBottom(1).PaddingBottom(10).Row(row =>
+                row.RelativeItem().Column(col =>
                 {
-                    row.RelativeItem().Column(col =>
-                    {
-                        col.Item().Text("FERRETERÍA EL AMIGO").FontSize(20).Bold();
-                        col.Item().Text("Factura de venta").FontSize(14);
-                    });
+                    col.Item().Text("FERRETERÍA EL AMIGO")
+                        .FontSize(20).Bold().FontColor(Colors.Blue.Medium);
 
-                    row.RelativeItem().AlignRight().Column(col =>
-                    {
-                        col.Item().Text($"Factura Nº: {v["Id"]}").FontSize(14).Bold();
-                        col.Item().Text($"Fecha: {Convert.ToDateTime(v["FechaVenta"]).ToString("dd/MM/yyyy")}");
-                    });
+                    col.Item().Text("Factura de Venta").FontSize(14);
                 });
 
-                // DATOS DEL CLIENTE Y DATOS GENERALES
-                page.Content().PaddingVertical(10).Column(col =>
+                row.RelativeItem().AlignRight().Column(col =>
                 {
-                    col.Item().Text($"Cliente: {v["Cliente"]}").FontSize(12);
-                    col.Item().Text($"Atendido por: {v["Usuario"]}");
-                    col.Item().Text($"Tipo de pago: {v["TipoPago"]}");
-                    col.Item().Text($"Total: ${Convert.ToDecimal(v["Total"]):0.00}")
-                        .FontSize(14).Bold();
-                });
-
-                // TABLA DE DETALLES
-                page.Content().PaddingTop(15).Table(table =>
-                {
-                    table.ColumnsDefinition(columns =>
-                    {
-                        columns.ConstantColumn(40);   // IdProducto
-                        columns.RelativeColumn(3);   // Producto
-                        columns.ConstantColumn(60);  // Cantidad
-                        columns.ConstantColumn(70);  // Precio
-                        columns.ConstantColumn(70);  // Subtotal
-                    });
-
-                    // Encabezados
-                    table.Header(header =>
-                    {
-                        header.Cell().BorderBottom(1).Text("ID").Bold();
-                        header.Cell().BorderBottom(1).Text("Producto").Bold();
-                        header.Cell().BorderBottom(1).Text("Cant.").Bold();
-                        header.Cell().BorderBottom(1).Text("Precio").Bold();
-                        header.Cell().BorderBottom(1).Text("Subtotal").Bold();
-                    });
-
-                    // Filas
-                    if (dtDetalle != null)
-                    {
-                        foreach (DataRow d in dtDetalle.Rows)
-                        {
-                            table.Cell().Text(d["IdProducto"].ToString());
-                            table.Cell().Text(d["Producto"].ToString());
-                            table.Cell().Text(d["Cantidad"].ToString());
-                            table.Cell().Text($"${Convert.ToDecimal(d["Precio"]):0.00}");
-                            table.Cell().Text($"${Convert.ToDecimal(d["Subtotal"]):0.00}");
-                        }
-                    }
-                });
-
-                // Footer simple
-                page.Footer().AlignCenter().Text(t =>
-                {
-                    t.Span("Gracias por su compra").FontSize(12);
+                    col.Item().Text($"Factura Nº: {Venta["Id"]}").FontSize(14).Bold();
+                    col.Item().Text($"Fecha: {Convert.ToDateTime(Venta["FechaVenta"]).ToString("dd/MM/yyyy")}");
                 });
             });
         }
+
+        // ======================================================
+        // CONTENIDO
+        // ======================================================
+        private void Contenido(IContainer container)
+        {
+            container.PaddingVertical(10).Column(col =>
+            {
+                col.Item().Text($"Cliente: {Venta["Cliente"]}").FontSize(12);
+                col.Item().Text($"Atendido por: {Venta["Usuario"]}");
+                col.Item().Text($"Tipo de pago: {Venta["TipoPago"]}");
+                col.Item().Text($"Total: ${Convert.ToDecimal(Venta["Total"]):0.00}")
+                    .FontSize(14).Bold();
+
+                col.Item().PaddingTop(10).Element(TablaDetalles);
+            });
+        }
+
+        // ======================================================
+        // TABLA DE DETALLES
+        // ======================================================
+        private void TablaDetalles(IContainer container)
+        {
+            container.Table(table =>
+            {
+                table.ColumnsDefinition(cols =>
+                {
+                    cols.ConstantColumn(40);
+                    cols.RelativeColumn(3);
+                    cols.ConstantColumn(60);
+                    cols.ConstantColumn(80);
+                    cols.ConstantColumn(80);
+                });
+
+                table.Header(header =>
+                {
+                    header.Cell().BorderBottom(1).Padding(5).Text("ID").Bold();
+                    header.Cell().BorderBottom(1).Padding(5).Text("Producto").Bold();
+                    header.Cell().BorderBottom(1).Padding(5).Text("Cant.").Bold();
+                    header.Cell().BorderBottom(1).Padding(5).Text("Precio").Bold();
+                    header.Cell().BorderBottom(1).Padding(5).Text("Subtotal").Bold();
+                });
+
+                foreach (DataRow d in Detalles.Rows)
+                {
+                    table.Cell().Padding(5).Text(d["IdProducto"].ToString());
+                    table.Cell().Padding(5).Text(d["Producto"].ToString());
+                    table.Cell().Padding(5).Text(d["Cantidad"].ToString());
+                    table.Cell().Padding(5).Text($"${Convert.ToDecimal(d["Precio"]):0.00}");
+                    table.Cell().Padding(5).Text($"${Convert.ToDecimal(d["Subtotal"]):0.00}");
+                }
+            });
+        }
+
+        // ======================================================
+        // PIE DE PÁGINA
+        // ======================================================
+        private void PiePagina(IContainer container)
+        {
+            container.AlignCenter().Text("Gracias por su compra").FontSize(12);
+        }
     }
 }
+
+
+
 
 
     

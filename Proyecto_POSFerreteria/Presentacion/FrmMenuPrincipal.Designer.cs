@@ -33,6 +33,7 @@
             this.btnProductos = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnMaximizar = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnVentas = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
@@ -115,7 +115,7 @@
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(247, 58);
             this.btnReportes.TabIndex = 4;
-            this.btnReportes.Text = "REPORTES";
+            this.btnReportes.Text = "HISTORIAL VENTAS";
             this.btnReportes.UseVisualStyleBackColor = false;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
@@ -140,6 +140,18 @@
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseMove);
             this.panel2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseUp);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Info;
+            this.label1.Location = new System.Drawing.Point(506, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(234, 32);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "MENU PRINCIPAL ";
             // 
             // btnMaximizar
             // 
@@ -379,18 +391,6 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 14;
             this.pictureBox5.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Info;
-            this.label1.Location = new System.Drawing.Point(506, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(234, 32);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "MENU PRINCIPAL ";
             // 
             // FrmMenuPrincipal
             // 
