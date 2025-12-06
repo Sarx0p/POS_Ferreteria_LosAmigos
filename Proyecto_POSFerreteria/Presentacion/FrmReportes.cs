@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto_POSFerreteria.Datos.Datos_Hembert;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -47,5 +48,60 @@ namespace Proyecto_POSFerreteria.Presentacion
         {
 
         }
+
+        private void CargarHistorialVentas()
+        {
+            dgbRegistroVentas.DataSource = VentaDAL.ObtenerVentas();
+            dgbRegistroVentas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgbRegistroVentas.Columns["Total"].DefaultCellStyle.Format = "0.00";
+            dgbRegistroVentas.Columns["FechaVenta"].DefaultCellStyle.Format = "dd/MM/yyyy";
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void FrmReportes_Load(object sender, EventArgs e)
+        {
+            CargarHistorialVentas();
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBuscar.Text))
+            {
+                CargarHistorialVentas();
+            }
+            else
+            {
+                dgbRegistroVentas.DataSource = VentaDAL.BuscarVentasPorCliente(txtBuscar.Text);
+            }
+        }
+
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        
+            {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (string.IsNullOrWhiteSpace(txtBuscar.Text))
+                {
+                    CargarHistorialVentas(); // Si está vacío recarga todo
+                }
+                else
+                {
+                    dgbRegistroVentas.DataSource = VentaDAL.BuscarVentasPorCliente(txtBuscar.Text);
+                }
+
+                e.SuppressKeyPress = true; // Evita sonido de Windows
+            }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
-}
+    }
+

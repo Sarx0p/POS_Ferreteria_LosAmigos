@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using QuestPDF.Infrastructure;
 namespace Proyecto_POSFerreteria
 {
     internal static class Program
@@ -15,6 +15,8 @@ namespace Proyecto_POSFerreteria
         [STAThread]
         static void Main()
         {
+            QuestPDF.Settings.License = LicenseType.Community;
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmLogin());
